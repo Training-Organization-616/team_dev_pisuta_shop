@@ -1,14 +1,10 @@
 package la.bean;
 
-<<<<<<< Updated upstream
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class UserBean implements Serializable {
-=======
-import java.time.LocalDate;
->>>>>>> Stashed changes
 
-public class UserBean {
 	private int id;//会員ID
 	private String name;//氏名
 	private String address;//住所
