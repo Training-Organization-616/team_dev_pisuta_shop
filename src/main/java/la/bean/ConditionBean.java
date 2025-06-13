@@ -1,5 +1,7 @@
 package la.bean;
 
-public class ConditionBean {
+import java.io.Serializable;
+
+public class ConditionBean implements Serializable {
 
 }

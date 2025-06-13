@@ -1,5 +1,7 @@
 package la.bean;
 
-public class ItemBean {
+import java.io.Serializable;
+
+public class ItemBean implements Serializable {
 
 }

@@ -1,5 +1,7 @@
 package la.bean;
 
-public class DealBean {
+import java.io.Serializable;
+
+public class DealBean implements Serializable {
 
 }

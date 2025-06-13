@@ -1,5 +1,7 @@
 package la.bean;
 
-public class CategoryBean {
+import java.io.Serializable;
+
+public class CategoryBean implements Serializable {
 
 }
