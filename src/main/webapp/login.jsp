@@ -14,7 +14,7 @@
 	<p>${message}</p>
 	
 	<form action="/team_dev_pisuta_shop/LoginServlet" method="post">
-	
+		<input type="hidden" name="action" value="new">
 		<input type="text" name="email" placeholder="メールアドレス"><br>
 		<input type="text" name="password" placeholder="パスワード"><br>
 		<button>ログイン</button>
