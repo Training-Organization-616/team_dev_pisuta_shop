@@ -28,7 +28,7 @@ public class ItemsDAO {
 
 	/**
 	 * 商品全検索
-	 * @param status :購入済みのみフラグ
+	 * @param status :購入済みのみフラグ true:購入済みのみ
 	 * @return 商品リスト
 	 * @throws DAOException
 	 */
@@ -36,8 +36,8 @@ public class ItemsDAO {
 
 		String sql = "SELECT * FROM items WHERE 1=1";
 
-		if (!status) {
-			sql += " status = false";
+		if (status) {
+			sql += " AND status = true";
 		}
 
 		try (// データベースへの接続
