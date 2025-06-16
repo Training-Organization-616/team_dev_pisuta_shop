@@ -25,7 +25,7 @@
 		メールアドレス<br>
 		<input type="text" name="email" value="${user.email}"><br>
 		生年月日<br>
-		<input type="date" name="birthday" value="${user.birthday}"><br>
+		<input type="date" name="birthday" value="${user.birthday}" required><br>
 		パスワード<br>
 		<input type="password" name="password"><br>
 		パスワード確認用<br>
