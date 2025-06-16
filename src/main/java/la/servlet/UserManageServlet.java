@@ -30,7 +30,7 @@ public class UserManageServlet extends HttpServlet {
 				gotoPage(request, response, "/adminUser.jsp");
 
 				//検索ボタン押下時（管理者画面）
-			} else if (action.equals("serch")) {
+			} else if (action.equals("search")) {
 				int userId = Integer.parseInt(request.getParameter("userId"));
 				UserBean user = dao.findUserById(userId);
 				request.setAttribute("user", user);
