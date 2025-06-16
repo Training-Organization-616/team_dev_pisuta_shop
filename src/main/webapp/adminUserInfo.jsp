@@ -11,12 +11,12 @@
 
 <table border="1">
 			<tr>
-				<th>会員番号</th><th>${user.id}</th>
-				<th>氏名</th><th>${user.name}</th>
-				<th>住所</th><th>${user.address}</th>
-				<th>電話番号</th><th>${user.tel}</th>
-				<th>email</th><th>${user.email}</th>
-				<th>生年月日</th><th>${user.birthday}</th>
+				<th>会員番号</th><td>${user.id}</td><br>
+				<th>氏名</th><th>${user.name}</th><br>
+				<th>住所</th><th>${user.address}</th><br>
+				<th>電話番号</th><th>${user.tel}</th><br>
+				<th>email</th><th>${user.email}</th><br>
+				<th>生年月日</th><th>${user.birthday}</th><br>
 			</tr>
 			
 </body>
