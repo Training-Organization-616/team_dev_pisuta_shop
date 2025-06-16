@@ -5,20 +5,21 @@ import java.time.LocalDate;
 
 public class UserBean implements Serializable {
 
-	private int id;//会員ID
-	private String name;//氏名
-	private String address;//住所
-	private String tel;//電話番号
-	private String email;//メールアドレス
-	private LocalDate birthday;//生年月日
-	private String password;//パスワード
+	private int id; // 会員ID
+	private String name; // 氏名
+	private String address; // 住所
+	private String tel; // 電話番号
+	private String email; // メールアドレス
+	private LocalDate birthday; // 生年月日
+	private String password; // パスワード
+	private boolean status; // 登録状況
 
 	public UserBean() {
 
 	}
 
 	public UserBean(int id, String name, String address, String tel, String email, LocalDate birthday,
-			String password) {
+			String password, boolean status) {
 		this.id = id;
 		this.name = name;
 		this.address = address;
@@ -26,6 +27,7 @@ public class UserBean implements Serializable {
 		this.email = email;
 		this.birthday = birthday;
 		this.password = password;
+		this.status = status;
 	}
 
 	public int getId() {
@@ -82,6 +84,14 @@ public class UserBean implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 
 }
