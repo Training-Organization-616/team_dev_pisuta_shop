@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form action="/team_dev_pisuta_shop/UserManageServlet" method="post">
+<form action="/team_dev_pisuta_shop/UserManageServlet" method="get">
 <input type="text" name="userId" placeholder="会員番号">
 <button>検索</button>
 <input type="hidden" name="action" value="search">
@@ -27,8 +27,6 @@
 			</tr>
 
 
-			<!--c:ifは数字を「仕事中」のように直すためのもの-->
-
 			<c:forEach items="${users}" var="user">
 				<tr>
 					<td>${user.id}</td>
@@ -37,15 +35,9 @@
 					<td>${user.tel}</td>
 					<td>${user.email}</td>
 					<td>${user.birthday}</td>
-					
-					
 				</tr>
 			</c:forEach>
 		</table>
-
-
-
-${list.id}
 
 </body>
 </html>
