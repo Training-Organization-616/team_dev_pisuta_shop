@@ -24,7 +24,9 @@ public class UserManageServlet extends HttpServlet {
 			UsersDAO dao = new UsersDAO();
 
 			if (action == null || action.length() == 0) {
+				gotoPage(request, response, "/adminTop.jsp");
 
+			} else if (action.equals("user")) {
 				List<UserBean> list = dao.findAll();
 				request.setAttribute("users", list);
 				gotoPage(request, response, "/adminUser.jsp");

@@ -18,7 +18,7 @@
 				<tr><th>生年月日</th><th>${user.birthday}</th></tr><br>
 				</table>
 				
-		<form action="/team_dev_pisuta_shop/UserManageServlet" method="get">
+		<form action="/team_dev_pisuta_shop/UserManageServlet" method="post">
 		<input type="hidden" name="action" value="delete">
 		<button>退会</button>
 		<input type="hidden" name="userId" value="${user.id}">
@@ -30,6 +30,18 @@
 		</form>
 			
 			
+	<dialog>
+	<div class="dialog_content">
+		<p>削除しますか</p>
+		<form action="/team_dev_pisuta_shop/UserManageServlet" method="post">
+			<input class="delete_id" type="hidden" name="deleteId" value="">
+			<button type="submit" name="action" value="delete">はい</button>
+		</form>
+		<form method="dialog">
+			<button>いいえ</button>
+		</form>
+	</div>
+	</dialog>
 	
 </body>
 </html>

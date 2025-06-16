@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<form action="/team_dev_pisuta_shop/UserManageServlet" method="get">
+	<form action="/team_dev_pisuta_shop/UserManageServlet" method="post">
 		<input type="text" name="userId" placeholder="会員番号">
 		<button>検索</button>
 		<input type="hidden" name="action" value="search"> <br>
@@ -27,7 +27,6 @@
 			<th></th>
 		</tr>
 
-
 		<c:forEach items="${users}" var="user">
 			<tr>
 				<td>${user.id}</td>
@@ -36,11 +35,12 @@
 				<td>${user.tel}</td>
 				<td>${user.email}</td>
 				<td>${user.birthday}</td>
-				<td><form action="/team_dev_pisuta_shop/UserManageServlet" method="get">
-							<input type="hidden" name="action" value="show">
-							<button>表示</button>
-							<input type="hidden" name="userId" value="${user.id}">
-						</form></td>
+				<td><form action="/team_dev_pisuta_shop/UserManageServlet"
+						method="post">
+						<input type="hidden" name="action" value="show">
+						<button>表示</button>
+						<input type="hidden" name="userId" value="${user.id}">
+					</form></td>
 			</tr>
 		</c:forEach>
 	</table>
