@@ -32,11 +32,6 @@ public class UserServlet extends HttpServlet {
 			String action = request.getParameter("action");
 			UsersDAO dao = new UsersDAO();
 
-			// テスト用
-			UserBean tmpUser = dao.findUserById(3);
-			HttpSession tmpSession = request.getSession(true);
-			tmpSession.setAttribute("user", tmpUser);
-
 			if (action == null) {
 				// 会員管理画面への遷移
 				gotoPage(request, response, "/profile.jsp");

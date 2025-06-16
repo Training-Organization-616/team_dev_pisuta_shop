@@ -11,7 +11,7 @@
 	
 	<h2>会員管理画面</h2>
 	
-	<div>会員情報
+	<div>会員情報<br>
 		
 		${user.id}<br>
 		${user.name}<br>
