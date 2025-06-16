@@ -3,6 +3,9 @@ package la.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import la.bean.DealBean;
 
 public class DealsDAO {
 	// URL、ユーザ名、パスワードの準備
@@ -20,7 +23,7 @@ public class DealsDAO {
 		}
 	}
 
-	//★商品購入addDeal
+	//★取引を登録するaddDeal
 	//
 	public int addDeal(int itemId, int buyerId) throws DAOException {
 		// SQL文の作成
@@ -44,7 +47,7 @@ public class DealsDAO {
 
 	}
 
-	//★商品更新
+	//★商品の販売状況を更新する
 	//
 	public int updateStatus(int itemId) throws DAOException {
 		String sql = "UPDATE items SET status = false WHERE id = ?";
@@ -61,6 +64,36 @@ public class DealsDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DAOException("レコードの操作に失敗しました。");
+		}
+	}
+
+	//★商品番号から取引情報を取得する
+	//
+	public DealBean findDealByItemId(int itemId) throws DAOException {
+		String sql = "SELECT * FROM items WHERE itemId = ?";
+		try (// データベースへの接続
+				Connection con = DriverManager.getConnection(url, user, pass);
+				// PreparedStatementオブジェクトの取得
+				PreparedStatement st = con.prepareStatement(sql);) {
+			st.setInt(1, itemId);
+			try (// SQLの実行
+					ResultSet rs = st.executeQuery()) {
+				if (rs.next()) {
+					int id = rs.getInt("id");
+					int itemid2 = rs.getInt("item_id");
+					int buyerId = rs.getInt(" buyerId");
+					DealBean bean = new DealBean(id, itemid2, buyerId);
+					return bean;
+				} else {
+					return null; // 主キーに該当するレコードなし
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new DAOException("レコードの取得に失敗しました。");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DAOException("レコードの取得に失敗しました。");
 		}
 	}
 }
