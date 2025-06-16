@@ -9,7 +9,14 @@
 </head>
 <body>
 
-<button>会員管理</button>
-<button></button>
+<form>
+		<button>会員管理</button>
+		<input type="hidden" name="action" value="user">
+	</form>
+	
+	<form>
+		<button>商品管理</button>
+		<input type="hidden" name="action" value="item">
+	</form>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,35 +9,46 @@
 </head>
 <body>
 
-<form action="/team_dev_pisuta_shop/UserManageServlet" method="get">
-<input type="text" name="userId" placeholder="会員番号">
-<button>検索</button>
-<input type="hidden" name="action" value="search">
-<br>
-</form>
+	<form action="/team_dev_pisuta_shop/UserManageServlet" method="get">
+		<input type="text" name="userId" placeholder="会員番号">
+		<button>検索</button>
+		<input type="hidden" name="action" value="search"> <br>
+	</form>
+	<br>
 
-<table border="1">
+	<table border="1">
+		<tr>
+			<th>会員番号</th>
+			<th>氏名</th>
+			<th>住所</th>
+			<th>電話番号</th>
+			<th>email</th>
+			<th>生年月日</th>
+			<th></th>
+		</tr>
+
+
+		<c:forEach items="${users}" var="user">
 			<tr>
-				<th>会員番号</th>
-				<th>氏名</th>
-				<th>住所</th>
-				<th>電話番号</th>
-				<th>email</th>
-				<th>生年月日</th>
+				<td>${user.id}</td>
+				<td>${user.name}</td>
+				<td>${user.address}</td>
+				<td>${user.tel}</td>
+				<td>${user.email}</td>
+				<td>${user.birthday}</td>
+				<td><form action="/team_dev_pisuta_shop/UserManageServlet" method="get">
+							<input type="hidden" name="action" value="show">
+							<button>表示</button>
+							<input type="hidden" name="userId" value="${user.id}">
+						</form></td>
 			</tr>
+		</c:forEach>
+	</table>
 
-
-			<c:forEach items="${users}" var="user">
-				<tr>
-					<td>${user.id}</td>
-					<td>${user.name}</td>
-					<td>${user.address}</td>
-					<td>${user.tel}</td>
-					<td>${user.email}</td>
-					<td>${user.birthday}</td>
-				</tr>
-			</c:forEach>
-		</table>
+	<form>
+		<button>戻る</button>
+		<input type="hidden" name="action" value="top">
+	</form>
 
 </body>
 </html>
