@@ -90,7 +90,7 @@ public class ItemsDAO {
 	}
 
 	public int deleteItem(int id) throws DAOException {
-		String sql = "DELETE FROM item WHERE id = ?";
+		String sql = "DELETE FROM items WHERE id = ?";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
@@ -106,7 +106,7 @@ public class ItemsDAO {
 	}
 
 	public List<ItemBean> serchItem(String keyword, String userName) throws DAOException {
-		String sql = "SELECT * FROM item WHERE 1=1";
+		String sql = "SELECT * FROM items WHERE 1=1";
 
 		if (userName.length() != 0) {
 			sql = "SELECT i.*,u.name FROM items i JOIN users u ON i.seller_id = u.id WHERE u.name LIKE ?";

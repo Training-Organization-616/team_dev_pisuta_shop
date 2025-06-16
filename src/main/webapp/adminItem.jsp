@@ -9,8 +9,30 @@
 </head>
 <body>
 	<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
-		<input type="text" name="keyword">
-		<>
+		<input type="text" name="keyword" placeholder="キ－ワード">
+		<input type="text" name="userName" placeholder="ユーザー名">
+		<button type="submit" name="action" value="search">検索</button>
 	</form>
+	
+	<c:forEach items="${items }" var="item">
+		<div class="item">
+			<p>商品名</p>
+			<p>値段</p>
+			<button type="button" class="delete">削除</button>
+		</div>
+	</c:forEach>
+	
+	<dialog>
+		<div class="dialog_content">
+		<p>削除しますか</p>
+		<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
+		<input class="delete_id" type="hidden" name="deleteId" value="">
+		<button type="submit" name="action" value="delete">はい</button>
+		</form>
+		<form method="dialog">
+		<button>いいえ</button>
+		</form>
+		</div>
+	</dialog>
 </body>
 </html>
