@@ -52,16 +52,16 @@ public class LoginServlet extends HttpServlet {
 				String password = request.getParameter("password");
 
 				if (Objects.isNull(email) || Objects.isNull(password)) {
-					request.setAttribute("message", "");
+					request.setAttribute("message", "メールアドレス、パスワードを入力してください");
 					gotoPage(request, response, "/login.jsp");
 				} else if (email.isEmpty() || password.isEmpty()) {
-					request.setAttribute("message", "");
+					request.setAttribute("message", "メールアドレス、パスワードを入力してください");
 					gotoPage(request, response, "/login.jsp");
 				}
 
 				UserBean user = dao.findUserByEmailAndPassword(email, password);
 				if (Objects.isNull(user)) {
-					request.setAttribute("message", "");
+					request.setAttribute("message", "メールアドレスまたはパスワードが間違っています");
 					gotoPage(request, response, "/login.jsp");
 				} else {
 					session.setAttribute("user", user);
