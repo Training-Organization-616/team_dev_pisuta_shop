@@ -25,7 +25,7 @@
 		メールアドレス<br>
 		<input type="text" name="email"><br>
 		生年月日<br>
-		<input type="date" name="birthday"><br>
+		<input type="date" name="birthday" required><br>
 		パスワード<br>
 		<input type="text" name="password"><br>
 		パスワード確認用<br>
