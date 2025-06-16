@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="/team_dev_pisuta_shop/javascript/adminItem.js"></script>
 </head>
 <body>
 	<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
@@ -28,6 +29,8 @@
 
 	<dialog id="deleteDialog">
 	<div class="dialog_content">
+		<p id="itemName"></p>
+		<p id="itemPrice"></p>
 		<p>削除しますか</p>
 		<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
 			<input class="delete_id" type="hidden" name="deleteId" value="">

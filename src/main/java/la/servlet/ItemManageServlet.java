@@ -55,8 +55,6 @@ public class ItemManageServlet extends HttpServlet {
 				List<ItemBean> list = dao.findAll(false);
 
 				String j = List2Json(list);
-
-				System.out.println(j);
 				response.setContentType("application/json; charset=UTF-8");
 				PrintWriter out = response.getWriter();
 
@@ -77,14 +75,15 @@ public class ItemManageServlet extends HttpServlet {
 
 	private String List2Json(List<ItemBean> list) {
 		int lastIndex = list.size() - 1;
-		String json = "[{";
+		String json = "[";
 		int index = 0;
 		for (ItemBean item : list) {
+			json += "{";
 			json += "\"id\":" + item.getId() + ",";
 			json += "\"categoryId\":" + item.getCategoryId() + ",";
 			json += "\"sellerId\":" + item.getSellerId() + ",";
 			json += "\"name\":\"" + item.getName() + "\",";
-			json += "\"price\"" + item.getPrice() + "";
+			json += "\"price\":" + item.getPrice();
 
 			if (index == lastIndex) {
 				json += "}";
