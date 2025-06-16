@@ -17,19 +17,19 @@
 		<input type="hidden" name="action" value="update">
 		
 		氏名<br>
-		<input type="text" name="name">${user.name}<br>
+		<input type="text" name="name" value="${user.name}"><br>
 		住所<br>
-		<input type="text" name="address">${user.address}<br>
+		<input type="text" name="address" value="${user.address}"><br>
 		電話番号<br>
-		<input type="text" name="tel">${user.tel}<br>
+		<input type="text" name="tel" value="${user.tel}"><br>
 		メールアドレス<br>
-		<input type="text" name="email">${user.email}<br>
+		<input type="text" name="email" value="${user.email}"><br>
 		生年月日<br>
-		<input type="text" name="birthday">${user.birthday}<br>
+		<input type="date" name="birthday" value="${user.birthday}"><br>
 		パスワード<br>
-		<input type="text" name="password"><br>
+		<input type="password" name="password"><br>
 		パスワード確認用<br>
-		<input type="text" name="confirm"><br>
+		<input type="password" name="confirm"><br>
 		
 		<button>変更完了</button>
 	

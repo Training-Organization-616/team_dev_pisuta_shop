@@ -70,7 +70,7 @@ public class DealsDAO {
 	//★商品番号から取引情報を取得する
 	//
 	public DealBean findDealByItemId(int itemId) throws DAOException {
-		String sql = "SELECT * FROM items WHERE itemId = ?";
+		String sql = "SELECT * FROM deals WHERE item_id = ?";
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
 				// PreparedStatementオブジェクトの取得
@@ -80,9 +80,8 @@ public class DealsDAO {
 					ResultSet rs = st.executeQuery()) {
 				if (rs.next()) {
 					int id = rs.getInt("id");
-					int itemid2 = rs.getInt("item_id");
-					int buyerId = rs.getInt(" buyerId");
-					DealBean bean = new DealBean(id, itemid2, buyerId);
+					int buyerId = rs.getInt(" buyer_id");
+					DealBean bean = new DealBean(id, itemId, buyerId);
 					return bean;
 				} else {
 					return null; // 主キーに該当するレコードなし
