@@ -11,9 +11,9 @@ CREATE DATABASE team_dev_pisuta_shop OWNER student ENCODING 'UTF8';
 \c team_dev_pisuta_shop
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS conditions;
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS items;
 DROP TABLE IF EXISTS deals;
+DROP TABLE IF EXISTS items;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE categories
 (
