@@ -90,7 +90,7 @@ public class ItemsDAO {
 	}
 
 	public int deleteItem(int id) throws DAOException {
-		String sql = "DELETE FROM items WHERE id = ?";
+		String sql = "UPDATE items SET status = false WHERE id = ?";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
