@@ -1,9 +1,5 @@
--- PostgreSQL��
--- psql -U postgres
--- �Őڑ�
 
--- \i todo.sql
--- �����s
+-- \i CtoC.sql
 
 \c postgres
 DROP DATABASE IF EXISTS team_dev_pisuta_shop;
@@ -11,9 +7,8 @@ DROP ROLE IF EXISTS student;
 CREATE ROLE student WITH PASSWORD 'himitu' LOGIN;
 CREATE DATABASE team_dev_pisuta_shop OWNER student ENCODING 'UTF8';
 
-/* DB�� */
-\c team_dev_pisuta_shop
 
+\c team_dev_pisuta_shop
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS conditions;
 DROP TABLE IF EXISTS users;
@@ -32,7 +27,7 @@ id  SERIAL      PRIMARY KEY,
 name    VARCHAR(50) NOT NULL
 );
 
--- ���[�U�[�e�[�u��
+
 CREATE TABLE users
 (
 id      SERIAL      NOT NULL PRIMARY KEY,
@@ -42,7 +37,7 @@ tel     VARCHAR(11) NOT NULL,
 email       VARCHAR(250)    NOT NULL,
 birthday    DATE        NOT NULL,
 password    VARCHAR(16) NOT NULL,
-UNIQUE(email)
+status  BOOLEAN NOT NULL DEFAULT TRUE
 );
 
 CREATE TABLE items
