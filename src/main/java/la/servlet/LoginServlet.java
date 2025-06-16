@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import la.bean.UserBean;
 import la.dao.UsersDAO;
 
 /**
@@ -47,15 +48,24 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				UsersDAO dao = new UsersDAO();
 
-				String userName = request.getParameter("");
-				String password = request.getParameter("");
+				String email = request.getParameter("email");
+				String password = request.getParameter("password");
 
-				if (Objects.isNull(userName) || Objects.isNull(password)) {
+				if (Objects.isNull(email) || Objects.isNull(password)) {
 					request.setAttribute("message", "");
 					gotoPage(request, response, "/login.jsp");
-				} else if (userName.isEmpty() || password.isEmpty()) {
+				} else if (email.isEmpty() || password.isEmpty()) {
 					request.setAttribute("message", "");
 					gotoPage(request, response, "/login.jsp");
+				}
+
+				UserBean user = dao.findUserByEmailAndPassword(email, password);
+				if (Objects.isNull(user)) {
+					request.setAttribute("message", "");
+					gotoPage(request, response, "/login.jsp");
+				} else {
+					session.setAttribute("user", user);
+					response.sendRedirect("/ItemServlet");
 				}
 			}
 
