@@ -1,6 +1,7 @@
 package la.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Objects;
 
@@ -50,6 +51,17 @@ public class ItemManageServlet extends HttpServlet {
 
 				request.setAttribute("items", list);
 				gotoPage(request, response, "/adminItem.jsp");
+			} else if (action.equals("data")) {
+				List<ItemBean> list = dao.findAll(false);
+
+				String j = List2Json(list);
+
+				System.out.println(j);
+				response.setContentType("application/json; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+
+				out.print(j);
+				out.flush();
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -61,6 +73,29 @@ public class ItemManageServlet extends HttpServlet {
 			IOException {
 		RequestDispatcher rd = request.getRequestDispatcher(page);
 		rd.forward(request, response);
+	}
+
+	private String List2Json(List<ItemBean> list) {
+		int lastIndex = list.size() - 1;
+		String json = "[{";
+		int index = 0;
+		for (ItemBean item : list) {
+			json += "\"id\":" + item.getId() + ",";
+			json += "\"categoryId\":" + item.getCategoryId() + ",";
+			json += "\"sellerId\":" + item.getSellerId() + ",";
+			json += "\"name\":\"" + item.getName() + "\",";
+			json += "\"price\"" + item.getPrice() + "";
+
+			if (index == lastIndex) {
+				json += "}";
+			} else {
+				json += "},";
+			}
+			index++;
+		}
+		json += "]";
+
+		return json;
 	}
 
 	/**

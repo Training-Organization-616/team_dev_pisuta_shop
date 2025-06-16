@@ -18,7 +18,7 @@
 		<div class="item">
 			<p>${item.name }</p>
 			<p>${item.price }</p>
-			<button type="button" class="delete">削除</button>
+			<button type="button" class="delete" value="${item.id }">削除</button>
 		</div>
 	</c:forEach>
 
@@ -26,7 +26,7 @@
 		<button>戻る</button>
 	</form>
 
-	<dialog>
+	<dialog id="deleteDialog">
 	<div class="dialog_content">
 		<p>削除しますか</p>
 		<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
