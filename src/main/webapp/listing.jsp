@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>商品登録</title>
 </head>
-
+ 
 <body>
 C to C 売買システム
 商品登録<br>

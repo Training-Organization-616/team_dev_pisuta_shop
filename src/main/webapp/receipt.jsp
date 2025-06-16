@@ -9,7 +9,7 @@
 <title>購入情報</title>
 </head>
 
-
+ 
 <body>
 
 C to C 売買システム
