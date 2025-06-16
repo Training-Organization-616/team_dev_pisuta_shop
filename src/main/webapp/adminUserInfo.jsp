@@ -30,7 +30,7 @@
 	<div class="dialog_content">
 		<p>削除しますか</p>
 		<form action="/team_dev_pisuta_shop/UserManageServlet" method="post">
-			<input class="delete_id" type="hidden" name="deleteId" value="">
+			<input class="delete_id" type="hidden" name="userId" value="${user.id}">
 			<button type="submit" name="action" value="delete">はい</button>
 		</form>
 		<form method="dialog">
@@ -40,12 +40,10 @@
 	</dialog>
 	
 	<script>
-	const deletebutton = document.querySelector('.delete');
+	const deleteButton = document.querySelector('.delete');
 	const dialog = document.querySelector('#deleteDialog');
-	const deleteId = document.querySelector('.delete_id');
 	
 		deleteButton.addEventListener('click', () => {
-			deleteId.value = deleteButton.value;
 			dialog.showModal();
 });
 	
