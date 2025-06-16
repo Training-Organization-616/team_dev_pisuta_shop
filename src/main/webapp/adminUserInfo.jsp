@@ -18,11 +18,7 @@
 				<tr><th>生年月日</th><th>${user.birthday}</th></tr><br>
 				</table>
 				
-		<form action="/team_dev_pisuta_shop/UserManageServlet" method="post">
-		<input type="hidden" name="action" value="delete">
-		<button>退会</button>
-		<input type="hidden" name="userId" value="${user.id}">
-		</form>
+		<button class="delete" value="${user.id}">退会</button>
 		
 		<form>
 		<button>一覧へ戻る</button>
@@ -30,7 +26,7 @@
 		</form>
 			
 			
-	<dialog>
+	<dialog id="deleteDialog">
 	<div class="dialog_content">
 		<p>削除しますか</p>
 		<form action="/team_dev_pisuta_shop/UserManageServlet" method="post">
@@ -43,5 +39,16 @@
 	</div>
 	</dialog>
 	
+	<script>
+	const deletebutton = document.querySelector('.delete');
+	const dialog = document.querySelector('#deleteDialog');
+	const deleteId = document.querySelector('.delete_id');
+	
+		deleteButton.addEventListener('click', () => {
+			deleteId.value = deleteButton.value;
+			dialog.showModal();
+});
+	
+	</script>
 </body>
 </html>

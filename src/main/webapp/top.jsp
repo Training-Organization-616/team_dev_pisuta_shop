@@ -9,5 +9,11 @@
 </head>
 <body>
 
+
+<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
+		<button>購入</button>
+		<input type="hidden" name="action" value="confirm"> <br>
+	</form>
+	
 </body>
 </html>
