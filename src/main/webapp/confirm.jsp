@@ -15,13 +15,18 @@
 
 C to C 売買システム
 購入確認画面<br>
-商品番号・出品者名<br>
-商品名<br>
-価格<br>
+
+
+${item.id}・${item.sellerId}<br>
+${item.name}<br>
+${item.price}<br>
+
 <!-- 購入情報画面へ遷移 -->
-<button>購入確定</button><br>
+
+<a href="/team_dev_pisuta_shop/ItemServlet?action=buy">購入確定</a>
+
 <!-- 商品一覧画面へ遷移 -->
-<button>キャンセル</button>
+<a href="/top.jsp">キャンセル</a>
 
 
 

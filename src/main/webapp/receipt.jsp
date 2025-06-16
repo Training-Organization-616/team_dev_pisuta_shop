@@ -14,12 +14,14 @@
 
 C to C 売買システム
 購入情報<br>
-取引番号・商品番号<br>
-商品名<br>
-価格<br>
+
+${deal.id}・${item.sellerId}<br>
+${item.name}<br>
+${item.price}<br>
+
 商品の購入が確定しました！<br>
 <!-- 商品一覧画面へ遷移 -->
-<button>商品一覧へ戻る</button>
+<a href="/top.jsp">商品一覧へ戻る</a>
 
 </body>
 </html>

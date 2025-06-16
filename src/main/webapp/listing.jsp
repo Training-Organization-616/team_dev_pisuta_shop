@@ -13,15 +13,18 @@ C to C 売買システム
 商品登録<br>
 購入情報を入力してください<br>
 <!-- 入力に誤りがあった場合出力 -->
-エラーメッセージ表示<br>
+${message}<br>
 
-
-<input type="text" name="" placeholder="商品名"><br>
-<input type="text" name="" placeholder="カテゴリー"><br>
-<input type="text" name="" placeholder="価格"><br>
-<input type="text" name="" placeholder="状態"><br>
-<input type="text" name="" placeholder="メモ"><br>
-
+<form action = "/team_dev_pisuta_shop/ListingServlet"method="post">
+<input type="hidden" name="action" value="add"
+<input type="text" name="name" placeholder="商品名"><br>
+<input type="text" name="categotyId" placeholder="カテゴリー"><br>
+<input type="text" name="price" placeholder="価格"><br>
+<input type="text" name="condId" placeholder="状態"><br>
+<input type="text" name="comment" placeholder="メモ"><br>
+<!-- 会員管理画面へ遷移 -->
+<button>出品</button>
+/form>
 
 <!-- 商品名　必須100字以内 -->
 <!-- カテゴリー、価格、状態、必須 -->
@@ -29,6 +32,6 @@ C to C 売買システム
 
 
 <!-- 会員管理画面へ遷移 -->
-<button type="">出品</button>
+
 </body>
 </html>
