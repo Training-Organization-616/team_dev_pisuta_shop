@@ -8,6 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
+		<input type="text" name="keyword">
+		<>
+	</form>
 </body>
 </html>
