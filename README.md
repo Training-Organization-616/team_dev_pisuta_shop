@@ -3,6 +3,10 @@
 
 ## Gitコマンド
 ```git
+cd C:/pleiades/2024-06/workspace/team_dev_pisuta_shop
+```
+
+```git
 git pull
 ```
 
