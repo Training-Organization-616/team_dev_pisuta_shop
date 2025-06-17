@@ -6,22 +6,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="/team_dev_pisuta_shop/css/adminHeaderStyle.css" rel="stylesheet">
+<link href="/team_dev_pisuta_shop/css/adminTopStyle.css" rel="stylesheet">
 </head>
 <body>
-	<jsp:include page="/header.jsp" />
+	<jsp:include page="/adminHeader.jsp" />
+	<div class="content">
+		<div class="content1">
+			<form action="/team_dev_pisuta_shop/UserManageServlet" method="post">
+				<button>会員管理</button>
+			</form>
+		</div>
 
-	<div>
-		<form action="/team_dev_pisuta_shop/UserManageServlet" method="post">
-			<button>会員管理</button>
-		</form>
-	</div>
+		<br>
 
-	<br>
-
-	<div>
-		<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
-			<button>商品管理</button>
-		</form>
+		<div class="content2">
+			<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
+				<button>商品管理</button>
+			</form>
+		</div>
 	</div>
 </body>
 </html>

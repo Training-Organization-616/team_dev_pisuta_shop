@@ -6,9 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="stylesheet" rel="/adminHeaderStyle.jsp">
 </head>
 <body>
-	<jsp:include page="/header.jsp" />
+<jsp:include page="/adminHeader.jsp" />
+	
 
 	<table border="1">
 			<tr><th>会員番号</th><td>${user.id}</td></tr><br>

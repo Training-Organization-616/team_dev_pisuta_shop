@@ -6,9 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="stylesheet" rel="/adminHeaderStyle.jsp">
 </head>
 <body>
-	<jsp:include page="/header.jsp" />
+	<jsp:include page="/adminHeader.jsp" />
 
 	<div>
 		<form action="/team_dev_pisuta_shop/UserManageServlet" method="post">
