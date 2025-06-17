@@ -1,0 +1,25 @@
+.content {
+	margin: auto;
+/*	justify-content: space-between;*/
+	display: flex;
+}
+
+.content1{
+	text-align: left;
+}
+
+.content2{
+	text-align: right;
+}
+
+button{
+	background-color: darkgray;
+	color: aliceblue;
+	width: 300px;
+	height: 300px;
+	padding: 60px;
+	margin: 80px 160px;
+	font-size: 40px;
+	font-weight: 500;
+	
+}
