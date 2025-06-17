@@ -76,6 +76,7 @@ public class ItemsDAO {
 				// PreparedStatementオブジェクトの取得
 				PreparedStatement st = con.prepareStatement(sql);
 				ResultSet rs = st.executeQuery();) {
+			st.setInt(1, itemId);
 			ItemBean bean;
 			//検索結果
 			while (rs.next()) {
