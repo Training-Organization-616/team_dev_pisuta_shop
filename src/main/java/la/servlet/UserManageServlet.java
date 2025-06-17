@@ -24,14 +24,12 @@ public class UserManageServlet extends HttpServlet {
 			UsersDAO dao = new UsersDAO();
 
 			if (action == null || action.length() == 0) {
-				gotoPage(request, response, "/adminTop.jsp");
-
-			} else if (action.equals("user")) {
 				List<UserBean> list = dao.findAll();
 				request.setAttribute("users", list);
 				gotoPage(request, response, "/adminUser.jsp");
+				//} else if (action.equals("user")) {
 
-				//検索ボタン押下時（adminUser.jsp）
+				//検索ボタン押下時
 			} else if (action.equals("search")) {
 
 				int userId = 0;
@@ -48,7 +46,7 @@ public class UserManageServlet extends HttpServlet {
 				request.setAttribute("user", user);
 				gotoPage(request, response, "/adminUserInfo.jsp");
 
-				//退会ボタン押下時(adminUserInfo.jsp)
+				//退会ボタン押下時
 			} else if (action.equals("delete")) {
 				int userId = Integer.parseInt(request.getParameter("userId"));
 				dao.deleteUser(userId);
@@ -56,17 +54,17 @@ public class UserManageServlet extends HttpServlet {
 				request.setAttribute("users", list);
 				gotoPage(request, response, "/adminUser.jsp");
 
-				//一覧へ戻るボタン押下時(adminUserInfo.jsp)
+				//一覧へ戻るボタン押下時
 			} else if (action.equals("user")) {
 				List<UserBean> list = dao.findAll();
 				request.setAttribute("users", list);
 				gotoPage(request, response, "/adminUser.jsp");
 
-				//戻るボタン押下時（adminUser.jsp）
+				//戻るボタン押下時
 			} else if (action.equals("top")) {
 				gotoPage(request, response, "/adminTop.jsp");
 
-				//表示ボタン押下時（adminUser.jsp）
+				//表示ボタン押下時
 			} else if (action.equals("show")) {
 				int userId = Integer.parseInt(request.getParameter("userId"));
 				UserBean user = dao.findUserById(userId);

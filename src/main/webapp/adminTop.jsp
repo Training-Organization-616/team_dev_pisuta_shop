@@ -9,16 +9,20 @@
 </head>
 <body>
 
-	<form>
-		<button>会員管理</button>
-		<input type="hidden" name="action" value="user">
-	</form>
+	<div>
+		<form>
+			<button>会員管理</button>
+			<input type="hidden" name="action" value="user">
+		</form>
+	</div>
 
 	<br>
-	
-	<form>
-		<button>商品管理</button>
-		<input type="hidden" name="action" value="item">
-	</form>
+
+	<div>
+		<form>
+			<button>商品管理</button>
+			<input type="hidden" name="action" value="item">
+		</form>
+	</div>
 </body>
 </html>
