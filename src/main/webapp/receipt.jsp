@@ -13,7 +13,7 @@
 	<jsp:include page="/header.jsp" />
 
 	C to C 売買システム 購入情報
-	<br> ${deal.id}・${item.sellerId}
+	<br> ${deal.id}・${sellerName}
 	<br> ${item.name}
 	<br> ${item.price}
 	<br> 商品の購入が確定しました！
