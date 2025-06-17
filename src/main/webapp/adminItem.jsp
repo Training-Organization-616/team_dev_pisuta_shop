@@ -10,8 +10,8 @@
 </head>
 <body>
 	<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
-		<input type="text" name="keyword" placeholder="キ－ワード"> <input
-			type="text" name="userName" placeholder="ユーザー名">
+		<input type="text" name="keyword" placeholder="キ－ワード"> 
+		<input type="text" name="userName" placeholder="ユーザー名">
 		<button type="submit" name="action" value="search">検索</button>
 	</form>
 
@@ -19,6 +19,11 @@
 		<div class="item">
 			<p>${item.name }</p>
 			<p>${item.price }</p>
+			<c:forEach items="${users }" var="user">
+			<c:if test="${item.sellerId == user.id }">
+			<p>${user.name }</p>
+			</c:if>
+			</c:forEach>
 			<button type="button" class="delete" value="${item.id }">削除</button>
 		</div>
 	</c:forEach>
@@ -33,7 +38,7 @@
 		<p id="itemPrice"></p>
 		<p>削除しますか</p>
 		<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
-			<input class="delete_id" type="hidden" name="deleteId" value="">
+			<input class="delete_id" type="hidden" name="itemId" value="">
 			<button type="submit" name="action" value="delete">はい</button>
 		</form>
 		<form method="dialog">

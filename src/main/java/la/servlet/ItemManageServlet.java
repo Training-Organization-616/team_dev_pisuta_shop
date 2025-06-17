@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import la.bean.ItemBean;
+import la.bean.UserBean;
 import la.dao.ItemsDAO;
+import la.dao.UsersDAO;
 
 /**
  * Servlet implementation class ItemManageServlet
@@ -42,20 +44,24 @@ public class ItemManageServlet extends HttpServlet {
 			request.setCharacterEncoding("UTF-8");
 			//actionパラメータ取得
 			String action = request.getParameter("action");
+			System.out.println(action);
 			//ItemDAOインスタンス
-			ItemsDAO dao = new ItemsDAO();
+			ItemsDAO itemsDao = new ItemsDAO();
+			UsersDAO usersDao = new UsersDAO();
 
 			if (Objects.isNull(action) || action.isEmpty()) {
 				//ItemBeanリスト:商品全検索
-				List<ItemBean> list = dao.findAll(false);
+				List<ItemBean> list = itemsDao.findAll(false);
+				List<UserBean> userList = usersDao.findAll();
 
 				request.setAttribute("items", list);
+				request.setAttribute("users", userList);
 				gotoPage(request, response, "/adminItem.jsp");
 
 			} else if (action.equals("delete")) {
 				int id = Integer.parseInt(request.getParameter("itemId"));
-
-				dao.deleteItem(id);
+				System.out.println(id);
+				itemsDao.deleteItem(id);
 
 				response.sendRedirect("/team_dev_pisuta_shop/ItemManageServlet");
 
@@ -70,14 +76,14 @@ public class ItemManageServlet extends HttpServlet {
 					userName = "";
 				}
 
-				List<ItemBean> list = dao.searchItem(itemName, userName);
+				List<ItemBean> list = itemsDao.searchItem(itemName, userName);
 
 				request.setAttribute("items", list);
 
 				gotoPage(request, response, "/adminItem.jsp");
 
 			} else if (action.equals("data")) {
-				List<ItemBean> list = dao.findAll(false);
+				List<ItemBean> list = itemsDao.findAll(false);
 
 				String j = List2Json(list);
 				response.setContentType("application/json; charset=UTF-8");
