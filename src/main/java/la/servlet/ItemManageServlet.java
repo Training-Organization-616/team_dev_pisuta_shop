@@ -51,12 +51,14 @@ public class ItemManageServlet extends HttpServlet {
 
 				request.setAttribute("items", list);
 				gotoPage(request, response, "/adminItem.jsp");
+
 			} else if (action.equals("delete")) {
 				int id = Integer.parseInt(request.getParameter("itemId"));
 
 				dao.deleteItem(id);
 
 				response.sendRedirect("/team_dev_pisuta_shop/ItemManageServlet");
+
 			} else if (action.equals("search")) {
 				String itemName = request.getParameter("keyword");
 				String userName = request.getParameter("userName");
@@ -68,11 +70,9 @@ public class ItemManageServlet extends HttpServlet {
 					userName = "";
 				}
 
-				System.out.println("item:" + itemName + "\nuser:" + userName);
+				List<ItemBean> list = dao.searchItem(itemName, userName);
 
-				List<ItemBean> lsit = dao.serchItem(itemName, userName);
-
-				request.setAttribute("items", lsit);
+				request.setAttribute("items", list);
 
 				gotoPage(request, response, "/adminItem.jsp");
 

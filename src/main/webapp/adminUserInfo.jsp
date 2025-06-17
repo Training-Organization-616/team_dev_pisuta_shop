@@ -20,9 +20,8 @@
 				
 		<button class="delete" value="${user.id}">退会</button>
 		
-		<form>
-		<button>一覧へ戻る</button>
-		<input type="hidden" name="action" value="user">
+		<form action="/team_dev_pisuta_shop/UserManageServlet" method="get">
+			<button>一覧へ戻る</button>
 		</form>
 			
 			

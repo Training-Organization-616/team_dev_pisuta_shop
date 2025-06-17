@@ -10,18 +10,16 @@
 <body>
 
 	<div>
-		<form>
+		<form action="/team_dev_pisuta_shop/UserManageServlet" method="post">
 			<button>会員管理</button>
-			<input type="hidden" name="action" value="user">
 		</form>
 	</div>
 
 	<br>
 
 	<div>
-		<form>
+		<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
 			<button>商品管理</button>
-			<input type="hidden" name="action" value="item">
 		</form>
 	</div>
 </body>

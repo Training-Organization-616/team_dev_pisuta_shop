@@ -27,7 +27,6 @@ public class UserManageServlet extends HttpServlet {
 				List<UserBean> list = dao.findAll();
 				request.setAttribute("users", list);
 				gotoPage(request, response, "/adminUser.jsp");
-				//} else if (action.equals("user")) {
 
 				//検索ボタン押下時
 			} else if (action.equals("search")) {
@@ -50,12 +49,6 @@ public class UserManageServlet extends HttpServlet {
 			} else if (action.equals("delete")) {
 				int userId = Integer.parseInt(request.getParameter("userId"));
 				dao.deleteUser(userId);
-				List<UserBean> list = dao.findAll();
-				request.setAttribute("users", list);
-				gotoPage(request, response, "/adminUser.jsp");
-
-				//一覧へ戻るボタン押下時
-			} else if (action.equals("user")) {
 				List<UserBean> list = dao.findAll();
 				request.setAttribute("users", list);
 				gotoPage(request, response, "/adminUser.jsp");

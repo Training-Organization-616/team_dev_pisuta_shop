@@ -105,7 +105,7 @@ public class ItemsDAO {
 		}
 	}
 
-	public List<ItemBean> serchItem(String keyword, String userName) throws DAOException {
+	public List<ItemBean> searchItem(String keyword, String userName) throws DAOException {
 		String sql = "SELECT * FROM items WHERE 1=1";
 
 		if (userName.length() != 0) {
