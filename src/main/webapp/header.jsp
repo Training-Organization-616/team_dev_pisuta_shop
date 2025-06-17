@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<link rel="stylesheet" href="/team_dev_pisuta_shop/css/headerStyle.css">
+
 <div class="header">
 	<div class="pisuta">
 		<a href="/team_dev_pisuta_shop/ItemServlet"><b><span class="icon">Pisuta Shop</span></b></a>
