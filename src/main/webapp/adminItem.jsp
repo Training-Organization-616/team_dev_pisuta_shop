@@ -12,7 +12,7 @@
 <body>
 	<jsp:include page="/adminHeader.jsp" />
 	<div class="input_container">
-	<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
+	<form class="search_form" action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
 		<input class="input_key" type="text" name="keyword" placeholder="キ－ワード"> 
 		<input class="input_name" type="text" name="userName" placeholder="ユーザー名">
 		<button class="button_search" type="submit" name="action" value="search">検索</button>
