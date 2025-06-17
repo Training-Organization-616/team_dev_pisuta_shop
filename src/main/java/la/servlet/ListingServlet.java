@@ -1,6 +1,7 @@
 package la.servlet;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import la.bean.CategoryBean;
+import la.bean.ConditionBean;
 import la.bean.UserBean;
 import la.dao.CategoriesDAO;
 import la.dao.ConditionsDAO;
@@ -49,7 +52,15 @@ public class ListingServlet extends HttpServlet {
 			ItemsDAO itemsDao = new ItemsDAO();
 
 			if (Objects.isNull(action) || action.isEmpty()) {
+
+				List<CategoryBean> categories = categoriesDao.findAll();
+				List<ConditionBean> conditions = conditionsDao.findAll();
+
+				request.setAttribute("categories", categories);
+				request.setAttribute("conditions", conditions);
+
 				gotoPage(request, response, "listing.jsp");
+
 			} else if (action.equals("add")) {
 				//入力情報の取得
 				String name = request.getParameter("name");
