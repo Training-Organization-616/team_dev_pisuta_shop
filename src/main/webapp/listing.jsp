@@ -26,7 +26,7 @@ C to C 売買システム
 			<input type="radio" name="categoryId" value="${category.id}" required>${category.name}
 		</c:forEach><br>
 		
-		<input type="text" name="price" placeholder="価格"><br>
+		<input type="number" name="price" placeholder="価格"><br>
 		
 		<c:forEach items="${conditions}" var="condition">
 			<c:choose>
@@ -39,7 +39,7 @@ C to C 売買システム
 			</c:choose>	
 		</c:forEach><br>
 		
-		<input type="text" name="comment" placeholder="メモ"><br>
+		<textarea rows="" cols="" name="comment" placeholder="メモ"></textarea><br>
 		<!-- 会員管理画面へ遷移 -->
 		<button>出品</button>
 </form>

@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<jsp:include page="/header.jsp" />
 
 	<div>
 		<form action="/team_dev_pisuta_shop/UserManageServlet" method="post">

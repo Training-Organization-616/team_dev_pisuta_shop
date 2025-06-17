@@ -9,6 +9,8 @@
 <script src="/team_dev_pisuta_shop/javascript/adminItem.js"></script>
 </head>
 <body>
+	<jsp:include page="/header.jsp" />
+
 	<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
 		<input type="text" name="keyword" placeholder="キ－ワード"> 
 		<input type="text" name="userName" placeholder="ユーザー名">

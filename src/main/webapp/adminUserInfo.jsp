@@ -8,14 +8,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<jsp:include page="/header.jsp" />
 
-<table border="1">
+	<table border="1">
 			<tr><th>会員番号</th><td>${user.id}</td></tr><br>
-			<tr><th>氏名</th><th>${user.name}</th></tr><br>
-			<tr><th>住所</th><th>${user.address}</th></tr><br>
-				<tr><th>電話番号</th><th>${user.tel}</th></tr><br>
-				<tr><th>email</th><th>${user.email}</th></tr><br>
-				<tr><th>生年月日</th><th>${user.birthday}</th></tr><br>
+			<tr><th>氏名</th><td>${user.name}</td></tr><br>
+			<tr><th>住所</th><td>${user.address}</td></tr><br>
+				<tr><th>電話番号</th><td>${user.tel}</td></tr><br>
+				<tr><th>email</th><td>${user.email}</td></tr><br>
+				<tr><th>生年月日</th><td>${user.birthday}</td></tr><br>
 				</table>
 				
 		<button class="delete" value="${user.id}">退会</button>
