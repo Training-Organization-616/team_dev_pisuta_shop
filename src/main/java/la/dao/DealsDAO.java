@@ -80,7 +80,7 @@ public class DealsDAO {
 					ResultSet rs = st.executeQuery()) {
 				if (rs.next()) {
 					int id = rs.getInt("id");
-					int buyerId = rs.getInt(" buyer_id");
+					int buyerId = rs.getInt("buyer_id");
 					DealBean bean = new DealBean(id, itemId, buyerId);
 					return bean;
 				} else {

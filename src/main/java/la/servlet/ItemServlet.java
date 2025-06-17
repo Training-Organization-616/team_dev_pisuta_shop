@@ -2,6 +2,7 @@ package la.servlet;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,9 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import la.bean.DealBean;
 import la.bean.ItemBean;
+import la.bean.UserBean;
 import la.dao.DAOException;
 import la.dao.DealsDAO;
 import la.dao.ItemsDAO;
@@ -53,7 +56,10 @@ public class ItemServlet extends HttpServlet {
 				gotoPage(request, response, "/top.jsp");
 			} else if (action.equals("confirm")) {
 				// ★購入確認への遷移
-
+				HttpSession session = request.getSession();
+				if (Objects.isNull(session.getAttribute("user"))) {
+					response.sendRedirect("/team_dev_pisuta_shop/LoginServlet");
+				}
 				int itemId = Integer.parseInt(request.getParameter("itemId"));
 				ItemBean bean = itemsdao.searchItemById(itemId);
 				request.setAttribute("item", bean);
@@ -63,9 +69,16 @@ public class ItemServlet extends HttpServlet {
 			} else if (action.equals("buy")) {
 				// ★購入情報への遷移
 				int itemId = Integer.parseInt(request.getParameter("itemId"));
+
+				HttpSession session = request.getSession();
+				UserBean user = (UserBean) session.getAttribute("user");
+
+				dealsdao.addDeal(itemId, user.getId());
+
 				ItemBean itembean = itemsdao.searchItemById(itemId);
-				request.setAttribute("item", itembean);
 				DealBean dealbean = dealsdao.findDealByItemId(itemId);
+
+				request.setAttribute("item", itembean);
 				request.setAttribute("deal", dealbean);
 
 				gotoPage(request, response, "/receipt.jsp");
