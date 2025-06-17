@@ -17,6 +17,9 @@
   -webit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
+p1{
+	color: rgb(0, 255, 0);
+}
 body{
 	text-align: center;
 }
