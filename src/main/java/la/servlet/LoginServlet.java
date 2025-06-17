@@ -45,7 +45,6 @@ public class LoginServlet extends HttpServlet {
 			if (Objects.isNull(action) || action.isEmpty()) {
 				gotoPage(request, response, "/login.jsp");
 			} else if (action.equals("login")) {
-				HttpSession session = request.getSession();
 				UsersDAO dao = new UsersDAO();
 
 				String email = request.getParameter("email");
@@ -64,6 +63,7 @@ public class LoginServlet extends HttpServlet {
 					request.setAttribute("message", "メールアドレスまたはパスワードが間違っています");
 					gotoPage(request, response, "/login.jsp");
 				} else {
+					HttpSession session = request.getSession(true);
 					session.setAttribute("user", user);
 					response.sendRedirect("/ItemServlet");
 				}
