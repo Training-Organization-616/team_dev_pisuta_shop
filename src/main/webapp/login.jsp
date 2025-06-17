@@ -17,7 +17,7 @@
 			<div class="err">${message}<br></div>
 			<input type="hidden" name="action" value="login">
 			<input type="text" name="email" placeholder="メールアドレス"><br>
-			<input type="text" name="password" placeholder="パスワード"><br>
+			<input type="password" name="password" placeholder="パスワード"><br>
 			<button>ログイン</button>
 	
 		</form>

@@ -13,8 +13,8 @@
 }
 
 button{
-	background-color: darkgray;
-	color: aliceblue;
+	background-color: rgb(128, 128, 128);
+	color: rgb(255, 255, 255);
 	width: 300px;
 	height: 300px;
 	padding: 60px;
