@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+h2 {
+	text-align: center;
+}
+
+#child1 {
+	background-color: lightblue;
+}
+
+#child2 {
+	background-color: lightgreen;
+}
+
+@media (min-width: 600px) {
+	#parent {
+		display: flex;
+	}
+
+	#child1 {
+		flex-grow: 3;
+		height: 400px;
+
+		display: flex;
+		justify-content: center;
+		/* 水平方向の中央揃え */
+		align-items: center;
+	}
+
+	#child2 {
+		flex-grow: 2;
+		height: 400px;
+
+		display: flex;
+		justify-content: center;
+		 水平方向の中央揃え 
+		align-items: center;
+	}
+}
