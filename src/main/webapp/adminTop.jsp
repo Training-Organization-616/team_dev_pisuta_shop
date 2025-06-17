@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/team_dev_pisuta_shop/css/adminHeaderStyle.css" rel="stylesheet">
 <link href="/team_dev_pisuta_shop/css/adminTopStyle.css" rel="stylesheet">
 </head>
 <body>
