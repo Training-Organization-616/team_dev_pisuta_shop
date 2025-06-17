@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>商品一覧</title>
+<link rel="stylesheet" href="/team_dev_pisuta_shop/css/topStyle.css" >
 </head>
 
 <body>
@@ -15,16 +16,18 @@
 	C to C売買システム
 	<h1>商品一覧</h1>
 
-
+<div class="item_container">
 	<c:forEach items="${items}" var="item">
-		<div>${item.name}<br> ${item.price}
-			<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
-				<button>購入</button>
-				<input type="hidden" name="action" value="confirm">
-				<input type="hidden" name="itemId" value="${item.id }"><br>
+		<div class="item">
+		${item.name}<br> 
+		${item.price}
+		<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
+			<button>購入</button>
+			<input type="hidden" name="action" value="confirm">
+			<input type="hidden" name="itemId" value="${item.id }"><br>
 			</form>
 		</div>
 	</c:forEach>
-
+</div>
 </body>
 </html>
