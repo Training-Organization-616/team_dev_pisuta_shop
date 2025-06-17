@@ -2,7 +2,7 @@
 
 
 .regist-page {
-	width: 850px;
+	width: 650px;
 	margin: auto;
 	text-align: center;
 }
@@ -10,7 +10,7 @@
 .regist-form {
 	position: relative;
 	z-index: 1;
-	max-width: 850px;
+	max-width: 700px;
 	background: #FFFFFF;
 	margin: 30px auto 30px;
 	padding: 30px 45px 45px;
@@ -19,15 +19,16 @@
 	border: 2px solid black;
 }
 
-.regist-form input text{
+.regist-form .input-text{
 	outline: 0;
 	background: #f2f2f2;
-	width: 100%;
+	width: 500px;
 	border: 0;
 	margin: 0 0 15px;
 	padding: 15px;
 	box-sizing: border-box;
 	font-size: 14px;
+	text-align: center;
 }
 
 .regist-form button {
@@ -47,6 +48,25 @@
 	color: 16px;
 	padding: 10px 0;
 	color: red;
+}
+
+.regist-form .radio{
+	background-color: #f2f2f2;
+	width: 470px;
+	padding: 15px;
+	margin: 0 0 15px;
+	justify-self: center;
+}
+
+.regist-form textarea{
+	background-color: #f2f2f2;
+	width: 470px;
+	padding: 15px;
+	margin: 0 0 15px;
+	justify-self: center;
+	resize: vertical;
+	border: none;
+	text-align: center;
 }
 
 .title {

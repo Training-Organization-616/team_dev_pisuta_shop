@@ -16,29 +16,39 @@
 	<div class="regist-page">
 		<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet"method="post">
 			<input type="hidden" name="action" value="add">
-			商品情報を入力してください<br>
+			<div class="title">商品情報を入力してください<br></div>
 			<!-- 入力に誤りがあった場合出力 -->
 			<div class="err">${message}<br></div>
-			<input type="text" name="name" placeholder="商品名"><br>
 			
+			商品名<br>
+			<input class="input-text" type="text" name="name"><br>
+			
+			カテゴリー<br>
+			<div class="radio">
 			<c:forEach items="${categories}" var="category">
 				<input type="radio" name="categoryId" value="${category.id}" required>${category.name}
 			</c:forEach><br>
+			</div>
 			
-			<input type="number" name="price" placeholder="価格"><br>
+			価格<br>
+			<input class="input-text" type="number" name="price"><br>
 			
+			状態<br>
+			<div class="radio">
 			<c:forEach items="${conditions}" var="condition">
 				<c:choose>
 					<c:when test="${condition.id eq 3}">
-						<input type="radio" name="conditionId" value="${condition.id}" checked>${condition.name}
+						<input type="radio" name="conditionId" value="${condition.id}" checked>${condition.name}<br>
 					</c:when>
 					<c:otherwise>
 						<input type="radio" name="conditionId" value="${condition.id}">${condition.name}
 					</c:otherwise>
 				</c:choose>	
 			</c:forEach><br>
+			</div>
 		
-			<textarea rows="" cols="" name="comment" placeholder="メモ"></textarea><br>
+			コメント<br>
+			<textarea rows="" cols="" name="comment"></textarea><br>
 			<!-- 会員管理画面へ遷移 -->
 			<button>出品</button>
 		</form>

@@ -47,7 +47,7 @@ public class UserServlet extends HttpServlet {
 				String tel = request.getParameter("tel");
 				String email = request.getParameter("email");
 				LocalDate birthday = LocalDate.parse(request.getParameter("birthday"),
-						DateTimeFormatter.ofPattern("yyyyMMdd"));
+						DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 				String password = request.getParameter("password");
 				String confirm = request.getParameter("confirm");
 
