@@ -9,13 +9,19 @@
 <head>
 <meta charset="UTF-8">
 <title>購入確認</title>
+	<link href="/team_dev_pisuta_shop/css/confirmStyle.css" rel="stylesheet"type="text/css">
 </head>
 
 
 <body>
+	<div class="haikei">
 	<jsp:include page="/header.jsp" />
-
+	
 	C to C 売買システム 購入確認画面
+	</div>
+	
+	
+	
 	<br> ${item.id}・${item.sellerId}
 	<br> ${item.name}
 	<br> ${item.price}
@@ -30,7 +36,7 @@
 	
 
 	<!-- 商品一覧画面へ遷移 -->
-	<a href="/top.jsp">キャンセル</a>
+	<a href="/team_dev_pisuta_shop/ItemServlet">キャンセル</a>
 
 </body>
 </html>
