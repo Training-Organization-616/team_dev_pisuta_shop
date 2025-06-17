@@ -2,9 +2,13 @@
 
 .input_container {
 	margin: 30px auto;
-	width: 100vw;
+	width: 100%;
 	
-	padding-left: 30px;
+}
+
+.search_form{
+	margin-left: 30px;
+	width: 80%;
 }
 
 .input_key {
@@ -77,7 +81,7 @@
 
 .dialog_content{
 	position: relative;
-	width: 100%;
+	width: 90%;
 	height: 90%;
 	text-align: center;
 	font-size: 20px;
