@@ -26,7 +26,7 @@ public class ConditionsDAO {
 		}
 	}
 
-	public List<ConditionBean> findAllCondition() throws DAOException {
+	public List<ConditionBean> findAll() throws DAOException {
 		// SQL文の作成
 		String sql = "SELECT * FROM conditions ORDER BY id";
 
