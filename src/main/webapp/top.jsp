@@ -20,7 +20,8 @@
 		<div>${item.name}<br> ${item.price}
 			<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
 				<button>購入</button>
-				<input type="hidden" name="action" value="confirm"> <br>
+				<input type="hidden" name="action" value="confirm">
+				<input type="hidden" name="itemId" value="${item.id }"><br>
 			</form>
 		</div>
 	</c:forEach>

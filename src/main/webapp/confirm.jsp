@@ -22,8 +22,11 @@
 	<br>
 
 	<!-- 購入情報画面へ遷移 -->
-
-	<a href="/team_dev_pisuta_shop/ItemServlet?action=buy">購入確定</a>
+<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
+<input type="hidden" name="itemId" value="${item.id }">
+<button>購入確定</button>
+</form>
+	
 
 	<!-- 商品一覧画面へ遷移 -->
 	<a href="/top.jsp">キャンセル</a>

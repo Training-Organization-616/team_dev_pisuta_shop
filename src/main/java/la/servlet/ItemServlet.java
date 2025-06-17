@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import la.bean.DealBean;
 import la.bean.ItemBean;
 import la.dao.DAOException;
+import la.dao.DealsDAO;
 import la.dao.ItemsDAO;
 
 /**
@@ -38,11 +40,38 @@ public class ItemServlet extends HttpServlet {
 		//★全商品の一覧を出力する
 		//
 		try {
+			request.setCharacterEncoding("UTF-8");
+			// パラメータの解析
+			String action = request.getParameter("action");
 			// モデルのDAOを生成
-			ItemsDAO dao = new ItemsDAO();
-			List<ItemBean> list = dao.findAll(false);
-			request.setAttribute("items", list);
-			gotoPage(request, response, "/top.jsp");
+			ItemsDAO itemsdao = new ItemsDAO();
+			DealsDAO dealsdao = new DealsDAO();
+			if (action == null) {
+
+				List<ItemBean> itemslist = itemsdao.findAll(false);
+				request.setAttribute("items", itemslist);
+				gotoPage(request, response, "/top.jsp");
+			} else if (action.equals("confirm")) {
+				// ★購入確認への遷移
+
+				int itemId = Integer.parseInt(request.getParameter("itemId"));
+				ItemBean bean = itemsdao.searchItemById(itemId);
+				request.setAttribute("item", bean);
+
+				gotoPage(request, response, "/confirm.jsp");
+
+			} else if (action.equals("buy")) {
+				// ★購入情報への遷移
+				int itemId = Integer.parseInt(request.getParameter("itemId"));
+				ItemBean itembean = itemsdao.searchItemById(itemId);
+				request.setAttribute("item", itembean);
+				DealBean dealbean = dealsdao.findDealByItemId(itemId);
+				request.setAttribute("deal", dealbean);
+
+				gotoPage(request, response, "/receipt.jsp");
+
+			}
+
 		} catch (DAOException e) {
 			e.printStackTrace();
 			request.setAttribute("message", "内部エラーが発生しました。");

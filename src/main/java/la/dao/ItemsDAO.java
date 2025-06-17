@@ -74,9 +74,9 @@ public class ItemsDAO {
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
 				// PreparedStatementオブジェクトの取得
-				PreparedStatement st = con.prepareStatement(sql);
-				ResultSet rs = st.executeQuery();) {
+				PreparedStatement st = con.prepareStatement(sql);) {
 			st.setInt(1, itemId);
+			ResultSet rs = st.executeQuery();
 			ItemBean bean;
 			//検索結果
 			while (rs.next()) {
