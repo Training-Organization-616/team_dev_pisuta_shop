@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ja">
-
+<link href="/team_dev_pisuta_shop/css/receiptStyle.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title>購入情報</title>
@@ -12,14 +12,18 @@
 <body>
 	<jsp:include page="/header.jsp" />
 
-	C to C 売買システム 購入情報
-	<br> ${deal.id}・${sellerName}
-	<br> ${item.name}
-	<br> ${item.price}
-	<br> 商品の購入が確定しました！
-	<br>
+	<h1>購入情報</h1> 
+	<span class="haikei2">
+	 取引番号：${deal.id}・出品者名：${sellerName}<br>
+	 商品名：${item.name}<br>
+	 ${item.price}円<br>
+	 </span>
+	 <p1>商品の購入が確定しました！</p1><br>
+	 
+	
 	<!-- 商品一覧画面へ遷移 -->
 	<a href="/team_dev_pisuta_shop/ItemServlet">商品一覧へ戻る</a>
+
 
 </body>
 </html>
