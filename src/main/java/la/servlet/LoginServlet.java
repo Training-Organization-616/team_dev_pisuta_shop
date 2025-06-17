@@ -67,6 +67,11 @@ public class LoginServlet extends HttpServlet {
 					session.setAttribute("user", user);
 					response.sendRedirect("/team_dev_pisuta_shop/ItemServlet");
 				}
+			} else if (action.equals("logout")) {
+				HttpSession session = request.getSession();
+				session.removeAttribute("user");
+
+				response.sendRedirect("/team_dev_pisuta_shop/ItemServlet");
 			}
 
 		} catch (Exception e) {

@@ -18,6 +18,7 @@ import la.bean.UserBean;
 import la.dao.DAOException;
 import la.dao.DealsDAO;
 import la.dao.ItemsDAO;
+import la.dao.UsersDAO;
 
 /**
  * Servlet implementation class ItemServlet
@@ -49,6 +50,10 @@ public class ItemServlet extends HttpServlet {
 			// モデルのDAOを生成
 			ItemsDAO itemsdao = new ItemsDAO();
 			DealsDAO dealsdao = new DealsDAO();
+			UsersDAO userdao = new UsersDAO();
+
+			HttpSession session = request.getSession();
+			UserBean user = (UserBean) session.getAttribute("user");
 			if (action == null) {
 
 				List<ItemBean> itemslist = itemsdao.findAll(false);
@@ -56,12 +61,16 @@ public class ItemServlet extends HttpServlet {
 				gotoPage(request, response, "/top.jsp");
 			} else if (action.equals("confirm")) {
 				// ★購入確認への遷移
-				HttpSession session = request.getSession();
-				if (Objects.isNull(session.getAttribute("user"))) {
+
+				if (Objects.isNull(user)) {
 					response.sendRedirect("/team_dev_pisuta_shop/LoginServlet");
+					return;
 				}
 				int itemId = Integer.parseInt(request.getParameter("itemId"));
 				ItemBean bean = itemsdao.searchItemById(itemId);
+
+				String name = userdao.findUserById(bean.getSellerId()).getName();
+				request.setAttribute("sellerName", name);
 				request.setAttribute("item", bean);
 
 				gotoPage(request, response, "/confirm.jsp");
@@ -69,15 +78,15 @@ public class ItemServlet extends HttpServlet {
 			} else if (action.equals("buy")) {
 				// ★購入情報への遷移
 				int itemId = Integer.parseInt(request.getParameter("itemId"));
-
-				HttpSession session = request.getSession();
-				UserBean user = (UserBean) session.getAttribute("user");
+				user = (UserBean) session.getAttribute("user");
 
 				dealsdao.addDeal(itemId, user.getId());
 
 				ItemBean itembean = itemsdao.searchItemById(itemId);
 				DealBean dealbean = dealsdao.findDealByItemId(itemId);
+				String name = userdao.findUserById(itembean.getSellerId()).getName();
 
+				request.setAttribute("sellerName", name);
 				request.setAttribute("item", itembean);
 				request.setAttribute("deal", dealbean);
 
