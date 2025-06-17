@@ -44,14 +44,13 @@ public class ItemManageServlet extends HttpServlet {
 			request.setCharacterEncoding("UTF-8");
 			//actionパラメータ取得
 			String action = request.getParameter("action");
-			System.out.println(action);
 			//ItemDAOインスタンス
 			ItemsDAO itemsDao = new ItemsDAO();
 			UsersDAO usersDao = new UsersDAO();
 
 			if (Objects.isNull(action) || action.isEmpty()) {
 				//ItemBeanリスト:商品全検索
-				List<ItemBean> list = itemsDao.findAll(false);
+				List<ItemBean> list = itemsDao.findAll(true);
 				List<UserBean> userList = usersDao.findAll();
 
 				request.setAttribute("items", list);
@@ -60,7 +59,6 @@ public class ItemManageServlet extends HttpServlet {
 
 			} else if (action.equals("delete")) {
 				int id = Integer.parseInt(request.getParameter("itemId"));
-				System.out.println(id);
 				itemsDao.deleteItem(id);
 
 				response.sendRedirect("/team_dev_pisuta_shop/ItemManageServlet");
