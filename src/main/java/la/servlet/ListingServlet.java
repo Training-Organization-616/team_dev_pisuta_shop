@@ -65,36 +65,33 @@ public class ListingServlet extends HttpServlet {
 				//入力情報の取得
 				String name = request.getParameter("name");
 				int categoryId = Integer.parseInt(request.getParameter("categoryId"));
-				int condId = Integer.parseInt(request.getParameter("condId"));
+				int condId = Integer.parseInt(request.getParameter("conditionId"));
 				String comment = request.getParameter("comment");
 				int price = 0;
-
+				System.out.println(comment);
 				try {
 					price = Integer.parseInt(request.getParameter("price"));
-
-					if (name == null || name.length() == 0) {
-						request.setAttribute("message", "商品名は必須です");
-						gotoPage(request, response, "listing.jsp");
-
-					} else if (name.length() >= 100) {
-						request.setAttribute("message", "商品名は100文字以下にしてください");
-						gotoPage(request, response, "listing.jsp");
-
-					} else {
-						//ログインユーザーの取得
-						HttpSession session = request.getSession();
-						UserBean user = (UserBean) session.getAttribute("user");
-						//出品処理
-						itemsDao.addItem(name, categoryId, user.getId(), price, condId, comment);
-
-						gotoPage(request, response, "profile.jsp");
-					}
-
 				} catch (Exception e) {
 					request.setAttribute("message", "価格は必須です");
-					gotoPage(request, response, "listing.jsp");
+					response.sendRedirect("/team_dev_pisuta_shop/ListingServlet");
 				}
+				if (name == null || name.length() == 0) {
+					request.setAttribute("message", "商品名は必須です");
+					response.sendRedirect("/team_dev_pisuta_shop/ListingServlet");
 
+				} else if (name.length() >= 100) {
+					request.setAttribute("message", "商品名は100文字以下にしてください");
+					response.sendRedirect("/team_dev_pisuta_shop/ListingServlet");
+
+				} else {
+					//ログインユーザーの取得
+					HttpSession session = request.getSession();
+					UserBean user = (UserBean) session.getAttribute("user");
+					//出品処理
+					itemsDao.addItem(name, categoryId, user.getId(), price, condId, comment);
+
+					gotoPage(request, response, "profile.jsp");
+				}
 			}
 
 		} catch (Exception e) {
