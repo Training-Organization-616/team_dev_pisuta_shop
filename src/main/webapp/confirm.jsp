@@ -14,17 +14,17 @@
 
 
 <body>
-	<div class="haikei">
+	
 	<jsp:include page="/header.jsp" />
 	
-	C to C 売買システム 購入確認画面
-	</div>
+	<h1>購入確認画面</h1> 
 	
 	
-	
-	<br> ${item.id}・${item.sellerId}
-	<br> ${item.name}
-	<br> ${item.price}
+	<span class="haikei2">
+	 商品番号：${item.id}・出品者名：${item.sellerId}<br>
+	 商品名：${item.name}<br> 
+	 ${item.price}円<br>
+	</span>
 	<br>
 
 	<!-- 購入情報画面へ遷移 -->

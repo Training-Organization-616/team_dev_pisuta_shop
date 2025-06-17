@@ -1,0 +1,22 @@
+@charset "UTF-8";
+.haikei{
+  background-color: rgb(196, 188, 188);
+}
+.cc { 
+	display: table-cell; text-align: left; 
+}
+.top  { 
+	display: table-cell; text-align: center; 
+}
+.haikei2{
+  padding: 2px 4px;
+  color: rgb(0, 0, 0);
+  line-height: 1.9;
+  background: rgb(192, 192, 192);
+  display: inline;
+  -webit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+body{
+	text-align: center;
+}
