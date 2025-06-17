@@ -9,6 +9,9 @@
 </head>
  
 <body>
+
+<jsp:include page="/header.jsp" />
+
 C to C 売買システム
 商品登録<br>
 購入情報を入力してください<br>
@@ -24,7 +27,7 @@ ${message}<br>
 <input type="text" name="comment" placeholder="メモ"><br>
 <!-- 会員管理画面へ遷移 -->
 <button>出品</button>
-/form>
+</form>
 
 <!-- 商品名　必須100字以内 -->
 <!-- カテゴリー、価格、状態、必須 -->

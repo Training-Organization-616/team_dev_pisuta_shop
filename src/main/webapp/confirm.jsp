@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ja">
@@ -13,24 +13,20 @@
 
 
 <body>
+	<jsp:include page="/header.jsp" />
 
-C to C 売買システム
-購入確認画面<br>
+	C to C 売買システム 購入確認画面
+	<br> ${item.id}・${item.sellerId}
+	<br> ${item.name}
+	<br> ${item.price}
+	<br>
 
+	<!-- 購入情報画面へ遷移 -->
 
-${item.id}・${item.sellerId}<br>
-${item.name}<br>
-${item.price}<br>
+	<a href="/team_dev_pisuta_shop/ItemServlet?action=buy">購入確定</a>
 
-<!-- 購入情報画面へ遷移 -->
-
-<a href="/team_dev_pisuta_shop/ItemServlet?action=buy">購入確定</a>
-
-<!-- 商品一覧画面へ遷移 -->
-<a href="/top.jsp">キャンセル</a>
-
-
-
+	<!-- 商品一覧画面へ遷移 -->
+	<a href="/top.jsp">キャンセル</a>
 
 </body>
 </html>

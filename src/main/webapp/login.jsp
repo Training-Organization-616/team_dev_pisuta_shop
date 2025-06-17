@@ -8,6 +8,7 @@
 <title>ログイン</title>
 </head>
 <body>
+	<jsp:include page="/header.jsp" />
 	
 	<h2>ログイン</h2>
 

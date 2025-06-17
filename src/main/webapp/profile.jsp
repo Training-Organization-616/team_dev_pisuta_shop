@@ -8,6 +8,7 @@
 <title>会員管理</title>
 </head>
 <body>
+	<jsp:include page="/header.jsp" />
 	
 	<h2>会員管理画面</h2>
 	

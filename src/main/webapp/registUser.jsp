@@ -8,6 +8,7 @@
 <title>新規会員登録</title>
 </head>
 <body>
+	<jsp:include page="/header.jsp" />
 
 	<h2>新規会員登録</h2>
 

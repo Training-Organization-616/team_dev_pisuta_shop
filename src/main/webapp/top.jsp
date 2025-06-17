@@ -9,8 +9,9 @@
 <title>商品一覧</title>
 </head>
 
-
 <body>
+	<jsp:include page="/header.jsp" />
+	
 	C to C売買システム
 	<h1>商品一覧</h1>
 

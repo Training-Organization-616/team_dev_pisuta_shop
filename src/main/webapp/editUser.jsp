@@ -8,7 +8,8 @@
 <title>会員情報変更</title>
 </head>
 <body>
-
+	<jsp:include page="/header.jsp" />
+	
 	<h2>会員情報変更</h2>
 
 	<p>${message}</p>
