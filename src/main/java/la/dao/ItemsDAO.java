@@ -150,6 +150,8 @@ public class ItemsDAO {
 			sql += " AND name LIKE ?";
 		}
 
+		sql += " AND status = true";
+
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
 				// PreparedStatementオブジェクトの取得

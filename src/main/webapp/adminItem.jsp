@@ -11,17 +11,18 @@
 </head>
 <body>
 	<jsp:include page="/adminHeader.jsp" />
-
+	<div class="input_container">
 	<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
-		<input type="text" name="keyword" placeholder="キ－ワード"> 
-		<input type="text" name="userName" placeholder="ユーザー名">
-		<button type="submit" name="action" value="search">検索</button>
+		<input class="input_key" type="text" name="keyword" placeholder="キ－ワード"> 
+		<input class="input_name" type="text" name="userName" placeholder="ユーザー名">
+		<button class="button_search" type="submit" name="action" value="search">検索</button>
 	</form>
+	</div>
 	<div class="item_container">
 	<c:forEach items="${items }" var="item">
 		<div class="item">
 			<p>${item.name }</p>
-			<p>${item.price }</p>
+			<p>${item.price }円</p>
 			<c:forEach items="${users }" var="user">
 			<c:if test="${item.sellerId == user.id }">
 			<p>${user.name }</p>
@@ -31,22 +32,25 @@
 		</div>
 	</c:forEach>
 	</div>
+	<div class="back_container">
 	<form action="/team_dev_pisuta_shop/AdminServlet" method="post">
-		<button>戻る</button>
+		<button class="button_back">戻る</button>
 	</form>
-
+</div>
 	<dialog id="deleteDialog">
 	<div class="dialog_content">
 		<p id="itemName"></p>
 		<p id="itemPrice"></p>
-		<p>削除しますか</p>
+		<p class="check_massage">削除しますか</p>
+		<div class="button_container">
 		<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
 			<input class="delete_id" type="hidden" name="itemId" value="">
-			<button type="submit" name="action" value="delete">はい</button>
+			<button class="button_yes" type="submit" name="action" value="delete">はい</button>
 		</form>
 		<form method="dialog">
-			<button>いいえ</button>
+			<button class="button_no">いいえ</button>
 		</form>
+		</div>
 	</div>
 	</dialog>
 </body>
