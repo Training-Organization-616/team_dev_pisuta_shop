@@ -1,2 +1,15 @@
 @charset "UTF-8";
 
+.item_container{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	width: 100%;
+	
+}
+
+.item{
+	width: 300px;
+	height: 300px;
+	border: solid 1px black;
+	border-radius: 5px;
+}

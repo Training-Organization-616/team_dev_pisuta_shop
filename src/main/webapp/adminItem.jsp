@@ -6,17 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/team_dev_pisuta_shop/css/adminItemStyle.css">
 <script src="/team_dev_pisuta_shop/javascript/adminItem.js"></script>
 </head>
 <body>
-	<jsp:include page="/header.jsp" />
+	<jsp:include page="/adminHeader.jsp" />
 
 	<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
 		<input type="text" name="keyword" placeholder="キ－ワード"> 
 		<input type="text" name="userName" placeholder="ユーザー名">
 		<button type="submit" name="action" value="search">検索</button>
 	</form>
-
+	<div class="item_container">
 	<c:forEach items="${items }" var="item">
 		<div class="item">
 			<p>${item.name }</p>
@@ -29,7 +30,7 @@
 			<button type="button" class="delete" value="${item.id }">削除</button>
 		</div>
 	</c:forEach>
-
+	</div>
 	<form action="/team_dev_pisuta_shop/AdminServlet" method="post">
 		<button>戻る</button>
 	</form>

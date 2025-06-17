@@ -67,6 +67,38 @@ public class ItemsDAO {
 		}
 	}
 
+	public ItemBean searchItemById(int itemId) throws DAOException {
+
+		String sql = "SELECT * FROM items WHERE id = ?";
+
+		try (// データベースへの接続
+				Connection con = DriverManager.getConnection(url, user, pass);
+				// PreparedStatementオブジェクトの取得
+				PreparedStatement st = con.prepareStatement(sql);
+				ResultSet rs = st.executeQuery();) {
+			ItemBean bean;
+			//検索結果
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String name = rs.getString("name");
+				int categoryId = rs.getInt("category_id");
+				int sellerId = rs.getInt("seller_id");
+				int price = rs.getInt("price");
+				int condId = rs.getInt("cond_id");
+				boolean itemStatus = rs.getBoolean("status");
+				String comment = rs.getString("comment");
+
+				bean = new ItemBean(id, name, categoryId, sellerId, price, condId, itemStatus, comment);
+				return bean;
+			}
+			return null;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DAOException("レコードの操作に失敗しました。");
+		}
+	}
+
 	public int addItem(String name, int categoryId, int sellerId, int price, int condId, String comment)
 			throws DAOException {
 		String sql = "INSERT INTO items(name,category_id,seller_id,price,cond_id,comment) VALUES(?,?,?,?,?,?)";
