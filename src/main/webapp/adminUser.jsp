@@ -19,6 +19,8 @@
 	
 	<br>
 
+	<div>${message}</div>
+
 	<div>
 		<table border="1">
 			<tr>

@@ -38,6 +38,7 @@ public class UserManageServlet extends HttpServlet {
 				} catch (Exception e) {
 					List<UserBean> list = dao.findAll();
 					request.setAttribute("users", list);
+					request.setAttribute("message", "無効なIDです");
 					gotoPage(request, response, "/adminUser.jsp");
 					return;
 				}
