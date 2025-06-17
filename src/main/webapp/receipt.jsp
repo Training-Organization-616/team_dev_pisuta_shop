@@ -19,7 +19,7 @@
 	<br> 商品の購入が確定しました！
 	<br>
 	<!-- 商品一覧画面へ遷移 -->
-	<a href="/team_dev_pisuta_shop/top.jsp">商品一覧へ戻る</a>
+	<a href="/team_dev_pisuta_shop/ItemServlet">商品一覧へ戻る</a>
 
 </body>
 </html>

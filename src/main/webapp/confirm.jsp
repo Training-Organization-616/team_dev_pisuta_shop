@@ -24,6 +24,7 @@
 	<!-- 購入情報画面へ遷移 -->
 <form action="/team_dev_pisuta_shop/ItemServlet" method="post">
 <input type="hidden" name="itemId" value="${item.id }">
+<input type="hidden" name="action" value="buy">
 <button>購入確定</button>
 </form>
 	
