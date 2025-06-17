@@ -51,13 +51,16 @@ public class ListingServlet extends HttpServlet {
 			ConditionsDAO conditionsDao = new ConditionsDAO();
 			ItemsDAO itemsDao = new ItemsDAO();
 
+			// カテゴリーと状態の一覧の取得
+			HttpSession sessionDao = request.getSession();
+			List<CategoryBean> categories = categoriesDao.findAll();
+			List<ConditionBean> conditions = conditionsDao.findAll();
+
+			// セッションにカテゴリーと状態の一覧をセット
+			sessionDao.setAttribute("categories", categories);
+			sessionDao.setAttribute("conditions", conditions);
+
 			if (Objects.isNull(action) || action.isEmpty()) {
-
-				List<CategoryBean> categories = categoriesDao.findAll();
-				List<ConditionBean> conditions = conditionsDao.findAll();
-
-				request.setAttribute("categories", categories);
-				request.setAttribute("conditions", conditions);
 
 				gotoPage(request, response, "listing.jsp");
 
@@ -68,20 +71,20 @@ public class ListingServlet extends HttpServlet {
 				int condId = Integer.parseInt(request.getParameter("conditionId"));
 				String comment = request.getParameter("comment");
 				int price = 0;
-				System.out.println(comment);
+
 				try {
 					price = Integer.parseInt(request.getParameter("price"));
 				} catch (Exception e) {
 					request.setAttribute("message", "価格は必須です");
-					response.sendRedirect("/team_dev_pisuta_shop/ListingServlet");
+					gotoPage(request, response, "listing.jsp");
 				}
 				if (name == null || name.length() == 0) {
 					request.setAttribute("message", "商品名は必須です");
-					response.sendRedirect("/team_dev_pisuta_shop/ListingServlet");
+					gotoPage(request, response, "listing.jsp");
 
 				} else if (name.length() >= 100) {
 					request.setAttribute("message", "商品名は100文字以下にしてください");
-					response.sendRedirect("/team_dev_pisuta_shop/ListingServlet");
+					gotoPage(request, response, "listing.jsp");
 
 				} else {
 					//ログインユーザーの取得
