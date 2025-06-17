@@ -59,7 +59,7 @@ public class UserServlet extends HttpServlet {
 				} else if (!(email.contains("@") && (email.contains(".com") || email.contains(".jp")))) {
 					request.setAttribute("message", "メールアドレスが正しくありません");
 					gotoPage(request, response, "/registUser.jsp");
-				} else if (dao.isRegisteredUser(email)) {
+				} else if (dao.isRegisteredUser(email, -1)) {
 					request.setAttribute("message", "既に登録されているメールアドレスです");
 					gotoPage(request, response, "/registUser.jsp");
 				} else if (password.length() < 6 || password.length() > 16) {
@@ -88,6 +88,10 @@ public class UserServlet extends HttpServlet {
 				String password = request.getParameter("password");
 				String confirm = request.getParameter("confirm");
 
+				HttpSession session = request.getSession(false);
+				UserBean bean = (UserBean) session.getAttribute("user");
+				int id = bean.getId();
+
 				// 入力チェック
 				if (email == null || email.length() == 0 || name == null || name.length() == 0 || password == null
 						|| password.length() == 0 || confirm == null || confirm.length() == 0) {
@@ -96,7 +100,7 @@ public class UserServlet extends HttpServlet {
 				} else if (!(email.contains("@") && (email.contains(".com") || email.contains(".jp")))) {
 					request.setAttribute("message", "メールアドレスが正しくありません");
 					gotoPage(request, response, "/editUser.jsp");
-				} else if (dao.isRegisteredUser(email)) {
+				} else if (dao.isRegisteredUser(email, id)) {
 					request.setAttribute("message", "既に登録されているメールアドレスです");
 					gotoPage(request, response, "/editUser.jsp");
 				} else if (password.length() < 6 || password.length() > 16) {
@@ -106,10 +110,6 @@ public class UserServlet extends HttpServlet {
 					request.setAttribute("message", "パスワードが一致していません");
 					gotoPage(request, response, "/editUser.jsp");
 				} else {
-					HttpSession session = request.getSession(false);
-					UserBean bean = (UserBean) session.getAttribute("user");
-					int id = bean.getId();
-
 					dao.updateUser(id, name, address, tel, email, birthday, password);
 
 					UserBean user = dao.findUserById(id);

@@ -136,9 +136,10 @@ public class UsersDAO {
 	}
 
 	// メールアドレスをもとに登録済みかどうか判定する
-	public boolean isRegisteredUser(String email) throws DAOException {
+	public boolean isRegisteredUser(String email, int id) throws DAOException {
 		// SQL文の作成
-		String sql = "SELECT * FROM users WHERE email = ? AND status = true";
+		String sql = "SELECT * FROM users WHERE email = ? AND status = true "
+				+ "EXCEPT SELECT * FROM users WHERE id = ?";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
@@ -146,6 +147,7 @@ public class UsersDAO {
 				PreparedStatement st = con.prepareStatement(sql);) {
 
 			st.setString(1, email);
+			st.setInt(2, id);
 
 			try (ResultSet rs = st.executeQuery();) {
 				// 結果の取得および表示

@@ -6,15 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="stylesheet" rel="/adminHeaderStyle.jsp">
+<link href="/team_dev_pisuta_shop/css/adminUserStyle.css" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="/adminHeader.jsp" />
 
-	<div>
+	<div class="content2">
 		<form action="/team_dev_pisuta_shop/UserManageServlet" method="post">
-			<input type="text" name="userId" placeholder="会員番号">
-			<button>検索</button>
+			<input type="text" name="userId" placeholder="会員番号" class="textarea">
+			<button class="search">検索</button>
 			<input type="hidden" name="action" value="search"> <br>
 		</form>
 	</div>
@@ -24,7 +24,7 @@
 	<div>${message}</div>
 
 	<div>
-		<table border="1">
+		<table class="content" border="1">
 			<tr>
 				<th>会員番号</th>
 				<th>氏名</th>
@@ -56,7 +56,7 @@
 
 	<div>
 		<form>
-			<button>戻る</button>
+			<button class="return">戻る</button>
 			<input type="hidden" name="action" value="top">
 		</form>
 	</div>
