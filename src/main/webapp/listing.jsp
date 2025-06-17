@@ -4,45 +4,45 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>商品登録</title>
+	<meta charset="UTF-8">
+	<title>商品登録</title>
+	<link rel="stylesheet" href="/team_dev_pisuta_shop/css/listingStyle.css">
 </head>
  
 <body>
 
-<jsp:include page="/header.jsp" />
+	<jsp:include page="/header.jsp" />
 
-C to C 売買システム
-商品登録<br>
-商品情報を入力してください<br>
-<!-- 入力に誤りがあった場合出力 -->
-	<p>${message}<br></p>
-
-	<form action = "/team_dev_pisuta_shop/ListingServlet"method="post">
-		<input type="hidden" name="action" value="add">
-		<input type="text" name="name" placeholder="商品名"><br>
+	<div class="regist-page">
+		<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet"method="post">
+			<input type="hidden" name="action" value="add">
+			商品情報を入力してください<br>
+			<!-- 入力に誤りがあった場合出力 -->
+			<div class="err">${message}<br></div>
+			<input type="text" name="name" placeholder="商品名"><br>
+			
+			<c:forEach items="${categories}" var="category">
+				<input type="radio" name="categoryId" value="${category.id}" required>${category.name}
+			</c:forEach><br>
+			
+			<input type="number" name="price" placeholder="価格"><br>
+			
+			<c:forEach items="${conditions}" var="condition">
+				<c:choose>
+					<c:when test="${condition.id eq 3}">
+						<input type="radio" name="conditionId" value="${condition.id}" checked>${condition.name}
+					</c:when>
+					<c:otherwise>
+						<input type="radio" name="conditionId" value="${condition.id}">${condition.name}
+					</c:otherwise>
+				</c:choose>	
+			</c:forEach><br>
 		
-		<c:forEach items="${categories}" var="category">
-			<input type="radio" name="categoryId" value="${category.id}" required>${category.name}
-		</c:forEach><br>
-		
-		<input type="number" name="price" placeholder="価格"><br>
-		
-		<c:forEach items="${conditions}" var="condition">
-			<c:choose>
-				<c:when test="${condition.id eq 3}">
-					<input type="radio" name="conditionId" value="${condition.id}" checked>${condition.name}
-				</c:when>
-				<c:otherwise>
-					<input type="radio" name="conditionId" value="${condition.id}">${condition.name}
-				</c:otherwise>
-			</c:choose>	
-		</c:forEach><br>
-		
-		<textarea rows="" cols="" name="comment" placeholder="メモ"></textarea><br>
-		<!-- 会員管理画面へ遷移 -->
-		<button>出品</button>
-</form>
+			<textarea rows="" cols="" name="comment" placeholder="メモ"></textarea><br>
+			<!-- 会員管理画面へ遷移 -->
+			<button>出品</button>
+		</form>
+	</div>
 
 <!-- 商品名　必須100字以内 -->
 <!-- カテゴリー、価格、状態、必須 -->
