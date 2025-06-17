@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+button {
+	background-color: rgb(128, 128, 128);
+	color: rgb(255, 255, 255);
+
+}
+
+.delete {
+	margin-top: 10px;
+	display: flex;
+	  justify-content: center;
+	  align-items: center; 
+/*	width: 50px;*/
+/*	height: 30px;*/
+/*	justify-content: center;*/
+/*	 水平方向の中央揃え */
+/*	align-items:center;*/
+}
+
+.return {
+	margin-top: 10px;
+	display: flex;
+	  justify-content: center; /* 水平方向の中央揃え */
+	  align-items: center; 
+/*	width: 100px;*/
+/*	height: 30px;*/
+/*	justify-content: center;*/
+/*	 水平方向の中央揃え */
+/*	align-items: center;*/
+}
+
+th {
+	background-color: rgb(128, 128, 128);
+	color: rgb(255, 255, 255);
+}
+
+.content {
+	justify-content: center;
+	/* 水平方向の中央揃え */
+	align-items: center;
+}
+
+table{
+	margin: auto;
+	width:400px;
+	height: auto;
+	font-size: 20px;
+}
+
+.dialog_content{
+	
+}
