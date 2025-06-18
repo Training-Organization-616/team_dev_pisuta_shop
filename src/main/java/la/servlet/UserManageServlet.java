@@ -42,9 +42,19 @@ public class UserManageServlet extends HttpServlet {
 					gotoPage(request, response, "/adminUser.jsp");
 					return;
 				}
+
 				UserBean user = dao.findUserById(userId);
-				request.setAttribute("user", user);
-				gotoPage(request, response, "/adminUserInfo.jsp");
+
+				//会員情報が存在しない時
+				if (user.equals(null)) {
+					List<UserBean> list = dao.findAll();
+					request.setAttribute("users", list);
+					request.setAttribute("message", "無効なIDです");
+					gotoPage(request, response, "/adminUser.jsp");
+				} else {
+					request.setAttribute("user", user);
+					gotoPage(request, response, "/adminUserInfo.jsp");
+				}
 
 				//退会ボタン押下時
 			} else if (action.equals("delete")) {

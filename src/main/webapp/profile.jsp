@@ -23,7 +23,7 @@
 		</div>
 
 		<div id="child2">
-			<a href="/team_dev_pisuta_shop/ListingServlet">商品登録</a>
+		<a href="/team_dev_pisuta_shop/ListingServlet" class="button">商品登録</a>
 		</div>
 	</div>
 </div>
