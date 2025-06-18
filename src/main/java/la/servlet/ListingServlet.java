@@ -72,12 +72,6 @@ public class ListingServlet extends HttpServlet {
 				String comment = request.getParameter("comment");
 				int price = 0;
 
-				try {
-					price = Integer.parseInt(request.getParameter("price"));
-				} catch (Exception e) {
-					request.setAttribute("message", "価格は必須です");
-					gotoPage(request, response, "listing.jsp");
-				}
 				if (name == null || name.length() == 0) {
 					request.setAttribute("message", "商品名は必須です");
 					gotoPage(request, response, "listing.jsp");
@@ -87,6 +81,12 @@ public class ListingServlet extends HttpServlet {
 					gotoPage(request, response, "listing.jsp");
 
 				} else {
+					try {
+						price = Integer.parseInt(request.getParameter("price"));
+					} catch (Exception e) {
+						request.setAttribute("message", "価格は必須です");
+						gotoPage(request, response, "listing.jsp");
+					}
 					//ログインユーザーの取得
 					HttpSession session = request.getSession();
 					UserBean user = (UserBean) session.getAttribute("user");
