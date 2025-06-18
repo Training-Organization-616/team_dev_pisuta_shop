@@ -4,23 +4,45 @@
 	background-color: rgb(255, 80, 50);
 	justify-content: center;
 	align-items: center;
-	height: 80px;
+	height: 90px;
 	display: flex;
 }
 
-.header a{
-	text-decoration: none;
-}
-
-.pisuta{
+.pisuta {
 	font-size: 38px;
 }
 
-.icon {
+.pisuta a {
+	position: relative;
+	text-decoration: none;
+	padding: 5px;
 	color: white;
+	z-index: 0;
+	transition: .5s ease-in-out .1s;
 }
 
-.logininfo{
+.pisuta a::after {
+	position: absolute;
+	content: '';
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 00%;
+	background: white;
+	z-index: -1;
+	transition: .5s;
+}
+
+.pisuta a:hover {
+	color: rgb(255, 80, 50);
+}
+
+.pisuta a:hover::after {
+	height: 100%;
+}
+
+
+.logininfo {
 	position: absolute;
 	right: 20px;
 	color: white;
@@ -28,7 +50,35 @@
 	text-decoration: none;
 }
 
-.logininfo a{
+.logininfo a {
+	position: relative;
+	text-decoration: none;
+	padding: 5px;
 	color: white;
+	z-index: 0;
+	transition: .5s ease-in-out .1s;
 }
 
+.logininfo a::after {
+	position: absolute;
+	content: '';
+	bottom: 0;
+	left: 0;
+	width: 00%;
+	height: 100%;
+	background: white;
+	z-index: -1;
+	transition: .5s;
+}
+
+.logininfo a:hover {
+	color: rgb(255, 80, 50);
+}
+
+.logininfo a:hover::after {
+	width: 100%;
+}
+
+.logout {
+	margin: 15px 0 0;
+}

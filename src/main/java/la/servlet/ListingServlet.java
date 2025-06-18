@@ -83,17 +83,19 @@ public class ListingServlet extends HttpServlet {
 				} else {
 					try {
 						price = Integer.parseInt(request.getParameter("price"));
+
+						//ログインユーザーの取得
+						HttpSession session = request.getSession();
+						UserBean user = (UserBean) session.getAttribute("user");
+						//出品処理
+						itemsDao.addItem(name, categoryId, user.getId(), price, condId, comment);
+
+						gotoPage(request, response, "profile.jsp");
+
 					} catch (Exception e) {
 						request.setAttribute("message", "価格は必須です");
 						gotoPage(request, response, "listing.jsp");
 					}
-					//ログインユーザーの取得
-					HttpSession session = request.getSession();
-					UserBean user = (UserBean) session.getAttribute("user");
-					//出品処理
-					itemsDao.addItem(name, categoryId, user.getId(), price, condId, comment);
-
-					gotoPage(request, response, "profile.jsp");
 				}
 			}
 
