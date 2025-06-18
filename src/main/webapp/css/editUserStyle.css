@@ -73,3 +73,20 @@ input[type="number"] {
 input {
 	text-align: center;
 }
+
+button {
+	background-color: rgb(255, 80, 50);
+	border-color: rgb(255, 80, 50);
+	color: white;
+	margin: 0 0 15px;
+	border-radius: 5px;
+	
+	transition: .4s;
+	text-align: center;
+}
+button:hover {
+	background-color: white;
+	color: rgb(255, 80, 50);
+	transition: .4s;
+	text-align: center;
+}

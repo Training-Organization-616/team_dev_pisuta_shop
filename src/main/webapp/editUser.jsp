@@ -36,7 +36,8 @@
 		</form>
 	</div>
 	
-	<a href="/team_dev_pisuta_shop/UserServlet">キャンセル</a>
-
+    <form action="/team_dev_pisuta_shop/UserServlet" method="post">
+		<button>キャンセル</button>
+	</form>
 </body>
 </html>
