@@ -32,7 +32,7 @@ public class UserServlet extends HttpServlet {
 			String action = request.getParameter("action");
 			UsersDAO dao = new UsersDAO();
 
-			if (action == null) {
+			if (action == null || action.length() == 0) {
 				// 会員管理画面への遷移
 				gotoPage(request, response, "/profile.jsp");
 
@@ -52,14 +52,21 @@ public class UserServlet extends HttpServlet {
 				String confirm = request.getParameter("confirm");
 
 				// 入力チェック
-				if (email == null || email.length() == 0 || name == null || name.length() == 0 || password == null
-						|| password.length() == 0 || confirm == null || confirm.length() == 0) {
+				if (name == null || name.length() == 0 || address == null || address.length() == 0
+						|| tel == null || tel.length() == 0 || email == null || email.length() == 0
+						|| password == null || password.length() == 0 || confirm == null || confirm.length() == 0) {
 					request.setAttribute("message", "全ての項目を入力してください");
+					gotoPage(request, response, "/registUser.jsp");
+				} else if (tel.length() != 11) {
+					request.setAttribute("message", "電話番号が正しくありません");
+					gotoPage(request, response, "/registUser.jsp");
+				} else if (dao.isRegisteredByTel(tel, -1)) {
+					request.setAttribute("message", "既に登録されている電話番号です");
 					gotoPage(request, response, "/registUser.jsp");
 				} else if (!(email.contains("@") && (email.contains(".com") || email.contains(".jp")))) {
 					request.setAttribute("message", "メールアドレスが正しくありません");
 					gotoPage(request, response, "/registUser.jsp");
-				} else if (dao.isRegisteredUser(email, -1)) {
+				} else if (dao.isRegisteredByEmail(email, -1)) {
 					request.setAttribute("message", "既に登録されているメールアドレスです");
 					gotoPage(request, response, "/registUser.jsp");
 				} else if (password.length() < 6 || password.length() > 16) {
@@ -93,14 +100,21 @@ public class UserServlet extends HttpServlet {
 				int id = bean.getId();
 
 				// 入力チェック
-				if (email == null || email.length() == 0 || name == null || name.length() == 0 || password == null
-						|| password.length() == 0 || confirm == null || confirm.length() == 0) {
+				if (name == null || name.length() == 0 || address == null || address.length() == 0
+						|| tel == null || tel.length() == 0 || email == null || email.length() == 0
+						|| password == null || password.length() == 0 || confirm == null || confirm.length() == 0) {
 					request.setAttribute("message", "全ての項目を入力してください");
 					gotoPage(request, response, "/editUser.jsp");
+				} else if (tel.length() != 11) {
+					request.setAttribute("message", "電話番号が正しくありません");
+					gotoPage(request, response, "/registUser.jsp");
+				} else if (dao.isRegisteredByTel(tel, id)) {
+					request.setAttribute("message", "既に登録されている電話番号です");
+					gotoPage(request, response, "/registUser.jsp");
 				} else if (!(email.contains("@") && (email.contains(".com") || email.contains(".jp")))) {
 					request.setAttribute("message", "メールアドレスが正しくありません");
 					gotoPage(request, response, "/editUser.jsp");
-				} else if (dao.isRegisteredUser(email, id)) {
+				} else if (dao.isRegisteredByEmail(email, id)) {
 					request.setAttribute("message", "既に登録されているメールアドレスです");
 					gotoPage(request, response, "/editUser.jsp");
 				} else if (password.length() < 6 || password.length() > 16) {

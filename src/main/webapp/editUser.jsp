@@ -22,7 +22,7 @@
 			住所<br>
 			<input type="text" name="address" value="${user.address}"><br>
 			電話番号<br>
-			<input type="text" name="tel" value="${user.tel}"><br>
+			<input type="number" name="tel" value="${user.tel}"><br>
 			メールアドレス<br>
 			<input type="text" name="email" value="${user.email}"><br>
 			生年月日<br>
@@ -35,6 +35,8 @@
 			<button>変更完了</button>
 		</form>
 	</div>
+	
+	<a href="/team_dev_pisuta_shop/UserServlet">キャンセル</a>
 
 </body>
 </html>

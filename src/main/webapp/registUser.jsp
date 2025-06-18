@@ -22,7 +22,7 @@
 			住所<br>
 			<input type="text" name="address"><br>
 			電話番号<br>
-			<input type="text" name="tel"><br>
+			<input type="number" name="tel"><br>
 			メールアドレス<br>
 			<input type="text" name="email"><br>
 			生年月日<br>
