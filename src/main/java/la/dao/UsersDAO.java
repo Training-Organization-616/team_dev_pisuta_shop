@@ -29,7 +29,7 @@ public class UsersDAO {
 
 	//会員一覧表示
 	public List<UserBean> findAll() throws DAOException {
-		String sql = "SELECT * FROM users WHERE status = true";
+		String sql = "SELECT * FROM users WHERE status = true order by id";
 		try (
 				Connection con = DriverManager.getConnection(url, user, pass);
 				PreparedStatement st = con.prepareStatement(sql);
