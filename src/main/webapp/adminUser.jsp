@@ -5,7 +5,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>会員管理</title>
 <link href="/team_dev_pisuta_shop/css/adminUserStyle.css" rel="stylesheet">
 </head>
 <body>

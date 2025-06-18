@@ -5,7 +5,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>管理者メニュー</title>
 <link href="/team_dev_pisuta_shop/css/adminTopStyle.css" rel="stylesheet">
 </head>
 <body>
