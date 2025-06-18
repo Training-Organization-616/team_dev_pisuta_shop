@@ -36,7 +36,10 @@
 	
 
 	<!-- 商品一覧画面へ遷移 -->
-	<a href="/team_dev_pisuta_shop/ItemServlet">キャンセル</a>
+<!--	<a href="/team_dev_pisuta_shop/ItemServlet">キャンセル</a>-->
+	<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
+	<button>キャンセル</button>
+	</form>
 
 </body>
 </html>
