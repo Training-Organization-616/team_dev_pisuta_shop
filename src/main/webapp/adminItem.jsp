@@ -16,7 +16,7 @@
 		<input class="input_key" type="text" name="keyword" placeholder="キ－ワード"> 
 		<input class="input_name" type="text" name="userName" placeholder="ユーザー名">
 		<button class="button_search" type="submit" name="action" value="search">検索</button>
-		<button>一覧へ戻る</button>
+		<button class="button_return">一覧へ戻る</button>
 	</form>
 	</div>
 	<div class="item_container">

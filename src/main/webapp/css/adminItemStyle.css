@@ -3,10 +3,10 @@
 .input_container {
 	margin: 30px auto;
 	width: 100%;
-	
+
 }
 
-.search_form{
+.search_form {
 	margin-left: 30px;
 	width: 80%;
 }
@@ -64,22 +64,30 @@
 }
 
 .button_back {
-	font-size: 20px;
+	font-size: 18px;
 	color: white;
 	border: none;
 	background-color: rgb(128, 128, 128);
+
+	position: fixed;
+	bottom: 30px;
+	left: 30px;
+
 }
 
-.delete:hover,.button_back:hover,.button_yes:hover,.button_no:hover{
-	background-color: rgba(128,128,128,0.8);
+.delete:hover,
+.button_back:hover,
+.button_yes:hover,
+.button_no:hover {
+	background-color: rgba(128, 128, 128, 0.8);
 }
 
-#deleteDialog{
+#deleteDialog {
 	width: 300px;
 	height: 250px;
 }
 
-.dialog_content{
+.dialog_content {
 	position: relative;
 	width: 90%;
 	height: 90%;
@@ -87,30 +95,51 @@
 	font-size: 20px;
 }
 
-.button_container{
+.button_container {
 	position: absolute;
-	transform: translate(-50%,-50%);
+	transform: translate(-50%, -50%);
 	bottom: 10px;
 	left: 50%;
-	
+
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-column-gap: 10px;
-	
+
 	width: 150px;
 }
 
-.button_yes,.button_no{
+.button_yes,
+.button_no {
 	font-size: 15px;
 	width: 100%;
-	
+
 	border: none;
 	background-color: rgb(128, 128, 128);
-	
+
 	color: white;
-	
+
 }
 
-.check_massage{
+.check_massage {
 	margin-top: 50px;
+}
+
+.button_search {
+	background-color: rgb(128, 128, 128);
+	border-color: rgb(128, 128, 128);
+	color: white;
+	width: 50px;
+	height: 30px;
+}
+
+.button_return {
+	background-color: rgb(128, 128, 128);
+	border-color: rgb(128, 128, 128);
+	color: white;
+	width: 90px;
+	height: 30px;
+}
+
+button {
+	border-radius: 5px;
 }
