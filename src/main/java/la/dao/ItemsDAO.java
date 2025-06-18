@@ -148,6 +148,8 @@ public class ItemsDAO {
 			sql += " AND i.name LIKE ? AND i.status = true";
 		} else if (keyword.length() != 0) {
 			sql += " AND name LIKE ? AND status = true";
+		} else {
+			sql += " AND status = true";
 		}
 
 		try (// データベースへの接続
