@@ -1,38 +1,82 @@
 @charset "UTF-8";
-.haikei{
-  background-color: rgb(196, 188, 188);
+
+.haikei {
+	background-color: rgb(196, 188, 188);
 }
-.cc { 
-	display: table-cell; text-align: left; 
+
+.cc {
+	display: table-cell;
+	text-align: left;
 }
-.top  { 
-	display: table-cell; text-align: center; 
+
+.top {
+	display: table-cell;
+	text-align: center;
 }
-.haikei2{
-  padding: 2px 4px;
-  color: rgb(0, 0, 0);
-  line-height: 1.9;
-  background: rgb(183, 201, 202);
-  display: inline;
-  -webit-box-decoration-break: clone;
-  box-decoration-break: clone;
+
+.haikei2 {
+	padding: 2px 4px;
+	color: rgb(0, 0, 0);
+	line-height: 1.9;
+	background: rgb(183, 201, 202);
+	display: inline;
+	-webit-box-decoration-break: clone;
+	box-decoration-break: clone;
 }
-body{
+
+.confirm-page {
+	width: 450px;
+	margin: auto;
+	text-align: center;
+}
+
+.confirm-form {
+	position: relative;
+	z-index: 1;
+	background: #FFFFFF;
+	max-width: 450px;
+	margin: 30px auto 15px;
+	padding: 30px 45px 30px;
+	text-align: center;
+	border-radius: 30px;
+	border: 2px solid black;
+}
+
+.title {
+	font-size: 24px;
+}
+
+.field {
+	background-color: #f2f2f2;
+	width: 100%;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+body {
 	text-align: center;
 }
 
 
-button{
-	background-color:rgb(255, 80, 50);
+button {
+	background-color: rgb(255, 80, 50);
 	border-color: rgb(255, 80, 50);
-	color:white;
-	margin: 15px 0 0;
+	color: white;
+	margin: 0 0 15px;
 	border-radius: 5px;
-	
+
 	transition: .4s;
 }
-button:hover{
+
+button:hover {
 	background-color: white;
-	color:rgb(255, 80, 50);
+	color: rgb(255, 80, 50);
 	transition: .4s;
+}
+
+footer {
+	height: 50px;
 }

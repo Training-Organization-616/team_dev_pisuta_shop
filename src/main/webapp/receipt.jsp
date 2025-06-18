@@ -12,18 +12,31 @@
 <body>
 	<jsp:include page="/header.jsp" />
 
-	<h1>購入情報</h1> 
-	<span class="haikei2">
-	 取引番号：${deal.id}・出品者名：${sellerName}<br>
-	 商品名：${item.name}<br>
-	 ${item.price}円<br>
-	 </span>
-	 <p1>商品の購入が確定しました！</p1><br>
+	<div class="receipt-page">
+	<div class="receipt-form">
+	<div class="title"><b>購入情報</b></div> 
+	
+	 取引番号<br>
+	 <div class="field">${deal.id}</div>
+	 出品者名<br>
+	 <div class="field">${sellerName}</div>
+	 商品名<br>
+	 <div class="field"> ${item.name}</div>
+	 価格<br>
+	 <div class="field">${item.price}円</div>
+
+	 <div class="message"><b>商品の購入が確定しました！</b></div>
+	 </div>
+	 </div>
 	 
 	
 	<!-- 商品一覧画面へ遷移 -->
-	<a href="/team_dev_pisuta_shop/ItemServlet">商品一覧へ戻る</a>
+	<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
+		<button>商品一覧へ</button>
+	</form>
+<!--	<a href="/team_dev_pisuta_shop/ItemServlet">商品一覧へ戻る</a>-->
 
+	<footer></footer>
 
 </body>
 </html>

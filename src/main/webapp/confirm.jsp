@@ -17,22 +17,27 @@
 	
 	<jsp:include page="/header.jsp" />
 	
-	<h1>購入確認画面</h1> 
-	
-	
-	<span class="haikei2">
-	 商品番号：${item.id}・出品者名：${sellerName}<br>
-	 商品名：${item.name}<br> 
-	 ${item.price}円<br>
-	</span>
+	<div class="confirm-page">
+	<div class="confirm-form">
+	<div class="title"><b>購入確認画面</b></div> 
 	<br>
+	 商品番号<br>
+	 <div class="field">${item.id}</div>
+	 出品者名<br>
+	 <div class="field">${sellerName}</div>
+	 商品名<br>
+	 <div class="field">${item.name}</div>
+	 価格<br>
+	 <div class="field">${item.price}円</div>
+	</div>
+	</div>
 
 	<!-- 購入情報画面へ遷移 -->
-<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
-<input type="hidden" name="itemId" value="${item.id }">
-<input type="hidden" name="action" value="buy">
-<button>購入確定</button>
-</form>
+	<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
+		<input type="hidden" name="itemId" value="${item.id }">
+		<input type="hidden" name="action" value="buy">
+		<button>購入確定</button>
+	</form>
 	
 
 	<!-- 商品一覧画面へ遷移 -->
@@ -40,6 +45,8 @@
 	<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
 		<button>キャンセル</button>
 	</form>
+	
+	<footer></footer>
 
 </body>
 </html>
