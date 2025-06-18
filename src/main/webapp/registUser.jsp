@@ -22,13 +22,13 @@
 			住所<br>
 			<input type="text" name="address"><br>
 			電話番号<br>
-			<input type="number" name="tel"><br>
+			<input type="number" name="tel" placeholder="ハイフンなし"><br>
 			メールアドレス<br>
 			<input type="text" name="email"><br>
 			生年月日<br>
 			<input type="date" name="birthday" required><br>
 			パスワード<br>
-			<input type="password" name="password"><br>
+			<input type="password" name="password" placeholder="6文字以上16文字以下"><br>
 			パスワード確認用<br>
 			<input type="password" name="confirm"><br>
 		
