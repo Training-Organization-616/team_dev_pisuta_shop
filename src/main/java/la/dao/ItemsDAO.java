@@ -158,12 +158,12 @@ public class ItemsDAO {
 		String sql = "SELECT * FROM items WHERE status = true";
 
 		if (userName.length() != 0) {
-			sql = "SELECT i.*,u.name FROM items i JOIN users u ON i.seller_id = u.id WHERE u.name LIKE ?";
+			sql = "SELECT i.*,u.name FROM items i JOIN users u ON i.seller_id = u.id WHERE u.name LIKE ? AND i.status = true";
 		}
 		if (userName.length() != 0 && keyword.length() != 0) {
-			sql += " AND i.name LIKE ? AND i.status = true";
+			sql += " AND i.name LIKE ? ";
 		} else if (keyword.length() != 0) {
-			sql += " AND name LIKE ? AND status = true";
+			sql += " AND name LIKE ? ";
 		}
 
 		try (// データベースへの接続
