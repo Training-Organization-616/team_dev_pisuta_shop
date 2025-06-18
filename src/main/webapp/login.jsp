@@ -23,7 +23,11 @@
 		</form>
 	</div>
 	<div class="link">
-		<a href="/team_dev_pisuta_shop/UserServlet?action=regist">新規登録</a>
+		<form action="/team_dev_pisuta_shop/UserServlet" method="post">
+		<button>新規登録</button>
+		<input type="hidden" name="action" value="regist">
+		
+		</form>
 	</div>
 	
 </body>

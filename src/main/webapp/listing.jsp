@@ -21,7 +21,7 @@
 			<div class="err">${message}<br></div>
 			
 			商品名<br>
-			<input class="input-text" type="text" name="name"><br>
+			<input class="input-text" type="text" name="name" placeholder="50字以内"><br>
 			
 			カテゴリー<br>
 			<div class="radio">
@@ -31,7 +31,10 @@
 			</div>
 			
 			価格<br>
-			<input class="input-text" type="number" name="price"><br>
+			<div class="price_container">
+			<span class="unit">￥</span>
+			<input class="input-text" type="number" name="price" min="1" max="100000000">
+			</div><br>
 			
 			状態<br>
 			<div class="radio">
