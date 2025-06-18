@@ -19,6 +19,9 @@
 	</form>
 	</div>
 	<div class="item_container">
+	<c:if test="${empty items }">
+	<p>商品が存在しません</p>
+	</c:if>
 	<c:forEach items="${items }" var="item">
 		<div class="item">
 			<p>${item.name }</p>
