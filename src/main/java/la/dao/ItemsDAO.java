@@ -145,12 +145,10 @@ public class ItemsDAO {
 			sql = "SELECT i.*,u.name FROM items i JOIN users u ON i.seller_id = u.id WHERE u.name LIKE ?";
 		}
 		if (userName.length() != 0 && keyword.length() != 0) {
-			sql += " AND i.name LIKE ?";
+			sql += " AND i.name LIKE ? AND i.status = true";
 		} else if (keyword.length() != 0) {
-			sql += " AND name LIKE ?";
+			sql += " AND name LIKE ? AND status = true";
 		}
-
-		sql += " AND status = true";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);

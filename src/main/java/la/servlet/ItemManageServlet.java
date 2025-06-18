@@ -47,14 +47,15 @@ public class ItemManageServlet extends HttpServlet {
 			//ItemDAOインスタンス
 			ItemsDAO itemsDao = new ItemsDAO();
 			UsersDAO usersDao = new UsersDAO();
+			List<UserBean> userList = usersDao.findAll();
+			request.setAttribute("users", userList);
 
 			if (Objects.isNull(action) || action.isEmpty()) {
 				//ItemBeanリスト:商品全検索
 				List<ItemBean> list = itemsDao.findAll(true);
-				List<UserBean> userList = usersDao.findAll();
 
 				request.setAttribute("items", list);
-				request.setAttribute("users", userList);
+
 				gotoPage(request, response, "/adminItem.jsp");
 
 			} else if (action.equals("delete")) {
