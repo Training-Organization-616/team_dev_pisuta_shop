@@ -1,17 +1,3 @@
-.content {
-	margin: auto;
-/*	justify-content: space-between;*/
-	display: flex;
-}
-
-.content1{
-	text-align: left;
-}
-
-.content2{
-	text-align: right;
-}
-
 button{
 	background-color: rgb(128, 128, 128);
 	color: rgb(255, 255, 255);
@@ -22,4 +8,25 @@ button{
 	font-size: 40px;
 	font-weight: 500;
 	
+}
+
+.content {
+/*	margin: auto;*/
+	display: flex;
+/*	justify-content: center;*/
+display: flex;
+}
+
+.content1{
+	margin-right: -150px;
+	margin-left: 100px;
+	text-align:center;
+	flex: 1;
+}
+
+.content2{
+	margin-left: -150px;
+	margin-right: 100px;
+	text-align:center;
+	flex: 1;
 }
