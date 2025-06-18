@@ -47,7 +47,8 @@
 
 .message{
 	text-align: center;
-	margin: 0 auto;
+	margin: 40px auto;
+	font-size: 30px;
 }
 
 footer{
