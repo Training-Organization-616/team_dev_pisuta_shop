@@ -53,7 +53,7 @@ public class UserManageServlet extends HttpServlet {
 					gotoPage(request, response, "/adminUser.jsp");
 				} else {
 					request.setAttribute("user", user);
-					gotoPage(request, response, "/adminUser.jsp");
+					gotoPage(request, response, "/adminUserInfo.jsp");
 				}
 
 				//退会ボタン押下時
