@@ -13,21 +13,23 @@
 <body>
 	<jsp:include page="/header.jsp" />
 	
-	C to C売買システム
+
 	<h1>商品一覧</h1>
 
-<div class="item_container">
-	<c:forEach items="${items}" var="item">
-		<div class="item">
-		${item.name}<br> 
-		${item.price}
-		<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
-			<button>購入</button>
-			<input type="hidden" name="action" value="confirm">
-			<input type="hidden" name="itemId" value="${item.id }"><br>
+	<div class="item_container">
+		<c:forEach items="${items}" var="item">
+			<div class="item">
+			<b class="name">${item.name}</b><br> 
+			￥${item.price}
+			<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
+				<button>購入</button>
+				<input type="hidden" name="action" value="confirm">
+				<input type="hidden" name="itemId" value="${item.id }"><br>
 			</form>
-		</div>
-	</c:forEach>
-</div>
+			</div>
+		</c:forEach>
+	</div>
+	
+	<footer></footer>
 </body>
 </html>

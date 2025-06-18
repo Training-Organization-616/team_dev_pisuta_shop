@@ -1,19 +1,32 @@
 @charset "UTF-8";
 
 .item_container{
-	width: 800px;
+	width: 900px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-column-gap: 50px;
-	grid-row-gap: 50px;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
 	
 	justify-self: center;
 }
 
 .item{
-	width: 150px;
-	height: 150px;
+	width: 200px;
+	height: 250px;
 	border: solid 2px black;
 	
+	align-content: center ;
 	text-align: center;
+}
+
+.item .name{
+	font-size: larger;
+}
+
+.item button{
+	margin: 15px 0 0;
+}
+
+footer{
+	height: 50px;
 }

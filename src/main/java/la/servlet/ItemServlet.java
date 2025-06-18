@@ -56,7 +56,7 @@ public class ItemServlet extends HttpServlet {
 			UserBean user = (UserBean) session.getAttribute("user");
 			if (action == null) {
 
-				List<ItemBean> itemslist = itemsdao.findAll(false);
+				List<ItemBean> itemslist = itemsdao.findAll(true);
 				request.setAttribute("items", itemslist);
 				gotoPage(request, response, "/top.jsp");
 			} else if (action.equals("confirm")) {
@@ -81,6 +81,7 @@ public class ItemServlet extends HttpServlet {
 				user = (UserBean) session.getAttribute("user");
 
 				dealsdao.addDeal(itemId, user.getId());
+				dealsdao.updateStatus(itemId);
 
 				ItemBean itembean = itemsdao.searchItemById(itemId);
 				DealBean dealbean = dealsdao.findDealByItemId(itemId);
