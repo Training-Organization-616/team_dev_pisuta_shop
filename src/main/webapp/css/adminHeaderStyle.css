@@ -9,10 +9,34 @@
 }
 
 .pisuta b{
-	color: white;
 	font-size: 36px;
 }
 
-.pisuta a{
+.pisuta a {
+	position: relative;
 	text-decoration: none;
+	padding: 5px;
+	color: white;
+	z-index: 0;
+	transition: .5s ease-in-out .1s;
+}
+
+.pisuta a::after {
+	position: absolute;
+	content: '';
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 00%;
+	background: white;
+	z-index: -1;
+	transition: .5s;
+}
+
+.pisuta a:hover {
+	color: rgb(128, 128, 128);
+}
+
+.pisuta a:hover::after {
+	height: 100%;
 }

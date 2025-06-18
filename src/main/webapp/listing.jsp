@@ -16,7 +16,7 @@
 	<div class="regist-page">
 		<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet"method="post">
 			<input type="hidden" name="action" value="add">
-			<div class="title">商品情報を入力してください<br></div>
+			<div class="title"><b>商品情報を入力してください</b><br></div>
 			<!-- 入力に誤りがあった場合出力 -->
 			<div class="err">${message}<br></div>
 			
@@ -51,7 +51,7 @@
 			</div>
 		
 			コメント<br>
-			<textarea rows="" cols="" name="comment"></textarea><br>
+			<textarea rows="" cols="" name="comment" placeholder="任意"></textarea><br>
 			<!-- 会員管理画面へ遷移 -->
 			<button>出品</button>
 		</form>

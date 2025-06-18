@@ -5,5 +5,5 @@
 <link rel="stylesheet" href="/team_dev_pisuta_shop/css/adminHeaderStyle.css">
 
 <div class="pisuta">
-	<a href="/team_dev_pisuta_shop/AdminServlet"><b>Pisuta Shop(管理者用)</b></a>
+	<a href="/team_dev_pisuta_shop/AdminServlet"><b><i>Pisuta Shop</i> (管理者用)</b></a>
 </div>
