@@ -16,37 +16,48 @@
 
 
 		<div id="child1">
-			会員情報<br> ${user.id}<br> ${user.name}<br>
-			${user.address}<br> ${user.tel}<br> ${user.email}<br>
-			${user.birthday}<br> 
-			<a href="/team_dev_pisuta_shop/UserServlet?action=edit">情報変更</a>
+			<div class="location0">
+				会員情報<br>
+			</div>
+			<div class="location1">
+				${user.id}<br> ${user.name}<br>
+				${user.address}<br> ${user.tel}<br> ${user.email}<br>
+				${user.birthday}<br>
+			</div>
+			<div class="location2">
+				<a href="/team_dev_pisuta_shop/UserServlet?action=edit">情報変更</a><br>
+			</div>
+			<div class="location3">
+				<!-- 退会ダイアログ処理 -->
+				<form  id="delete" action="/team_dev_pisuta_shop/UserServlet" method="post" onsubmit="return remove();">
+						<input type="hidden" name="action" value="remove"> 
+						<input type="submit" value="退会" id="mybtn">
+				</form><br>
+
+
+				<script>
+						function remove(){
+    					let check = confirm('退会します。よろしいですか？');
+    					console.log(check);
+    				if (check){
+	  					return true;
+    				} else {
+						return false;
+    				}
+				}
+				</script>
+			
+			</div>
+			 
+			
 		</div>
 
 		<div id="child2">
-		<a href="/team_dev_pisuta_shop/ListingServlet" class="button"><h1>商品登録</h1></a>
+		<a href="/team_dev_pisuta_shop/ListingServlet" class="button"><h1 class="center1">商品登録</h1></a>
 		</div>
 	</div>
 </div>
 
-<!-- 退会ダイアログ処理 -->
-<form  id="delete" action="/team_dev_pisuta_shop/UserServlet" method="post" onsubmit="return remove();">
-<input type="hidden" name="action" value="remove"> 
-<input type="submit" value="退会" id="mybtn">
-
-</form>
-
-
-<script>
-function remove(){
-    let check = confirm('退会します。よろしいですか？');
-    console.log(check);
-    if (check){
-	  	return true;
-    } else {
-		return false;
-    }
-}
-</script>
 
 </body>
 </html>
