@@ -14,6 +14,7 @@
 	width: 200px;
 	height: 250px;
 	border: solid 2px black;
+	border-radius: 10px;
 	
 	align-content: center ;
 	text-align: center;
@@ -24,7 +25,18 @@
 }
 
 .item button{
+	background-color:rgb(255, 80, 50);
+	border-color: rgb(255, 80, 50);
+	color:white;
 	margin: 15px 0 0;
+	border-radius: 5px;
+	
+	transition: .4s;
+}
+.item button:hover{
+	background-color: white;
+	color:rgb(255, 80, 50);
+	transition: .4s;
 }
 
 .title {
