@@ -60,7 +60,7 @@ public class ItemManageServlet extends HttpServlet {
 
 			} else if (action.equals("delete")) {
 				int id = Integer.parseInt(request.getParameter("itemId"));
-				itemsDao.deleteItem(id);
+				itemsDao.deleteItemById(id);
 
 				response.sendRedirect("/team_dev_pisuta_shop/ItemManageServlet");
 

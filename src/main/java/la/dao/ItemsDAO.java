@@ -122,14 +122,30 @@ public class ItemsDAO {
 		}
 	}
 
-	public int deleteItem(int id) throws DAOException {
+	public int deleteItemById(int itemId) throws DAOException {
 		String sql = "UPDATE items SET status = false WHERE id = ?";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
 				// PreparedStatementオブジェクトの取得
 				PreparedStatement st = con.prepareStatement(sql);) {
-			st.setInt(1, id);
+			st.setInt(1, itemId);
+
+			return st.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DAOException("レコードの登録に失敗しました。");
+		}
+	}
+
+	public int deleteItemByUserId(int userId) throws DAOException {
+		String sql = "UPDATE items SET status = false WHERE seller_id = ?";
+
+		try (// データベースへの接続
+				Connection con = DriverManager.getConnection(url, user, pass);
+				// PreparedStatementオブジェクトの取得
+				PreparedStatement st = con.prepareStatement(sql);) {
+			st.setInt(1, userId);
 
 			return st.executeUpdate();
 		} catch (SQLException e) {
@@ -139,7 +155,7 @@ public class ItemsDAO {
 	}
 
 	public List<ItemBean> searchItem(String keyword, String userName) throws DAOException {
-		String sql = "SELECT * FROM items WHERE 1=1";
+		String sql = "SELECT * FROM items WHERE status = true";
 
 		if (userName.length() != 0) {
 			sql = "SELECT i.*,u.name FROM items i JOIN users u ON i.seller_id = u.id WHERE u.name LIKE ?";
@@ -148,8 +164,6 @@ public class ItemsDAO {
 			sql += " AND i.name LIKE ? AND i.status = true";
 		} else if (keyword.length() != 0) {
 			sql += " AND name LIKE ? AND status = true";
-		} else {
-			sql += " AND status = true";
 		}
 
 		try (// データベースへの接続
