@@ -14,7 +14,9 @@
 	<jsp:include page="/header.jsp" />
 	
 
-	<h1>商品一覧</h1>
+	<div class="title"><b>商品一覧</b></div>
+	
+	<c:if test="${empty items}"><div class="message">商品が存在しません</div></c:if>
 
 	<div class="item_container">
 		<c:forEach items="${items}" var="item">
