@@ -35,6 +35,7 @@
 				</form><br>
 
 
+
 				<script>
 						function remove(){
     					let check = confirm('退会します。よろしいですか？');
