@@ -36,8 +36,10 @@
 		</form>
 	</div>
 	
-    <form action="/team_dev_pisuta_shop/UserServlet" method="post">
+    <form class="cancel" action="/team_dev_pisuta_shop/UserServlet" method="post">
 		<button>キャンセル</button>
 	</form>
+	
+	<footer></footer>
 </body>
 </html>
