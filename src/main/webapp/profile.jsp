@@ -23,9 +23,30 @@
 		</div>
 
 		<div id="child2">
-		<a href="/team_dev_pisuta_shop/ListingServlet" class="button">商品登録</a>
+		<a href="/team_dev_pisuta_shop/ListingServlet" class="button"><h1>商品登録</h1></a>
 		</div>
 	</div>
 </div>
+
+<!-- 退会ダイアログ処理 -->
+<form  id="delete" action="/team_dev_pisuta_shop/UserServlet" method="post" onsubmit="return remove();">
+<input type="hidden" name="action" value="remove"> 
+<input type="submit" value="退会" id="mybtn">
+
+</form>
+
+
+<script>
+function remove(){
+    let check = confirm('退会します。よろしいですか？');
+    console.log(check);
+    if (check){
+	  	return true;
+    } else {
+		return false;
+    }
+}
+</script>
+
 </body>
 </html>

@@ -143,7 +143,7 @@ public class UserServlet extends HttpServlet {
 					session.removeAttribute("user");
 				}
 
-				gotoPage(request, response, "/top.jsp");
+				response.sendRedirect("/team_dev_pisuta_shop/ItemServlet");
 			}
 
 		} catch (DAOException e) {
