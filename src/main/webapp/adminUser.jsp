@@ -17,11 +17,10 @@
 			<button class="search">検索</button>
 			<input type="hidden" name="action" value="search"> <br>
 		</form>
+		<p class="error">${message}</p>
 	</div>
-	
-	<br>
 
-	<div>${message}</div>
+<!--	<div class="error">${message}</div>-->
 
 	<div>
 		<table class="content" border="1">

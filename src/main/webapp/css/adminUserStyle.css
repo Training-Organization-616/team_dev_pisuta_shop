@@ -1,41 +1,52 @@
 @charset "UTF-8";
 
-.content{
+.content {
 	text-align: center;
 	margin: auto;
 	width: 800px;
 	height: auto;
 }
 
-button{
+button {
 	background-color: rgb(128, 128, 128);
-	color: rgb(255, 255, 255);
-	width: 50px;
-		height: 30px;
-}
-th{
-	background-color: rgb(128, 128, 128);
-		color: rgb(255, 255, 255);
-}
-
-/*戻るボタン*/
-.return{
-	position: fixed;
-	bottom: 30px;
-	left: 30px;
-/*	justify-content: flex-end*/
-/*	margin:50px*/
-}
-
-/*検索*/
-.content2{
-	margin: 30px;
-}
-.search{
+	border-color: rgb(128, 128, 128);
+	color: white;
 	width: 50px;
 	height: 30px;
 }
-.textarea{
+
+th {
+	background-color: rgb(128, 128, 128);
+	color: white;
+}
+
+/*戻るボタン*/
+.return {
+	position: fixed;
+	bottom: 30px;
+	left: 30px;
+	/*	justify-content: flex-end*/
+	/*	margin:50px*/
+}
+
+/*検索*/
+.content2 {
+	margin: 30px;
+}
+
+.search {
+	width: 50px;
+	height: 30px;
+}
+
+.textarea {
 	width: 120px;
 	height: 20px;
+}
+
+.error {
+	color: red;
+	margin: 0;
+	padding: 0;
+	font-size: 15px;
 }
