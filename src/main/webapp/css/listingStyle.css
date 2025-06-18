@@ -35,12 +35,17 @@
 	width: 100px;
 	height: auto;
 	padding: 5px 0;
-	background-color: skyblue;
-	color: black;
+	background-color:rgb(255, 80, 50);
+	border-color: rgb(255, 80, 50);
+		color:white;
 	margin: 10px 0 0;
 	border-radius: 5px;
-	border: 1px solid black;
 	font-size: 18px;
+}
+.regist-form button:hover{
+	background-color: white;
+		color:rgb(255, 80, 50);
+		transition: .4s;
 }
 
 .regist-form .err {
