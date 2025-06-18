@@ -29,7 +29,7 @@
 	font-size: 14px;
 }
 
-.login-form button {
+button {
 	width: 100px;
 	height: auto;
 	padding: 5px 0;
@@ -43,7 +43,7 @@
 	
 	transition: .4s;
 }
-.login-form button:hover{
+button:hover{
 	background-color: white;
 		color:rgb(255, 80, 50);
 		transition: .4s;
