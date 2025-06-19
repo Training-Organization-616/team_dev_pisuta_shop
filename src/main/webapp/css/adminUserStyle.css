@@ -15,11 +15,11 @@
 	width: 100px;
 }
 
-.address{
+.address {
 	width: 200px;
 }
 
-.tel{
+.tel {
 	width: 120px;
 }
 
@@ -27,7 +27,7 @@
 	width: 180px;
 }
 
-.birthday{
+.birthday {
 	width: 100px;
 }
 
@@ -37,17 +37,18 @@ button {
 	padding: 5px 0;
 	background-color: rgb(128, 128, 128);
 	border-color: rgb(128, 128, 128);
-	color:white;
+	color: white;
 	margin: auto 0;
 	border: 1px solid black;
 	font-size: 18px;
 	border-radius: 5px;
 	align-self: center;
 }
-button:hover{
+
+button:hover {
 	background-color: white;
-		color:rgb(128, 128, 128);
-		transition: .4s;
+	color: rgb(128, 128, 128);
+	transition: .4s;
 }
 
 th {
@@ -69,11 +70,17 @@ th {
 	margin: 30px;
 }
 
-.search {
+.content2 button {
 	width: 50px;
-	height: 30px;
-	position: relative; /* relativeを指定 */
-	top: 6px; /* 上から10px移動 */
+	height: 28px;
+	position: relative;
+	top: 4px;
+	align-items: center;
+	font-size: 14px;
+}
+
+.search {
+	text-align: center;
 }
 
 .textarea {
