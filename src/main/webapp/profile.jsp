@@ -66,7 +66,7 @@
 		</div>
 
 		<div id="child2">
-		<form action=""/team_dev_pisuta_shop/ListingServlet"" method="post">
+		<form action="/team_dev_pisuta_shop/ListingServlet" method="post">
 			<button type="submit" class="listing_button">商品登録</button>
 		</form>
 		</div>
