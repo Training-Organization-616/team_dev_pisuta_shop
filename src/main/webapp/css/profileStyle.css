@@ -6,71 +6,138 @@ h2 {
 
 
 #child1 {
-	background-color: lightblue;
-	border-radius:30px;
+	background-color: white;
+	border-radius: 30px;
+	border: solid 2px black;
 }
 
 #child2 {
 	background-color: rgb(255, 255, 255);
 }
 
-@media (min-width: 600px) {
-	#parent {
-		display: flex;
-	}
-
-	#child1 {
-		margin:30px 30px;
-		flex: 3;
-		height: 400px;
-
-		align-items: center;
-		text-align: center;
-	}
-
-	#child2 {
-		flex: 1;
-		height: 400px;
-
-				display: flex;
-				justify-content: center;
-/*				 水平方向の中央揃え */
-				align-items: center;
-	}
+#parent {
+	display: flex;
 }
 
+#child1 {
+	margin: 0 30px 30px 30px;
+	flex: 1;
+	height: 500px;
 
-.button{
-	margin:30px 30px;
-	width: 200px;
-	height: 200px;
-	background-color: lightblue;
-	border-radius:30px;
-}
-.location0 {
-position: relative; /* 今の位置を基準 */
-top: 5%; 
-font-size:   30px;    /* 文字サイズ指定 */
-}
-.location1 {
-position: relative; /* 今の位置を基準 */
-top: 10%; 
-font-size:   22px;    /* 文字サイズ指定 */
-}
-.location2 {
-position: relative; /* 今の位置を基準 */
-top: 15%; 
-font-size:   22px;
-
-}
-.location3 {
-position: relative; /* 今の位置を基準 */
-top: 20%; 
-font-size:   22px;
-
-}
-.center1{
+	align-items: center;
 	text-align: center;
-	position: relative; /* 今の位置を基準 */
-	top: 25%;
+
+}
+
+#child2 {
+	flex: 1;
+	width: 500px;
+	height: 500px;
+	
+	display: flex;
+	justify-content: center;
+	/*				 水平方向の中央揃え */
+	align-items: center;
+}
+
+.location0 {
+	top: 10px;
+	font-size: 24px;
+	/* 文字サイズ指定 */
+}
+
+.location1 {
+	justify-content: center;
+}
+
+.location2 {
+	margin-top: 15px;
+	font-size: 20px;
+	height: 20px;
+
+}
+
+.location3 {
+	width: 100%;
+	height: 30px;
+}
+
+#child1 p {
+	max-width: 400px;
+	margin: 2px auto;
+}
+
+.info_title {
+	font-size: 24px;
+}
+
+.info_data {
+	background-color: #f2f2f2;
+	font-size: 20px;
+}
+
+.delete_button {
+	width: 70px;
+	height: 30px;
+	padding: 5px 10px;
+	background-color: rgb(255, 80, 50);
+	border-color: rgb(255, 80, 50);
+	color: white;
+	border-radius: 5px;
+	font-size: 12px;
+}
+
+.delete_button:hover {
+	background-color: white;
+	color: rgb(255, 80, 50);
+	transition: .4s;
+}
+
+.edit_link {
+	text-decoration-line: none;
+	color: white;
+
+	justify-self: center;
+	width: 100px;
+	border: solid 1px black;
+	border-radius: 5px;
+	background-color: rgb(255, 80, 50);
+	border-color: rgb(255, 80, 50);
+	padding: 5px 10px;
+
+	font-size: 12px;
+}
+
+.edit_link:hover {
+	background-color: white;
+	color: rgb(255, 80, 50);
+	transition: .4s;
+}
+
+button {
+	width: 100px;
+	height: auto;
+	padding: 5px 0;
+	background-color: rgb(255, 80, 50);
+	border-color: rgb(255, 80, 50);
+	color: white;
+	margin: 10px 0 0;
+	border: 1px solid black;
+	font-size: 18px;
+	border-radius: 5px;
+
+	transition: .4s;
+}
+
+button:hover {
+	background-color: white;
+	color: rgb(255, 80, 50);
+	transition: .4s;
+}
+
+.listing_button{
+	width: 400px !important;
+	height: 400px !important;
+	
+	font-size: 44px !important;
 }
