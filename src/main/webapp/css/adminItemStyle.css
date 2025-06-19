@@ -1,9 +1,22 @@
 @charset "UTF-8";
+button {
+	background-color: rgb(128, 128, 128);
+	border-color: rgb(128, 128, 128);
+	color: white;
+	
+	border-radius: 5px;
+	transition: .4s;
+	border-width: 1px;
+}
 
+button:hover {
+	background-color: white;
+	color: rgb(0128, 128, 128);
+	transition: .4s;
+}
 .input_container {
 	margin: 30px auto;
 	width: 100%;
-
 }
 
 .search_form {
@@ -30,7 +43,6 @@
 	grid-row-gap: 50px;
 	width: 950px;
 	justify-self: center;
-
 }
 
 .item {
@@ -50,10 +62,7 @@
 	right: 10px;
 
 	width: 90px;
-
-	color: white;
-	border: none;
-	background-color: rgb(128, 128, 128);
+/*	border: none;*/
 }
 
 .back_container {
@@ -65,21 +74,10 @@
 
 .button_back {
 	font-size: 18px;
-	color: white;
-	border: none;
-	background-color: rgb(128, 128, 128);
-
 	position: fixed;
 	bottom: 30px;
 	left: 30px;
-
-}
-
-.delete:hover,
-.button_back:hover,
-.button_yes:hover,
-.button_no:hover {
-	background-color: rgba(128, 128, 128, 0.8);
+/*	border: none;*/
 }
 
 #deleteDialog {
@@ -113,10 +111,7 @@
 	font-size: 15px;
 	width: 100%;
 
-	border: none;
-	background-color: rgb(128, 128, 128);
-
-	color: white;
+/*	border: none;*/
 
 }
 
@@ -125,21 +120,11 @@
 }
 
 .button_search {
-	background-color: rgb(128, 128, 128);
-	border-color: rgb(128, 128, 128);
-	color: white;
 	width: 50px;
 	height: 30px;
 }
 
 .button_return {
-	background-color: rgb(128, 128, 128);
-	border-color: rgb(128, 128, 128);
-	color: white;
 	width: 90px;
 	height: 30px;
-}
-
-button {
-	border-radius: 5px;
 }
