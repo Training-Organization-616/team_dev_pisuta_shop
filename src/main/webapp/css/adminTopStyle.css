@@ -21,9 +21,6 @@ button:hover {
 }
 
 .content {
-	/*	margin: auto;*/
-	display: flex;
-	/*	justify-content: center;*/
 	display: flex;
 }
 
