@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import la.bean.UserBean;
 import la.dao.DAOException;
+import la.dao.ItemsDAO;
 import la.dao.UsersDAO;
 
 @WebServlet("/UserServlet")
@@ -143,6 +144,9 @@ public class UserServlet extends HttpServlet {
 				int id = user.getId();
 
 				dao.deleteUser(id);
+
+				ItemsDAO itemsDao = new ItemsDAO();
+				itemsDao.deleteItemByUserId(id);
 
 				// セッションの削除
 				if (session != null) {

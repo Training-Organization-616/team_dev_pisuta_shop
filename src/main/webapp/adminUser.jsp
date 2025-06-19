@@ -25,12 +25,12 @@
 	<div>
 		<table class="content" border="1">
 			<tr>
-				<th>会員番号</th>
-				<th>氏名</th>
-				<th>住所</th>
-				<th>電話番号</th>
-				<th>email</th>
-				<th>生年月日</th>
+				<th class="id">会員番号</th>
+				<th class="name">氏名</th>
+				<th class="address">住所</th>
+				<th class="tel">電話番号</th>
+				<th class="email">メールアドレス</th>
+				<th class="birthday">生年月日</th>
 				<th></th>
 			</tr>
 
