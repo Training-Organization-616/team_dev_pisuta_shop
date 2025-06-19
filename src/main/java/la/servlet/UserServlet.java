@@ -77,7 +77,13 @@ public class UserServlet extends HttpServlet {
 					gotoPage(request, response, "/registUser.jsp");
 				} else {
 					dao.addUser(name, address, tel, email, birthday, password);
-					gotoPage(request, response, "/login.jsp");
+					request.setAttribute("name", name);
+					request.setAttribute("address", address);
+					request.setAttribute("tel", tel);
+					request.setAttribute("email", email);
+					request.setAttribute("birthday", birthday);
+
+					gotoPage(request, response, "/completed.jsp");
 				}
 
 			} else if (action.equals("edit")) {

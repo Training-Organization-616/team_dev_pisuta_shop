@@ -24,7 +24,7 @@
 	</div>
 	<div class="link">
 		<form action="/team_dev_pisuta_shop/UserServlet" method="post">
-		<button>新規登録</button>
+		<button>新規登録画面へ</button>
 		<input type="hidden" name="action" value="regist">
 		
 		</form>
