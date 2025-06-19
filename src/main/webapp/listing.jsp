@@ -26,7 +26,8 @@
 			カテゴリー<br>
 			<div class="radio">
 			<c:forEach items="${categories}" var="category">
-				<input type="radio" name="categoryId" value="${category.id}" required>${category.name}
+				<input id="ct${category.id }" type="radio" name="categoryId" value="${category.id}" required>
+				<label for="ct${category.id }">${category.name}</label>
 			</c:forEach><br>
 			</div>
 			
@@ -41,10 +42,12 @@
 			<c:forEach items="${conditions}" var="condition">
 				<c:choose>
 					<c:when test="${condition.id eq 3}">
-						<input type="radio" name="conditionId" value="${condition.id}" checked>${condition.name}<br>
+						<input id="cd${condition.id }" type="radio" name="conditionId" value="${condition.id}" checked>
+						<label for="cd${condition.id }">${condition.name}</label><br>
 					</c:when>
 					<c:otherwise>
-						<input type="radio" name="conditionId" value="${condition.id}">${condition.name}
+						<input id="cd${condition.id }" type="radio" name="conditionId" value="${condition.id}">
+						<label for="cd${condition.id }">${condition.name}</label>
 					</c:otherwise>
 				</c:choose>	
 			</c:forEach><br>
