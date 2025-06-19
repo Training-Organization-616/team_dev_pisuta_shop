@@ -7,18 +7,42 @@
 	height: auto;
 }
 
+.id {
+	width: 65px;
+}
+
+.name {
+	width: 100px;
+}
+
+.address{
+	width: 200px;
+}
+
+.tel{
+	width: 120px;
+}
+
+.email {
+	width: 180px;
+}
+
+.birthday{
+	width: 100px;
+}
 
 button {
-	width: 100px;
+	width: 60px;
 	height: auto;
 	padding: 5px 0;
 	background-color: rgb(128, 128, 128);
 	border-color: rgb(128, 128, 128);
 	color:white;
-	margin: 10px 0 0;
+	margin: auto 0;
 	border: 1px solid black;
 	font-size: 18px;
 	border-radius: 5px;
+	align-self: center;
 }
 button:hover{
 	background-color: white;

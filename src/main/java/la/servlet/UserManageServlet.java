@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import la.bean.UserBean;
+import la.dao.ItemsDAO;
 import la.dao.UsersDAO;
 
 @WebServlet("/UserManageServlet")
@@ -60,6 +61,10 @@ public class UserManageServlet extends HttpServlet {
 			} else if (action.equals("delete")) {
 				int userId = Integer.parseInt(request.getParameter("userId"));
 				dao.deleteUser(userId);
+
+				ItemsDAO itemsDao = new ItemsDAO();
+				itemsDao.deleteItemByUserId(userId);
+
 				List<UserBean> list = dao.findAll();
 				request.setAttribute("users", list);
 				gotoPage(request, response, "/adminUser.jsp");
