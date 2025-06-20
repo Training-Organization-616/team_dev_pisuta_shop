@@ -7,6 +7,7 @@
 	<meta charset="UTF-8">
 	<title>商品登録</title>
 	<link rel="stylesheet" href="/team_dev_pisuta_shop/css/listingStyle.css">
+	<script src="/team_dev_pisuta_shop/javascript/listing.js" ></script>
 </head>
  
 <body>
@@ -14,11 +15,15 @@
 	<jsp:include page="/header.jsp" />
 
 	<div class="regist-page">
-		<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet"method="post">
+		<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="action" value="add">
 			<div class="title"><b>商品情報を入力してください</b><br></div>
 			<!-- 入力に誤りがあった場合出力 -->
 			<div class="err">${message}<br></div>
+			
+			<div>
+				<input type="file" name="product_image" accept=".png" >
+			</div>
 			
 			商品名<br>
 			<input class="input-text" type="text" name="name" placeholder="50字以内"><br>
