@@ -1,1 +1,126 @@
 @charset "UTF-8";
+
+/*画面レイアウトがlistingStyle.cssとほぼにているため*/
+/*listingStyle.cssよりコピー*/
+
+.regist-page {
+	width: 650px;
+	margin: auto;
+	text-align: center;
+}
+
+.regist-form {
+	position: relative;
+	z-index: 1;
+	max-width: 700px;
+	background: #FFFFFF;
+	margin: 30px auto 30px;
+	padding: 30px 45px 45px;
+	text-align: center;
+	border-radius: 30px;
+	border: 2px solid black;
+}
+
+.regist-form .input-text{
+	outline: 0;
+	background: #f2f2f2;
+	width: 500px;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
+	text-align: center;
+}
+
+.regist-form button {
+	width: 100px;
+	height: auto;
+	padding: 5px 0;
+	background-color:rgb(255, 80, 50);
+	border-color: rgb(255, 80, 50);
+		color:white;
+	margin: 10px 0 0;
+	border-radius: 5px;
+	font-size: 18px;
+}
+.regist-form button:hover{
+	background-color: white;
+		color:rgb(255, 80, 50);
+		transition: .4s;
+}
+
+.regist-form .err {
+	font-size: 14px;
+	color: 16px;
+	padding: 10px 0;
+	color: red;
+}
+
+.regist-form .radio{
+	background-color: #f2f2f2;
+	width: 470px;
+	padding: 15px;
+	margin: 0 0 15px;
+	justify-self: center;
+}
+
+.regist-form textarea{
+	background-color: #f2f2f2;
+	width: 470px;
+	padding: 15px;
+	margin: 0 0 15px;
+	justify-self: center;
+	resize: vertical;
+	border: none;
+	text-align: center;
+}
+
+.title {
+	font-size: 24px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button{
+	-webkit-appearance: none;
+	margin:0;
+}
+
+.price_container{
+	position: relative;
+	background: #f2f2f2;
+	width: 500px;
+	justify-self: center;
+	
+	text-align: center;
+}
+
+.unit{
+	position: absolute;
+	transform: translate(-50%,-50%);
+	top:50%;
+	left: 100px;
+}
+
+.price_container input{
+	margin-bottom: 0 !important;
+}
+.cancel button {
+	justify-self: center;
+	background-color: rgb(255, 80, 50);
+	border-color: rgb(255, 80, 50);
+	color: white;
+	margin: 0 0 15px;
+	border-radius: 5px;
+	padding: 5px 0;
+	transition: .4s;
+	text-align: center;
+	font-size: 18px;
+}
+
+.cancel button:hover {
+	background-color: white;
+	color: rgb(255, 80, 50);
+	transition: .4s;
+	text-align: center;
+}
