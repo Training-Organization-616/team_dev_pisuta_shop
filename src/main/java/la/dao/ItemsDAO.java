@@ -56,8 +56,9 @@ public class ItemsDAO {
 				int condId = rs.getInt("cond_id");
 				boolean itemStatus = rs.getBoolean("status");
 				String comment = rs.getString("comment");
+				String fileName = rs.getString("file_name");
 
-				list.add(new ItemBean(id, name, categoryId, sellerId, price, condId, itemStatus, comment));
+				list.add(new ItemBean(id, name, categoryId, sellerId, price, condId, itemStatus, comment, fileName));
 			}
 
 			return list;
@@ -88,8 +89,9 @@ public class ItemsDAO {
 				int condId = rs.getInt("cond_id");
 				boolean itemStatus = rs.getBoolean("status");
 				String comment = rs.getString("comment");
+				String fileName = rs.getString("file_name");
 
-				bean = new ItemBean(id, name, categoryId, sellerId, price, condId, itemStatus, comment);
+				bean = new ItemBean(id, name, categoryId, sellerId, price, condId, itemStatus, comment, fileName);
 				return bean;
 			}
 			return null;
@@ -192,8 +194,9 @@ public class ItemsDAO {
 				int condId = rs.getInt("cond_id");
 				boolean itemStatus = rs.getBoolean("status");
 				String comment = rs.getString("comment");
+				String fileName = rs.getString("file_name");
 
-				list.add(new ItemBean(id, name, categoryId, sellerId, price, condId, itemStatus, comment));
+				list.add(new ItemBean(id, name, categoryId, sellerId, price, condId, itemStatus, comment, fileName));
 			}
 
 			return list;
