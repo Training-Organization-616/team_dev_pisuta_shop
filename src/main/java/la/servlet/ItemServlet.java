@@ -2,6 +2,7 @@ package la.servlet;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import la.bean.CategoryBean;
+import la.bean.ConditionBean;
 import la.bean.DealBean;
 import la.bean.ItemBean;
 import la.bean.UserBean;
@@ -60,21 +63,25 @@ public class ItemServlet extends HttpServlet {
 			if (action == null) {
 
 				List<ItemBean> itemslist = itemsdao.findAll(true);
+				List<CategoryBean> categorieslist = categoriesdao.findAll();
+				List<ConditionBean> conditionslist = conditionsdao.findAll();
 				request.setAttribute("items", itemslist);
+				request.setAttribute("categories", categorieslist);
+				request.setAttribute("conditions", conditionslist);
 				gotoPage(request, response, "/top.jsp");
-				//			} else if (action.equals("confirm")) {
-				//				// ★購入確認への遷移
-				//
-				//				if (Objects.isNull(user)) {
-				//					response.sendRedirect("/team_dev_pisuta_shop/LoginServlet");
-				//					return;
-				//				}
-				//				int itemId = Integer.parseInt(request.getParameter("itemId"));
-				//				ItemBean bean = itemsdao.searchItemById(itemId);
-				//
-				//				String name = userdao.findUserById(bean.getSellerId()).getName();
-				//				request.setAttribute("sellerName", name);
-				//				request.setAttribute("item", bean);
+
+			} else if (action.equals("confirm")) {
+				// ★購入確認画面への遷移
+
+				if (Objects.isNull(user)) {
+					response.sendRedirect("/team_dev_pisuta_shop/LoginServlet");
+					return;
+				}
+				int itemId = Integer.parseInt(request.getParameter("itemId"));
+				ItemBean bean = itemsdao.searchItemById(itemId);
+
+				request.setAttribute("item", bean);
+				request.setAttribute("address", user.getAddress());
 
 				gotoPage(request, response, "/confirm.jsp");
 
