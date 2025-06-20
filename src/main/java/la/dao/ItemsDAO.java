@@ -32,13 +32,14 @@ public class ItemsDAO {
 	 * @return 商品リスト
 	 * @throws DAOException
 	 */
-	public List<ItemBean> findAll(boolean status) throws DAOException {
+	public List<ItemBean> findAll(boolean soldout) throws DAOException {
 
-		String sql = "SELECT * FROM items WHERE 1=1";
+		String sql = "SELECT * FROM items WHERE 1 = 1";
 
-		if (status) {
-			sql += " AND status = true";
+		if (!soldout) {
+			sql += "AND status = true ";
 		}
+		sql += "ORDER BY id";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
@@ -54,14 +55,94 @@ public class ItemsDAO {
 				int sellerId = rs.getInt("seller_id");
 				int price = rs.getInt("price");
 				int condId = rs.getInt("cond_id");
-				boolean itemStatus = rs.getBoolean("status");
+				boolean status = rs.getBoolean("status");
 				String comment = rs.getString("comment");
 				String fileName = rs.getString("file_name");
 
-				list.add(new ItemBean(id, name, categoryId, sellerId, price, condId, itemStatus, comment, fileName));
+				list.add(new ItemBean(id, name, categoryId, sellerId, price, condId, status, comment, fileName));
 			}
 
 			return list;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DAOException("レコードの操作に失敗しました。");
+		}
+	}
+
+	public List<ItemBean> findItemWithoutUserId(int userId) throws DAOException {
+
+		String sql = "SELECT * FROM items EXCEPT SELECT * FROM items WHERE seller_id = ? ORDER BY id";
+
+		try (// データベースへの接続
+				Connection con = DriverManager.getConnection(url, user, pass);
+				// PreparedStatementオブジェクトの取得
+				PreparedStatement st = con.prepareStatement(sql)) {
+			st.setInt(1, userId);
+
+			try (ResultSet rs = st.executeQuery()) {
+				List<ItemBean> list = new ArrayList<ItemBean>();
+				//検索結果
+				while (rs.next()) {
+					int id = rs.getInt("id");
+					String name = rs.getString("name");
+					int categoryId = rs.getInt("category_id");
+					int sellerId = rs.getInt("seller_id");
+					int price = rs.getInt("price");
+					int condId = rs.getInt("cond_id");
+					boolean status = rs.getBoolean("status");
+					String comment = rs.getString("comment");
+					String fileName = rs.getString("file_name");
+
+					list.add(
+							new ItemBean(id, name, categoryId, sellerId, price, condId, status, comment, fileName));
+				}
+
+				return list;
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new DAOException("レコードの操作に失敗しました。");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DAOException("レコードの操作に失敗しました。");
+		}
+	}
+
+	public List<ItemBean> findItemByUserId(int userId) throws DAOException {
+
+		String sql = "SELECT * FROM items WHERE seller_id = ? ORDER BY id";
+
+		try (// データベースへの接続
+				Connection con = DriverManager.getConnection(url, user, pass);
+				// PreparedStatementオブジェクトの取得
+				PreparedStatement st = con.prepareStatement(sql)) {
+			st.setInt(1, userId);
+
+			try (ResultSet rs = st.executeQuery()) {
+				List<ItemBean> list = new ArrayList<ItemBean>();
+				//検索結果
+				while (rs.next()) {
+					int id = rs.getInt("id");
+					String name = rs.getString("name");
+					int categoryId = rs.getInt("category_id");
+					int sellerId = rs.getInt("seller_id");
+					int price = rs.getInt("price");
+					int condId = rs.getInt("cond_id");
+					boolean itemStatus = rs.getBoolean("status");
+					String comment = rs.getString("comment");
+					String fileName = rs.getString("file_name");
+
+					list.add(
+							new ItemBean(id, name, categoryId, sellerId, price, condId, itemStatus, comment, fileName));
+				}
+
+				return list;
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new DAOException("レコードの操作に失敗しました。");
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DAOException("レコードの操作に失敗しました。");
@@ -77,24 +158,197 @@ public class ItemsDAO {
 				// PreparedStatementオブジェクトの取得
 				PreparedStatement st = con.prepareStatement(sql);) {
 			st.setInt(1, itemId);
-			ResultSet rs = st.executeQuery();
-			ItemBean bean;
-			//検索結果
-			while (rs.next()) {
-				int id = rs.getInt("id");
-				String name = rs.getString("name");
-				int categoryId = rs.getInt("category_id");
-				int sellerId = rs.getInt("seller_id");
-				int price = rs.getInt("price");
-				int condId = rs.getInt("cond_id");
-				boolean itemStatus = rs.getBoolean("status");
-				String comment = rs.getString("comment");
-				String fileName = rs.getString("file_name");
+			try (ResultSet rs = st.executeQuery()) {
+				ItemBean bean;
+				//検索結果
+				while (rs.next()) {
+					int id = rs.getInt("id");
+					String name = rs.getString("name");
+					int categoryId = rs.getInt("category_id");
+					int sellerId = rs.getInt("seller_id");
+					int price = rs.getInt("price");
+					int condId = rs.getInt("cond_id");
+					boolean itemStatus = rs.getBoolean("status");
+					String comment = rs.getString("comment");
+					String fileName = rs.getString("file_name");
 
-				bean = new ItemBean(id, name, categoryId, sellerId, price, condId, itemStatus, comment, fileName);
-				return bean;
+					bean = new ItemBean(id, name, categoryId, sellerId, price, condId, itemStatus, comment, fileName);
+					return bean;
+				}
+				return null;
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new DAOException("レコードの操作に失敗しました。");
 			}
-			return null;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DAOException("レコードの操作に失敗しました。");
+		}
+	}
+
+	public List<ItemBean> searchItemByRefinement(String keyword, int searchCategoryId, int minPrice, int maxPrice,
+			int searchConditionId)
+			throws DAOException {
+
+		String sql = "SELECT * FROM items WHERE 1 = 1 ";
+
+		if (keyword != null && keyword.length() != 0) {
+			sql += "AND (name = ? OR comment = ?) ";
+		}
+		if (searchCategoryId != -1) {
+			sql += "AND category_id = ? ";
+		}
+		if (minPrice != -1) {
+			sql += "AND price >= ? ";
+		}
+		if (maxPrice != -1) {
+			sql += "AND price <= ? ";
+		}
+		if (searchConditionId != 0) {
+			sql += "AND condition_id = ?";
+		}
+		sql += "ORDER BY id";
+
+		try (// データベースへの接続
+				Connection con = DriverManager.getConnection(url, user, pass);
+				// PreparedStatementオブジェクトの取得
+				PreparedStatement st = con.prepareStatement(sql);) {
+
+			int i = 1;
+			if (keyword != null && keyword.length() != 0) {
+				st.setString(i, "%" + keyword + "%");
+				i++;
+				st.setString(i, "%" + keyword + "%");
+				i++;
+			}
+			if (searchCategoryId != -1) {
+				st.setInt(i, searchCategoryId);
+				i++;
+			}
+			if (minPrice != -1) {
+				st.setInt(i, minPrice);
+				i++;
+			}
+			if (maxPrice != -1) {
+				st.setInt(i, minPrice);
+				i++;
+			}
+			if (searchConditionId != 0) {
+				st.setInt(i, searchConditionId);
+				i++;
+			}
+
+			try (ResultSet rs = st.executeQuery()) {
+				List<ItemBean> list = new ArrayList<ItemBean>();
+				//検索結果
+				while (rs.next()) {
+					int id = rs.getInt("id");
+					String name = rs.getString("name");
+					int categoryId = rs.getInt("category_id");
+					int sellerId = rs.getInt("seller_id");
+					int price = rs.getInt("price");
+					int condId = rs.getInt("cond_id");
+					boolean status = rs.getBoolean("status");
+					String comment = rs.getString("comment");
+					String fileName = rs.getString("file_name");
+
+					list.add(
+							new ItemBean(id, name, categoryId, sellerId, price, condId, status, comment, fileName));
+					return list;
+				}
+				return null;
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new DAOException("レコードの操作に失敗しました。");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DAOException("レコードの操作に失敗しました。");
+		}
+	}
+
+	public List<ItemBean> searchItemByRefinementWithoutUserId(String keyword, int searchCategoryId, int minPrice,
+			int maxPrice,
+			int searchConditionId, int userId)
+			throws DAOException {
+
+		String sql = "SELECT * FROM items WHERE 1 = 1 ";
+
+		if (keyword != null && keyword.length() != 0) {
+			sql += "AND (name = ? OR comment = ?) ";
+		}
+		if (searchCategoryId != -1) {
+			sql += "AND category_id = ? ";
+		}
+		if (minPrice != -1) {
+			sql += "AND price >= ? ";
+		}
+		if (maxPrice != -1) {
+			sql += "AND price <= ? ";
+		}
+		if (searchConditionId != 0) {
+			sql += "AND condition_id = ?";
+		}
+		sql += "ORDER BY id EXCEPT SELECT * FROM items WHERE seller_id = ?";
+
+		try (// データベースへの接続
+				Connection con = DriverManager.getConnection(url, user, pass);
+				// PreparedStatementオブジェクトの取得
+				PreparedStatement st = con.prepareStatement(sql);) {
+
+			int i = 1;
+			if (keyword != null && keyword.length() != 0) {
+				st.setString(i, "%" + keyword + "%");
+				i++;
+				st.setString(i, "%" + keyword + "%");
+				i++;
+			}
+			if (searchCategoryId != -1) {
+				st.setInt(i, searchCategoryId);
+				i++;
+			}
+			if (minPrice != -1) {
+				st.setInt(i, minPrice);
+				i++;
+			}
+			if (maxPrice != -1) {
+				st.setInt(i, minPrice);
+				i++;
+			}
+			if (searchConditionId != 0) {
+				st.setInt(i, searchConditionId);
+				i++;
+			}
+			st.setInt(i, userId);
+
+			try (ResultSet rs = st.executeQuery()) {
+				List<ItemBean> list = new ArrayList<ItemBean>();
+				//検索結果
+				while (rs.next()) {
+					int id = rs.getInt("id");
+					String name = rs.getString("name");
+					int categoryId = rs.getInt("category_id");
+					int sellerId = rs.getInt("seller_id");
+					int price = rs.getInt("price");
+					int condId = rs.getInt("cond_id");
+					boolean status = rs.getBoolean("status");
+					String comment = rs.getString("comment");
+					String fileName = rs.getString("file_name");
+
+					list.add(
+							new ItemBean(id, name, categoryId, sellerId, price, condId, status, comment, fileName));
+					return list;
+				}
+				return null;
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new DAOException("レコードの操作に失敗しました。");
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -118,6 +372,30 @@ public class ItemsDAO {
 			st.setString(6, comment);
 
 			return st.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DAOException("レコードの登録に失敗しました。");
+		}
+	}
+
+	public int updateItem(int id, String name, int categoryId, int price, int condId, String comment)
+			throws DAOException {
+		String sql = "UPDATE items SET name = ?, category_id = ?, price = ?, cond_id = ?, comment = ? WHERE id = ?";
+
+		try (// データベースへの接続
+				Connection con = DriverManager.getConnection(url, user, pass);
+				// PreparedStatementオブジェクトの取得
+				PreparedStatement st = con.prepareStatement(sql);) {
+			st.setString(1, name);
+			st.setInt(2, categoryId);
+			st.setInt(3, price);
+			st.setInt(4, condId);
+			st.setString(5, comment);
+			st.setInt(6, id);
+
+			int rows = st.executeUpdate();
+			return rows;
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new DAOException("レコードの登録に失敗しました。");
@@ -156,7 +434,7 @@ public class ItemsDAO {
 		}
 	}
 
-	public List<ItemBean> searchItem(String keyword, String userName) throws DAOException {
+	public List<ItemBean> searchItemByKeywordAndUserName(String keyword, String userName) throws DAOException {
 		String sql = "SELECT * FROM items WHERE status = true";
 
 		if (userName.length() != 0) {

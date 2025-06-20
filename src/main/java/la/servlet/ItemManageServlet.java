@@ -52,7 +52,7 @@ public class ItemManageServlet extends HttpServlet {
 
 			if (Objects.isNull(action) || action.isEmpty()) {
 				//ItemBeanリスト:商品全検索
-				List<ItemBean> list = itemsDao.findAll(true);
+				List<ItemBean> list = itemsDao.findAll(false);
 
 				request.setAttribute("items", list);
 
@@ -75,7 +75,7 @@ public class ItemManageServlet extends HttpServlet {
 					userName = "";
 				}
 
-				List<ItemBean> list = itemsDao.searchItem(itemName, userName);
+				List<ItemBean> list = itemsDao.searchItemByKeywordAndUserName(itemName, userName);
 
 				request.setAttribute("items", list);
 
