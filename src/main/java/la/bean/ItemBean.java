@@ -11,6 +11,7 @@ public class ItemBean implements Serializable {
 	private int condId; // 状態
 	private boolean status; // 販売状況
 	private String comment; // コメント
+	private String fileName; //画像ファイル名
 
 	// デフォルトコンストラクタ
 	public ItemBean() {
@@ -18,7 +19,7 @@ public class ItemBean implements Serializable {
 
 	// コンストラクタ
 	public ItemBean(int id, String name, int categoryId, int sellerId, int price, int condId, boolean status,
-			String comment) {
+			String comment, String fileName) {
 		this.id = id;
 		this.name = name;
 		this.categoryId = categoryId;
@@ -27,6 +28,7 @@ public class ItemBean implements Serializable {
 		this.condId = condId;
 		this.status = status;
 		this.comment = comment;
+		this.fileName = fileName;
 	}
 
 	// ゲッター
@@ -62,9 +64,17 @@ public class ItemBean implements Serializable {
 		return comment;
 	}
 
+	public String getFileName() {
+		return fileName;
+	}
+
 	// セッター
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 }
