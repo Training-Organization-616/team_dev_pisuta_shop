@@ -16,8 +16,10 @@
 			<div class="title"><b>ログイン</b></div>
 			<div class="err">${message}<br></div>
 			<input type="hidden" name="action" value="login">
-			<input type="text" name="email" placeholder="メールアドレス"><br>
-			<input type="password" name="password" placeholder="パスワード"><br>
+			メールアドレス<br>
+			<input type="text" name="email"><br>
+			パスワード<br>
+			<input type="password" name="password" placeholder="6～16文字"><br>
 			<button>ログイン</button>
 	
 		</form>
