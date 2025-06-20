@@ -52,4 +52,32 @@ public class ConditionsDAO {
 
 	}
 
+	//itemsテーブルのcond_idから、カテゴリ名を取得
+	public String findNameById(int condId) throws DAOException {
+		String sql = "select * from conditions where id=?";
+		try (// データベースへの接続
+				Connection con = DriverManager.getConnection(url, user, pass);
+				// PreparedStatementオブジェクトの取得
+				PreparedStatement st = con.prepareStatement(sql);) {
+			st.setInt(1, condId);
+			try (// SQLの実行
+					ResultSet rs = st.executeQuery()) {
+				while (rs.next()) {
+					String name = rs.getString("name");
+					return name;
+				}
+				return null;
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new DAOException("レコードの取得に失敗しました。");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DAOException("レコードの取得に失敗しました。");
+		}
+
+	}
+
 }

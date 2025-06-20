@@ -10,7 +10,9 @@
 </head>
 <body>
 
-	画像 商品名
+	画像
+	<br>
+	<br> 商品名
 	<br>
 	<div class="field">${item.name}</div>
 	価格
@@ -20,12 +22,11 @@
 	<br>
 	<div class="field">${item.comment}</div>
 
-	<!--カテゴリ-->
-	${item.category_id}
-	<!--商品の状態-->
-	${item.cond_id}
-	<!--出品者名-->
-	${sellerName}
+	カテゴリ：${category}
+	<br> 状態：${item.condId}
+	<br> 販売者：${sellerName}
+	<br>
+
 
 	<button>購入確認へ</button>
 

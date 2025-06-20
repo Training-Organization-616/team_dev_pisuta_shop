@@ -7,31 +7,47 @@
 <head>
 <meta charset="UTF-8">
 <title>商品一覧</title>
-<link rel="stylesheet" href="/team_dev_pisuta_shop/css/topStyle.css" >
+<link rel="stylesheet" href="/team_dev_pisuta_shop/css/topStyle.css">
 </head>
 
 <body>
 	<jsp:include page="/header.jsp" />
-	
 
-	<div class="title"><b>商品一覧</b></div>
-	
-	<c:if test="${empty items}"><div class="message">商品が存在しません</div></c:if>
+
+	<div class="title">
+		<b>商品一覧</b>
+	</div>
+
+	<c:if test="${empty items}">
+		<div class="message">商品が存在しません</div>
+	</c:if>
 
 	<div class="item_container">
 		<c:forEach items="${items}" var="item">
 			<div class="item">
-			<b class="name">${item.name}</b><br> 
-			￥${item.price}
-			<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
-				<button>購入</button>
-				<input type="hidden" name="action" value="confirm">
-				<input type="hidden" name="itemId" value="${item.id }"><br>
-			</form>
+				<b class="name">${item.name}</b><br> ￥${item.price}
+				
+				<!--1次発注-->
+				<!--	<form action="/team_dev_pisuta_shop/ItemServlet" method="post">-->
+				<!--		<button>購入</button>-->
+				<!--		<input type="hidden" name="action" value="confirm">-->
+				<!--		<input type="hidden" name="itemId" value="${item.id }">-->
+				<!--		<br>-->
+				<!--	</form>-->
+				
+				<!--2次発注-->
+				<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
+					<button>購入</button>
+					<input type="hidden" name="action" value="detail"> 
+					<input type="hidden" name="itemId" value="${item.id }"> 
+					<input type="hidden" name="categoryId" value="${item.categoryId }">
+					<input type="hidden" name=condId value="${item.condId }"><br>
+				</form>
+
 			</div>
 		</c:forEach>
 	</div>
-	
+
 	<footer></footer>
 </body>
 </html>

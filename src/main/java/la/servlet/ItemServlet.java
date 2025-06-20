@@ -2,7 +2,6 @@ package la.servlet;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +14,8 @@ import javax.servlet.http.HttpSession;
 import la.bean.DealBean;
 import la.bean.ItemBean;
 import la.bean.UserBean;
+import la.dao.CategoriesDAO;
+import la.dao.ConditionsDAO;
 import la.dao.DAOException;
 import la.dao.DealsDAO;
 import la.dao.ItemsDAO;
@@ -51,6 +52,8 @@ public class ItemServlet extends HttpServlet {
 			ItemsDAO itemsdao = new ItemsDAO();
 			DealsDAO dealsdao = new DealsDAO();
 			UsersDAO userdao = new UsersDAO();
+			CategoriesDAO categoriesdao = new CategoriesDAO();
+			ConditionsDAO conditionsdao = new ConditionsDAO();
 
 			HttpSession session = request.getSession();
 			UserBean user = (UserBean) session.getAttribute("user");
@@ -59,19 +62,19 @@ public class ItemServlet extends HttpServlet {
 				List<ItemBean> itemslist = itemsdao.findAll(true);
 				request.setAttribute("items", itemslist);
 				gotoPage(request, response, "/top.jsp");
-			} else if (action.equals("confirm")) {
-				// ★購入確認への遷移
-
-				if (Objects.isNull(user)) {
-					response.sendRedirect("/team_dev_pisuta_shop/LoginServlet");
-					return;
-				}
-				int itemId = Integer.parseInt(request.getParameter("itemId"));
-				ItemBean bean = itemsdao.searchItemById(itemId);
-
-				String name = userdao.findUserById(bean.getSellerId()).getName();
-				request.setAttribute("sellerName", name);
-				request.setAttribute("item", bean);
+				//			} else if (action.equals("confirm")) {
+				//				// ★購入確認への遷移
+				//
+				//				if (Objects.isNull(user)) {
+				//					response.sendRedirect("/team_dev_pisuta_shop/LoginServlet");
+				//					return;
+				//				}
+				//				int itemId = Integer.parseInt(request.getParameter("itemId"));
+				//				ItemBean bean = itemsdao.searchItemById(itemId);
+				//
+				//				String name = userdao.findUserById(bean.getSellerId()).getName();
+				//				request.setAttribute("sellerName", name);
+				//				request.setAttribute("item", bean);
 
 				gotoPage(request, response, "/confirm.jsp");
 
@@ -93,6 +96,24 @@ public class ItemServlet extends HttpServlet {
 
 				gotoPage(request, response, "/receipt.jsp");
 
+			} else if (action.equals("detail")) {
+				// ★商品詳細への遷移
+				int itemId = Integer.parseInt(request.getParameter("itemId"));
+				int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+				int condId = Integer.parseInt(request.getParameter("condId"));
+				user = (UserBean) session.getAttribute("user");
+
+				ItemBean itembean = itemsdao.searchItemById(itemId);
+				String category = categoriesdao.findNameById(categoryId);
+				String condition = conditionsdao.findNameById(condId);
+				String name = userdao.findUserById(itembean.getSellerId()).getName();
+
+				request.setAttribute("item", itembean);
+				request.setAttribute("category", category);
+				request.setAttribute("condition", condition);
+				request.setAttribute("sellerName", name);
+
+				gotoPage(request, response, "/detail.jsp");
 			}
 
 		} catch (DAOException e) {

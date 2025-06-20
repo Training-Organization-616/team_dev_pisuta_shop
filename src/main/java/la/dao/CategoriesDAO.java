@@ -49,13 +49,13 @@ public class CategoriesDAO {
 	}
 
 	//itemsテーブルのcategory_idから、カテゴリ名を取得
-	public String findNameById(int cotegory_id) throws DAOException {
+	public String findNameById(int categoryId) throws DAOException {
 		String sql = "select * from categories where id=?";
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
 				// PreparedStatementオブジェクトの取得
 				PreparedStatement st = con.prepareStatement(sql);) {
-			st.setInt(1, cotegory_id);
+			st.setInt(1, categoryId);
 			try (// SQLの実行
 					ResultSet rs = st.executeQuery()) {
 				while (rs.next()) {
