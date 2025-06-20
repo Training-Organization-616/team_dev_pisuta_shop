@@ -137,6 +137,8 @@ public class UserServlet extends HttpServlet {
 					request.setAttribute("user", user);
 					gotoPage(request, response, "/profile.jsp");
 				}
+
+				//会員の退会処理
 			} else if (action.equals("remove")) {
 				// セッションから会員IDの取得
 				HttpSession session = request.getSession(false);

@@ -40,29 +40,9 @@
 			</div>
 			<br>
 			<div class="location3">
-				<!-- 退会ダイアログ処理 -->
-				<form  id="delete" action="/team_dev_pisuta_shop/UserServlet" method="post" onsubmit="return remove();">
-						<input type="hidden" name="action" value="remove"> 
-						<button class="delete_button" type="submit">退会</button>
-				</form><br>
-
-
-
-				<script>
-						function remove(){
-    					let check = confirm('退会します。よろしいですか？');
-    					console.log(check);
-    				if (check){
-	  					return true;
-    				} else {
-						return false;
-    				}
-				}
-				</script>
-			
-			</div>
-			 
-			
+				<!-- 退会ダイアログ処理 --> 
+						<button class="delete_button" type="button">退会</button>
+			</div>		
 		</div>
 
 		<div id="child2">
@@ -72,6 +52,30 @@
 		</div>
 	</div>
 </div>
+
+
+<dialog id="deleteDialog">
+	<div class="dialog_content">
+		<p>削除しますか</p>
+		<form action="/team_dev_pisuta_shop/UserServlet" method="post">
+			<input class="delete_id" type="hidden">
+			<button type="submit" name="action" value="remove">はい</button>
+		</form>
+		<form method="dialog">
+			<button>いいえ</button>
+		</form>
+	</div>
+	</dialog>
+
+	<script>
+	const deleteButton = document.querySelector('.delete_button');
+	const dialog = document.querySelector('#deleteDialog');
+	
+		deleteButton.addEventListener('click', () => {
+			dialog.showModal();
+});
+	
+	</script>
 
 
 </body>
