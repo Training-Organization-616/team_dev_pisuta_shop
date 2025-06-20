@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import la.bean.CategoryBean;
 import la.bean.ConditionBean;
+import la.bean.ItemBean;
 import la.bean.UserBean;
 import la.dao.CategoriesDAO;
 import la.dao.ConditionsDAO;
@@ -80,28 +81,91 @@ public class ListingServlet extends HttpServlet {
 					request.setAttribute("message", "商品名は100文字以下にしてください");
 					gotoPage(request, response, "listing.jsp");
 
-				} else {
-					try {
-						price = Integer.parseInt(request.getParameter("price"));
+				} else if (action.equals("edit")) {
 
-						//ログインユーザーの取得
-						HttpSession session = request.getSession();
-						UserBean user = (UserBean) session.getAttribute("user");
-						//出品処理
-						itemsDao.addItem(name, categoryId, user.getId(), price, condId, comment);
+					// 商品　情報変更画面への遷移
+					gotoPage(request, response, "/editItem.jsp");
 
-						gotoPage(request, response, "profile.jsp");
+					//商品　情報の更新
+					int id = Integer.parseInt(request.getParameter("id"));
+					//	String name = request.getParameter("name");
+					//	int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+					int sellerId = Integer.parseInt(request.getParameter("sellerId"));
+					//	int price = Integer.parseInt(request.getParameter("price"));
+					//	int condId = Integer.parseInt(request.getParameter("condId"));
+					//	String comment = request.getParameter("comment");
+					String fileName = request.getParameter("fileName");
 
-					} catch (Exception e) {
-						request.setAttribute("message", "価格は必須です");
-						gotoPage(request, response, "listing.jsp");
+					//入力チェック
+					if (Objects.isNull(id) || id == 0 || name == null || name.length() == 0
+							|| Objects.isNull(categoryId) || categoryId == 0 || Objects.isNull(sellerId)
+							|| sellerId == 0
+							|| Objects.isNull(price) || price == 0 || Objects.isNull(condId) || condId == 0
+							|| comment == null || comment.length() == 0 || fileName == null || fileName.length() == 0) {
+						request.setAttribute("message", "全ての項目を入力してください");
+						gotoPage(request, response, "/editItem.jsp");
+					} else if (name.length() > 100) {
+						request.setAttribute("name", "商品名は100文字以下にしてください");
+						gotoPage(request, response, "/editUser.jsp");
+					} else {
+						ItemsDAO dao = new ItemsDAO();
+						//dao.updateItem(id, name, categoryId, sellerId, price, condId, comment, fileName);
+
+						gotoPage(request, response, "/profile.jsp");
+					} //商品の削除処理
+				} else if (action.equals("delere")) {
+					// セッションから商品IDの取得
+					HttpSession session = request.getSession(false);
+					ItemBean item = (ItemBean) session.getAttribute("item");
+					int id = item.getId();
+
+					ItemsDAO dao = new ItemsDAO();
+					dao.deleteItemById(id);
+
+					ItemsDAO itemsDao1 = new ItemsDAO();
+					itemsDao1.deleteItemById(id);
+
+					// セッションの削除
+					if (session != null) {
+						session.removeAttribute("item");
 					}
+
+					response.sendRedirect("/team_dev_pisuta_shop/ItemServlet");
+				}
+
+			} else {
+				try {
+					int price = Integer.parseInt(request.getParameter("price"));
+					int id = Integer.parseInt(request.getParameter("id"));
+					String name = request.getParameter("name");
+					int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+					int sellerId = Integer.parseInt(request.getParameter("sellerId"));
+					int price1 = Integer.parseInt(request.getParameter("price"));
+					int condId = Integer.parseInt(request.getParameter("condId"));
+					String comment = request.getParameter("comment");
+					String fileName = request.getParameter("fileName");
+
+					//ログインユーザーの取得
+					HttpSession session = request.getSession();
+					UserBean user = (UserBean) session.getAttribute("user");
+					//出品処理
+					itemsDao.addItem(name, categoryId, user.getId(), price1, condId, comment);
+
+					gotoPage(request, response, "profile.jsp");
+
+				} catch (Exception e) {
+					request.setAttribute("message", "価格は必須です");
+					gotoPage(request, response, "listing.jsp");
+					return;
 				}
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
+			request.setAttribute("message", "内部エラーが発生しました。");
+			gotoPage(request, response, "/errInternal.jsp");
 		}
+		// TODO: handle exception
 	}
 
 	private void gotoPage(HttpServletRequest request,
