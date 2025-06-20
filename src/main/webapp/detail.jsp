@@ -23,14 +23,17 @@
 	<div class="field">${item.comment}</div>
 
 	カテゴリ：${category}
-	<br> 状態：${item.condId}
+	<br> 状態：${condition}
 	<br> 販売者：${sellerName}
 	<br>
 
+	<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
+		<button>購入確認へ</button>
+		<input type="hidden" name="action" value="confirm"> <input
+			type="hidden" name="itemId" value="${item.id }">
 
-	<button>購入確認へ</button>
-
-	<button>商品一覧へ</button>
-
+		<form action="/team_dev_pisuta_shop/ItemServlet" method=get>
+			<button>商品一覧へ</button>
+		</form>
 </body>
 </html>
