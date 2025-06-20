@@ -16,14 +16,23 @@
 	<div class="receipt-form">
 	<div class="title"><b>購入情報</b></div> 
 	
-	 取引番号<br>
-	 <div class="field">${deal.id}</div>
-	 出品者名<br>
-	 <div class="field">${sellerName}</div>
+	 <!-- 一次リリースで表示していた内容 -->
+	 <!--取引番号<br>  -->
+	 <!--<div class="field">${deal.id}</div>-->
+	 <!--出品者名<br>-->
+	 <!--<div class="field">${sellerName}</div>-->
+	 
+	 <!-- 二次リリースで表示内容 -->
+	 <!-- 画像添付予定 -->
 	 商品名<br>
 	 <div class="field"> ${item.name}</div>
 	 価格<br>
 	 <div class="field">${item.price}円</div>
+	 商品の説明<br>
+	 <div class="field"> ${item.comment}</div>
+	 配送先住所<br>
+	 <div class="field"> ${user.address}</div>
+	 
 
 	 <div class="message"><b>商品の購入が確定しました！</b></div>
 	 </div>
