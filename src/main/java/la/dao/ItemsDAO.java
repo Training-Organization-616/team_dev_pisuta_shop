@@ -34,7 +34,7 @@ public class ItemsDAO {
 	 */
 	public List<ItemBean> findAll(boolean soldout) throws DAOException {
 
-		String sql = "SELECT * FROM items WHERE 1 = 1";
+		String sql = "SELECT * FROM items WHERE 1 = 1 ";
 
 		if (!soldout) {
 			sql += "AND status = true ";
