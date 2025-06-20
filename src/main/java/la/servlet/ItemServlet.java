@@ -2,6 +2,7 @@ package la.servlet;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -62,19 +63,20 @@ public class ItemServlet extends HttpServlet {
 				List<ItemBean> itemslist = itemsdao.findAll(true);
 				request.setAttribute("items", itemslist);
 				gotoPage(request, response, "/top.jsp");
-				//			} else if (action.equals("confirm")) {
-				//				// ★購入確認への遷移
-				//
-				//				if (Objects.isNull(user)) {
-				//					response.sendRedirect("/team_dev_pisuta_shop/LoginServlet");
-				//					return;
-				//				}
-				//				int itemId = Integer.parseInt(request.getParameter("itemId"));
-				//				ItemBean bean = itemsdao.searchItemById(itemId);
-				//
-				//				String name = userdao.findUserById(bean.getSellerId()).getName();
-				//				request.setAttribute("sellerName", name);
-				//				request.setAttribute("item", bean);
+
+			} else if (action.equals("confirm")) {
+				// ★購入確認への遷移
+
+				if (Objects.isNull(user)) {
+					response.sendRedirect("/team_dev_pisuta_shop/LoginServlet");
+					return;
+				}
+				int itemId = Integer.parseInt(request.getParameter("itemId"));
+				ItemBean bean = itemsdao.searchItemById(itemId);
+
+				String name = userdao.findUserById(bean.getSellerId()).getName();
+				request.setAttribute("sellerName", name);
+				request.setAttribute("item", bean);
 
 				gotoPage(request, response, "/confirm.jsp");
 
