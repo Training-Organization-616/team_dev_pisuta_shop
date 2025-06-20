@@ -65,7 +65,7 @@ public class ItemServlet extends HttpServlet {
 				gotoPage(request, response, "/top.jsp");
 
 			} else if (action.equals("confirm")) {
-				// ★購入確認への遷移
+				// ★購入確認画面への遷移
 
 				if (Objects.isNull(user)) {
 					response.sendRedirect("/team_dev_pisuta_shop/LoginServlet");
@@ -74,9 +74,8 @@ public class ItemServlet extends HttpServlet {
 				int itemId = Integer.parseInt(request.getParameter("itemId"));
 				ItemBean bean = itemsdao.searchItemById(itemId);
 
-				String name = userdao.findUserById(bean.getSellerId()).getName();
-				request.setAttribute("sellerName", name);
 				request.setAttribute("item", bean);
+				request.setAttribute("address", user.getAddress());
 
 				gotoPage(request, response, "/confirm.jsp");
 
