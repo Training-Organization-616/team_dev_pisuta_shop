@@ -27,14 +27,6 @@
 			<div class="item">
 				<b class="name">${item.name}</b><br> ￥${item.price}
 				
-				<!--1次発注-->
-				<!--	<form action="/team_dev_pisuta_shop/ItemServlet" method="post">-->
-				<!--		<button>購入</button>-->
-				<!--		<input type="hidden" name="action" value="confirm">-->
-				<!--		<input type="hidden" name="itemId" value="${item.id }">-->
-				<!--		<br>-->
-				<!--	</form>-->
-				
 				<!--2次発注-->
 				<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
 					<button>購入</button>
