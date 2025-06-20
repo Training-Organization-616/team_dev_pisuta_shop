@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import la.bean.CategoryBean;
+import la.bean.ConditionBean;
 import la.bean.DealBean;
 import la.bean.ItemBean;
 import la.bean.UserBean;
@@ -61,7 +63,11 @@ public class ItemServlet extends HttpServlet {
 			if (action == null) {
 
 				List<ItemBean> itemslist = itemsdao.findAll(true);
+				List<CategoryBean> categorieslist = categoriesdao.findAll();
+				List<ConditionBean> conditionslist = conditionsdao.findAll();
 				request.setAttribute("items", itemslist);
+				request.setAttribute("categories", categorieslist);
+				request.setAttribute("conditions", conditionslist);
 				gotoPage(request, response, "/top.jsp");
 
 			} else if (action.equals("confirm")) {
