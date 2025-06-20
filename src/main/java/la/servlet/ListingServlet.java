@@ -109,7 +109,7 @@ public class ListingServlet extends HttpServlet {
 						gotoPage(request, response, "/editUser.jsp");
 					} else {
 						ItemsDAO dao = new ItemsDAO();
-						//dao.updateItem(id, name, categoryId, sellerId, price, condId, comment, fileName);
+						dao.updateItem(id, name, categoryId, price, condId, comment);
 
 						gotoPage(request, response, "/profile.jsp");
 					} //商品の削除処理
