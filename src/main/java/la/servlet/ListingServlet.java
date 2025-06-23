@@ -154,12 +154,15 @@ public class ListingServlet extends HttpServlet {
 				return;
 
 			} else if (action.equals("edit")) {
-				int itemId = Integer.parseInt(request.getParameter("id"));
+				int itemId = Integer.parseInt(request.getParameter("itemId"));
 
+				ItemBean item = itemsDao.searchItemById(itemId);
+				//商品情報をセット
+				request.setAttribute("item", item);
 				// 商品情報変更画面への遷移
 				gotoPage(request, response, "/editItem.jsp");
 
-			} else if (action.equals("edit")) {
+			} else if (action.equals("update")) {
 
 				//商品情報の更新
 				int id = Integer.parseInt(request.getParameter("id"));
@@ -186,10 +189,24 @@ public class ListingServlet extends HttpServlet {
 					gotoPage(request, response, "/editItem.jsp");
 					return;
 				} else {
-					price = Integer.parseInt(strPrice);
+					try {
+						price = Integer.parseInt(strPrice);
+						if (price < 1) {
+							throw new Exception();
+						}
+					} catch (Exception e) {
+						// TODO: handle exception
+						request.setAttribute("message", "正しい価格を入力してください");
+						gotoPage(request, response, "/editItem.jsp");
+						return;
+					}
 					ItemsDAO dao = new ItemsDAO();
 					dao.updateItem(id, name, categoryId, price, condId, comment);
 
+					int userId = user.getId();
+					List<ItemBean> list = dao.findItemByUserId(userId);
+
+					request.setAttribute("items", list);
 					gotoPage(request, response, "/profile.jsp");
 				}
 
