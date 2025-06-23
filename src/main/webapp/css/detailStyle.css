@@ -10,6 +10,16 @@
 	display:flex
 }
 
+#child1{
+	flex: 1;
+}
+#child2{
+	flex: 1;
+}
+
+
+
+
 .detail-form {
 	flex:1;
 	position: relative;
@@ -45,6 +55,9 @@
 	padding: 15px;
 	box-sizing: border-box;
 	font-size: 14px;
+}
+.item_label{
+	display: flex ; 
 }
 
 body {

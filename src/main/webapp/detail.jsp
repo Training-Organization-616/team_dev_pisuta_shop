@@ -21,21 +21,36 @@
 		<div class="detail-form">
 			<b class="item-name">${item.name}</b><br>
 
-		<b class="item-price">${item.price}円</b><br><br>
+		<b class="item-price">${item.price}円</b><br>
 
 			商品の説明<br>
+			
 			<div class="field">${item.comment}</div>
-
-			<div class="field">カテゴリー：${category}</div>
-			<div class="field">状態：${condition}</div>
-			<div class="field">販売者：${sellerName}</div>
+			
+			
+			<div id="child1">
+			カテゴリー：<br>
+			状態：<br>
+			販売者：<br>
+			</div>
+			<div id="child2">
+			<div class="field">${category}</div>
+			<div class="field">${condition}</div>
+			<div class="field">${sellerName}</div>
 			<br>
+			
 
 			<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
 				<button>購入確認へ</button>
 				<input type="hidden" name="action" value="confirm"> <input
 					type="hidden" name="itemId" value="${item.id}">
 			</form>
+			</div>
+		
+			
+			
+			</div>
+			
 		</div>
 		
 	</div>
