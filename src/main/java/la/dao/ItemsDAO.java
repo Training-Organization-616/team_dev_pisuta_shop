@@ -239,8 +239,6 @@ public class ItemsDAO {
 				i++;
 			}
 
-			System.out.println(st.toString());
-
 			try (ResultSet rs = st.executeQuery()) {
 
 				List<ItemBean> list = new ArrayList<ItemBean>();
@@ -258,9 +256,8 @@ public class ItemsDAO {
 
 					list.add(
 							new ItemBean(id, name, categoryId, sellerId, price, condId, status, comment, fileName));
-					return list;
 				}
-				return null;
+				return list;
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -343,9 +340,8 @@ public class ItemsDAO {
 
 					list.add(
 							new ItemBean(id, name, categoryId, sellerId, price, condId, status, comment, fileName));
-					return list;
 				}
-				return null;
+				return list;
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -478,7 +474,6 @@ public class ItemsDAO {
 
 				list.add(new ItemBean(id, name, categoryId, sellerId, price, condId, itemStatus, comment, fileName));
 			}
-
 			return list;
 
 		} catch (SQLException e) {
