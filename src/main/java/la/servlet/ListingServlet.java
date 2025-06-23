@@ -117,16 +117,16 @@ public class ListingServlet extends HttpServlet {
 				part.write(path + File.separator + fileName);
 
 				//データベース登録
-				//itemsDao.addItem(name, categoryId, user.getId(), price, condId, comment, fileName);
+				itemsDao.addItem(name, categoryId, user.getId(), price, condId, comment, fileName);
 
 				//登録した商品のidを検索
-				ItemBean itemBean;
+				int id = itemsDao.getIdbyItem(user.getId(), fileName);
 
 				//ファイル名の変更
 				//現在のファイルのパス
 				File currentFile = new File(path + File.separator + fileName);
 				//新しいファイル名
-				File newFileName = new File("pict" + itemBean.getId() + ".png");
+				File newFileName = new File("pict" + id + ".png");
 
 				//ファイル名の変更
 				boolean success = currentFile.renameTo(newFileName);

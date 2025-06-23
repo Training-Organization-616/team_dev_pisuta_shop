@@ -76,10 +76,10 @@ public class ItemsDAO {
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
 				// PreparedStatementオブジェクトの取得
-				PreparedStatement st = con.prepareStatement(sql)) {
+				PreparedStatement st = con.prepareStatement(sql);) {
 			st.setInt(1, userId);
 
-			try (ResultSet rs = st.executeQuery()) {
+			try (ResultSet rs = st.executeQuery();) {
 				List<ItemBean> list = new ArrayList<ItemBean>();
 				//検索結果
 				while (rs.next()) {
@@ -116,10 +116,10 @@ public class ItemsDAO {
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
 				// PreparedStatementオブジェクトの取得
-				PreparedStatement st = con.prepareStatement(sql)) {
+				PreparedStatement st = con.prepareStatement(sql);) {
 			st.setInt(1, userId);
 
-			try (ResultSet rs = st.executeQuery()) {
+			try (ResultSet rs = st.executeQuery();) {
 				List<ItemBean> list = new ArrayList<ItemBean>();
 				//検索結果
 				while (rs.next()) {
@@ -158,7 +158,7 @@ public class ItemsDAO {
 				// PreparedStatementオブジェクトの取得
 				PreparedStatement st = con.prepareStatement(sql);) {
 			st.setInt(1, itemId);
-			try (ResultSet rs = st.executeQuery()) {
+			try (ResultSet rs = st.executeQuery();) {
 				ItemBean bean;
 				//検索結果
 				while (rs.next()) {
@@ -239,7 +239,7 @@ public class ItemsDAO {
 				i++;
 			}
 
-			try (ResultSet rs = st.executeQuery()) {
+			try (ResultSet rs = st.executeQuery();) {
 
 				List<ItemBean> list = new ArrayList<ItemBean>();
 				//検索結果
@@ -324,7 +324,7 @@ public class ItemsDAO {
 			}
 			st.setInt(i, userId);
 
-			try (ResultSet rs = st.executeQuery()) {
+			try (ResultSet rs = st.executeQuery();) {
 				List<ItemBean> list = new ArrayList<ItemBean>();
 				//検索結果
 				while (rs.next()) {
@@ -354,9 +354,10 @@ public class ItemsDAO {
 		}
 	}
 
-	public int addItem(String name, int categoryId, int sellerId, int price, int condId, String comment)
+	public int addItem(String name, int categoryId, int sellerId, int price, int condId, String comment,
+			String fileName)
 			throws DAOException {
-		String sql = "INSERT INTO items(name,category_id,seller_id,price,cond_id,comment) VALUES(?,?,?,?,?,?)";
+		String sql = "INSERT INTO items(name,category_id,seller_id,price,cond_id,comment,file_name) VALUES(?,?,?,?,?,?,?)";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
@@ -368,12 +369,56 @@ public class ItemsDAO {
 			st.setInt(4, price);
 			st.setInt(5, condId);
 			st.setString(6, comment);
+			st.setString(7, fileName);
 
 			return st.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new DAOException("レコードの登録に失敗しました。");
 		}
+	}
+
+	public int getIdbyItem(int userId, String name) throws DAOException {
+		String sql = "SELECT * FROM items WHERE seller_id = ? AND name = ? ORDER BY created_at LIMIT 1";
+
+		try (// データベースへの接続
+				Connection con = DriverManager.getConnection(url, user, pass);
+				// PreparedStatementオブジェクトの取得
+				PreparedStatement st = con.prepareStatement(sql);) {
+
+			st.setInt(1, userId);
+			st.setString(2, name);
+
+			try (ResultSet rs = st.executeQuery();) {
+				rs.next();
+				return rs.getInt("id");
+			} catch (SQLException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+				throw new DAOException("レコードの登録に失敗しました。");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DAOException("レコードの登録に失敗しました。");
+		}
+	}
+
+	public int updateItemFileNameById(int itemId, String fileName) throws DAOException {
+		String sql = "UPDATE items SET file_name = ? WHERE id = ?";
+
+		try (// データベースへの接続
+				Connection con = DriverManager.getConnection(url, user, pass);
+				// PreparedStatementオブジェクトの取得
+				PreparedStatement st = con.prepareStatement(sql);) {
+			st.setString(1, fileName);
+			st.setInt(2, itemId);
+
+			return st.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DAOException("レコードの登録に失敗しました。");
+		}
+
 	}
 
 	public int updateItem(int id, String name, int categoryId, int price, int condId, String comment)
