@@ -50,7 +50,8 @@ price       INTEGER     NOT NULL,
 cond_id INTEGER     NOT NULL REFERENCES conditions(id),
 status  BOOLEAN     NOT NULL DEFAULT TRUE,
 comment TEXT,
-file_name VARCHAR(100) NOT NULL
+file_name VARCHAR(100) NOT NULL,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE deals
