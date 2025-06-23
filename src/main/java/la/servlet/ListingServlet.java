@@ -152,51 +152,58 @@ public class ListingServlet extends HttpServlet {
 				return;
 
 			} else if (action.equals("edit")) {
+				int itemId = Integer.parseInt(request.getParameter("id"));
 
 				// 商品情報変更画面への遷移
 				gotoPage(request, response, "/editItem.jsp");
+
+			} else if (action.equals("edit")) {
 
 				//商品情報の更新
 				int id = Integer.parseInt(request.getParameter("id"));
 				String name = request.getParameter("name");
 				int categoryId = Integer.parseInt(request.getParameter("categoryId"));
 				String strPrice = request.getParameter("price");
+				int price = 0;
 				int condId = Integer.parseInt(request.getParameter("condId"));
 				String comment = request.getParameter("comment");
 
 				//入力チェック
-				if (name == null || name.length() == 0
-						|| Objects.isNull(categoryId) || categoryId == 0
-						|| Objects.isNull(strPrice) || Objects.isNull(condId) || condId == 0) {
-					request.setAttribute("message", "全ての項目を入力してください");
+				//商品名が無い場合
+				if (name == null || name.length() == 0) {
+					request.setAttribute("message", "商品名は必須です");
 					gotoPage(request, response, "/editItem.jsp");
+					return;
+				} else if (Objects.isNull(strPrice) || strPrice.length() == 0) {
+					request.setAttribute("message", "価格は必須です");
+					gotoPage(request, response, "/editItem.jsp");
+					return;
 				} else if (name.length() > 100) {
+					//商品名が１００文字以上の場合
 					request.setAttribute("name", "商品名は100文字以下にしてください");
-					gotoPage(request, response, "/editUser.jsp");
+					gotoPage(request, response, "/editItem.jsp");
+					return;
 				} else {
-					int price = Integer.parseInt(strPrice);
+					price = Integer.parseInt(strPrice);
 					ItemsDAO dao = new ItemsDAO();
 					dao.updateItem(id, name, categoryId, price, condId, comment);
 
 					gotoPage(request, response, "/profile.jsp");
-				} //商品の削除処理
+				}
+
+				//商品の削除処理
 			} else if (action.equals("delete")) {
-				// セッションから商品IDの取得
-				session = request.getSession(false);
-				ItemBean item = (ItemBean) session.getAttribute("item");
-				int id = item.getId();
+				int itemId = Integer.parseInt(request.getParameter("itemId"));
 
 				ItemsDAO dao = new ItemsDAO();
-				dao.deleteItemById(id);
+				dao.deleteItemById(itemId);
 
-				ItemsDAO itemsDao1 = new ItemsDAO();
-				itemsDao1.deleteItemById(id);
+				int userId = user.getId();
+				List<ItemBean> list = dao.findItemByUserId(userId);
 
-				// セッションの削除
-				if (session != null) {
-					session.removeAttribute("item");
-				}
-				response.sendRedirect("/team_dev_pisuta_shop/ItemServlet");
+				request.setAttribute("items", list);
+
+				gotoPage(request, response, "/profile.jsp");
 			}
 
 		} catch (Exception e) {

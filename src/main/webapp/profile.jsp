@@ -77,12 +77,14 @@
 						<td>
 						<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet" method="post">
 						<input type="hidden" name="action" value="edit">
+						<input type="hidden" name="itemId" value="${item.id}">
 						<button>変更</button>
 						</form></td>
 						
 		          		<td>
 						<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet" method="post">
 						<input type="hidden" name="action" value="delete">
+						<input type="hidden" name="itemId" value="${item.id}">
 						<button>削除</button>
 						</form></td>
 		          	

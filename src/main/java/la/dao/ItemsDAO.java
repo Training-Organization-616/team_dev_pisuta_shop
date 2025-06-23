@@ -116,7 +116,7 @@ public class ItemsDAO {
 
 	public List<ItemBean> findItemByUserId(int userId) throws DAOException {
 
-		String sql = "SELECT * FROM items WHERE seller_id = ? ORDER BY id";
+		String sql = "SELECT * FROM items WHERE seller_id = ? AND status = true ORDER BY id";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
