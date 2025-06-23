@@ -40,7 +40,7 @@ h2 {
 }
 
 .listing_box {
-	width:500px;
+	width:700px;
 	border-radius: 30px;
 	text-align: center;
 	border: solid 2px black;
@@ -171,5 +171,5 @@ button:hover {
 
 	font-size: 30px !important;
 	position: relative; /* 今の位置を基準 */
-	left: 150px; /* 右から150px */
+	left: 260px; /* 右から150px */
 }
