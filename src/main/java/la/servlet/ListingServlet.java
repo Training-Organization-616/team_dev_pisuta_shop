@@ -112,7 +112,7 @@ public class ListingServlet extends HttpServlet {
 				String fileName = Paths.get(part.getSubmittedFileName()).getFileName().toString();
 				//アップロードするフォルダ
 				String path = getServletContext().getRealPath("/upload");
-				System.out.println(path + File.separator + fileName);
+
 				//書き込み
 				part.write(path + File.separator + fileName);
 
@@ -126,7 +126,7 @@ public class ListingServlet extends HttpServlet {
 				//現在のファイルのパス
 				File currentFile = new File(path + File.separator + fileName);
 				//新しいファイル名
-				File newFileName = new File("pict" + id + ".png");
+				File newFileName = new File(path + File.separator + "pict" + id + ".png");
 
 				//ファイル名の変更
 				boolean success = currentFile.renameTo(newFileName);
@@ -138,6 +138,7 @@ public class ListingServlet extends HttpServlet {
 				}
 
 				//変更後データベースの更新
+				itemsDao.updateItemFileNameById(id, newFileName.getName());
 
 				gotoPage(request, response, "profile.jsp");
 

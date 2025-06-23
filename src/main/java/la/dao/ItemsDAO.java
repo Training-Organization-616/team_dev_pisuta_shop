@@ -391,8 +391,8 @@ public class ItemsDAO {
 		}
 	}
 
-	public int getIdbyItem(int userId, String name) throws DAOException {
-		String sql = "SELECT * FROM items WHERE seller_id = ? AND name = ? ORDER BY created_at LIMIT 1";
+	public int getIdbyItem(int userId, String fileName) throws DAOException {
+		String sql = "SELECT * FROM items WHERE seller_id = ? AND file_name = ? ORDER BY created_at LIMIT 1";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
@@ -400,15 +400,18 @@ public class ItemsDAO {
 				PreparedStatement st = con.prepareStatement(sql);) {
 
 			st.setInt(1, userId);
-			st.setString(2, name);
+			st.setString(2, fileName);
 
 			try (ResultSet rs = st.executeQuery();) {
-				rs.next();
-				return rs.getInt("id");
+				while (rs.next()) {
+					int id = rs.getInt("id");
+					return id;
+				}
+				return -1;
 			} catch (SQLException e) {
 				// TODO: handle exception
 				e.printStackTrace();
-				throw new DAOException("レコードの登録に失敗しました。");
+				throw new DAOException("レコードの操作に失敗しました。");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
