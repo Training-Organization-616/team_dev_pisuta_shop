@@ -18,6 +18,7 @@
 
 	<jsp:include page="/header.jsp" />
 
+<div class="confirm">
 	<div class="confirm-page">
 		<div class="confirm-form">
 			<div class="title">
@@ -65,7 +66,7 @@
 		<input type="hidden" name="itemId" value="${item.id}">
 		<button>キャンセル</button>
 	</form>
-
+</div>
 	<footer></footer>
 
 </body>
