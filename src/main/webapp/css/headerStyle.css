@@ -10,7 +10,8 @@
 
 .pisuta {
 	font-size: 38px;
-	width: 250px
+	width: 250px;
+	justify-items: left;
 }
 
 .pisuta a {

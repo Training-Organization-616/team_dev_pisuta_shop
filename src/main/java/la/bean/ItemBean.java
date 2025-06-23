@@ -1,6 +1,7 @@
 package la.bean;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 public class ItemBean implements Serializable {
 	private int id; // 商品ID
@@ -12,6 +13,7 @@ public class ItemBean implements Serializable {
 	private boolean status; // 販売状況
 	private String comment; // コメント
 	private String fileName; //画像ファイル名
+	private LocalDateTime createdAt; // 出品日時
 
 	// デフォルトコンストラクタ
 	public ItemBean() {
@@ -19,7 +21,7 @@ public class ItemBean implements Serializable {
 
 	// コンストラクタ
 	public ItemBean(int id, String name, int categoryId, int sellerId, int price, int condId, boolean status,
-			String comment, String fileName) {
+			String comment, String fileName, LocalDateTime createdAt) {
 		this.id = id;
 		this.name = name;
 		this.categoryId = categoryId;
@@ -29,6 +31,7 @@ public class ItemBean implements Serializable {
 		this.status = status;
 		this.comment = comment;
 		this.fileName = fileName;
+		this.createdAt = createdAt;
 	}
 
 	// ゲッター
@@ -66,6 +69,10 @@ public class ItemBean implements Serializable {
 
 	public String getFileName() {
 		return fileName;
+	}
+
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
 	}
 
 	// セッター

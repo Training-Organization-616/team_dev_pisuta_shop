@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,8 +59,10 @@ public class ItemsDAO {
 				boolean status = rs.getBoolean("status");
 				String comment = rs.getString("comment");
 				String fileName = rs.getString("file_name");
+				LocalDateTime createdAt = rs.getObject("created_at", LocalDateTime.class);
 
-				list.add(new ItemBean(id, name, categoryId, sellerId, price, condId, status, comment, fileName));
+				list.add(new ItemBean(id, name, categoryId, sellerId, price, condId, status, comment, fileName,
+						createdAt));
 			}
 
 			return list;
@@ -92,9 +95,11 @@ public class ItemsDAO {
 					boolean status = rs.getBoolean("status");
 					String comment = rs.getString("comment");
 					String fileName = rs.getString("file_name");
+					LocalDateTime createdAt = rs.getObject("created_at", LocalDateTime.class);
 
 					list.add(
-							new ItemBean(id, name, categoryId, sellerId, price, condId, status, comment, fileName));
+							new ItemBean(id, name, categoryId, sellerId, price, condId, status, comment, fileName,
+									createdAt));
 				}
 
 				return list;
@@ -132,9 +137,11 @@ public class ItemsDAO {
 					boolean itemStatus = rs.getBoolean("status");
 					String comment = rs.getString("comment");
 					String fileName = rs.getString("file_name");
+					LocalDateTime createdAt = rs.getObject("created_at", LocalDateTime.class);
 
 					list.add(
-							new ItemBean(id, name, categoryId, sellerId, price, condId, itemStatus, comment, fileName));
+							new ItemBean(id, name, categoryId, sellerId, price, condId, itemStatus, comment, fileName,
+									createdAt));
 				}
 
 				return list;
@@ -171,8 +178,10 @@ public class ItemsDAO {
 					boolean itemStatus = rs.getBoolean("status");
 					String comment = rs.getString("comment");
 					String fileName = rs.getString("file_name");
+					LocalDateTime createdAt = rs.getObject("created_at", LocalDateTime.class);
 
-					bean = new ItemBean(id, name, categoryId, sellerId, price, condId, itemStatus, comment, fileName);
+					bean = new ItemBean(id, name, categoryId, sellerId, price, condId, itemStatus, comment, fileName,
+							createdAt);
 					return bean;
 				}
 				return null;
@@ -253,9 +262,11 @@ public class ItemsDAO {
 					boolean status = rs.getBoolean("status");
 					String comment = rs.getString("comment");
 					String fileName = rs.getString("file_name");
+					LocalDateTime createdAt = rs.getObject("created_at", LocalDateTime.class);
 
 					list.add(
-							new ItemBean(id, name, categoryId, sellerId, price, condId, status, comment, fileName));
+							new ItemBean(id, name, categoryId, sellerId, price, condId, status, comment, fileName,
+									createdAt));
 				}
 				return list;
 
@@ -337,9 +348,11 @@ public class ItemsDAO {
 					boolean status = rs.getBoolean("status");
 					String comment = rs.getString("comment");
 					String fileName = rs.getString("file_name");
+					LocalDateTime createdAt = rs.getObject("created_at", LocalDateTime.class);
 
 					list.add(
-							new ItemBean(id, name, categoryId, sellerId, price, condId, status, comment, fileName));
+							new ItemBean(id, name, categoryId, sellerId, price, condId, status, comment, fileName,
+									createdAt));
 				}
 				return list;
 
@@ -516,8 +529,10 @@ public class ItemsDAO {
 				boolean itemStatus = rs.getBoolean("status");
 				String comment = rs.getString("comment");
 				String fileName = rs.getString("file_name");
+				LocalDateTime createdAt = rs.getObject("created_at", LocalDateTime.class);
 
-				list.add(new ItemBean(id, name, categoryId, sellerId, price, condId, itemStatus, comment, fileName));
+				list.add(new ItemBean(id, name, categoryId, sellerId, price, condId, itemStatus, comment, fileName,
+						createdAt));
 			}
 			return list;
 
