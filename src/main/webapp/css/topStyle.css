@@ -1,72 +1,78 @@
 @charset "UTF-8";
-.search{
-	position: fixed;
+
+h1 {
+	margin: 5px auto 5px
 }
-h1{
-	margin:5px auto 5px
-}
-.item_container{
+
+.item_container {
 	width: 900px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
-	
 	justify-self: center;
 }
 
-.search{
-	flex:1;
-	margin:20px;
+.search {
+	position: sticky;
+	top: 130px;
+	flex: 1;
+	margin: 0 20px;
 	width: 200px;
 	height: 470px;
 	text-align: center;
 	border-radius: 30px;
 	border: 1.5px solid black;
 }
-.price{
+
+.price {
 	width: 100px;
 }
 
-.item_search{
-	position: relative;
-	top: -150px; /* 上から10px */
-	left: 500px; /* 左から20px */
+.item_search {
+	position: fixed;
+	top: 50px;
+	/* 上から10px */
+	left: 500px;
+	/* 左から20px */
 	height: 10px;
 }
-.search-button{
-		position: absolute;
-		top: 4px;
-		right: -100px;
+
+.search-button {
+	position: absolute;
+	top: 4px;
+	right: -100px;
 }
-.search-text{
+
+.search-text {
 	width: 300px;
 	height: 27px;
 }
 
-.top-item{
-	flex:6;
+.top-item {
+	flex: 6;
 }
 
-.top-page{
+.top-page {
 	display: flex;
+	padding-top: 115px;
 }
 
-.item{
+.item {
 	width: 200px;
 	height: 250px;
 	border: solid 2px black;
 	border-radius: 10px;
-	
-	align-content: center ;
+
+	align-content: center;
 	text-align: center;
 }
 
-.item .name{
+.item .name {
 	font-size: larger;
 }
 
-.item button{
+.item button {
 	margin: 15px 0 0;
 }
 
@@ -79,6 +85,7 @@ button {
 
 	transition: .4s;
 }
+
 button:hover {
 	background-color: white;
 	color: rgb(255, 80, 50);
@@ -91,11 +98,12 @@ button:hover {
 	font-size: 30px;
 }
 
-.message{
+.message {
 	text-align: center;
 	margin: 40px auto;
 	font-size: 30px;
 }
+
 .field {
 	background-color: #f2f2f2;
 	width: 100%;
@@ -106,6 +114,6 @@ button:hover {
 	font-size: 14px;
 }
 
-footer{
-	height: 50px;
+footer {
+	height: 30px;
 }

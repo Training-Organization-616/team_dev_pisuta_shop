@@ -13,34 +13,34 @@
 <body>
 	<jsp:include page="/header.jsp" />
 
-<div class="top-page">
-<div class="search">
+	<div class="top-page">
+		<div class="search">
+			<h1>絞り込み</h1>
 		
-		<h1>絞り込み</h1>
-		
-		<div class="item_search">
-		<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
-		<input type="text" name="keyword" placeholder="何をお探しですか？" value="${keyword}"class="search-text">
-		
-		<button class="search-button">検索</button>
-		<input type="hidden" name="action" value="search">
-		</div>
+			<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
+				<input type="hidden" name="action" value="search">
+				<span class="item_search">
+					<input type="text" name="keyword" placeholder="何をお探しですか？" value="${keyword}"class="search-text">
+					<button class="search-button">検索</button>	
+				</span>
+				
+			
 		
 			カテゴリー
 			<div class="field">
-			<select name="categoryId">
-			<option value="-1">全て</option>
-			<c:forEach items="${categories}" var="category">
-				<c:choose>
-					<c:when test="${categoryId eq category.id}">
-						<option value="${category.id}" selected>${category.name}</option>
-					</c:when>
-					<c:otherwise>
-						<option value="${category.id}">${category.name}</option>
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-			</select> 
+				<select name="categoryId">
+				<option value="-1">全て</option>
+				<c:forEach items="${categories}" var="category">
+					<c:choose>
+						<c:when test="${categoryId eq category.id}">
+							<option value="${category.id}" selected>${category.name}</option>
+						</c:when>
+						<c:otherwise>
+							<option value="${category.id}">${category.name}</option>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+				</select> 
 			</div>
 			
 			価格
@@ -66,9 +66,9 @@
 			</div>
 			<button>絞り込み</button>
 		
-		</form>
-
-	</div>
+			</form>
+		</div>
+	
 <div class="top-item">
 	<div class="title">
 		<b>商品一覧</b>

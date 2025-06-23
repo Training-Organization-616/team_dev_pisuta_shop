@@ -22,7 +22,7 @@
 			<div class="err">${message}<br></div>
 			
 			商品名<br>
-			<input class="input-text" type="text" name="name" placeholder="50字以内"><br>
+			<input class="input-text" type="text" name="name">${item.id}<br>
 			
 			カテゴリー<br>
 			<div class="radio">
