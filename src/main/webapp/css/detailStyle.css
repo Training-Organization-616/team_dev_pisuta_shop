@@ -47,6 +47,16 @@
 	font-size: 24px;
 }
 
+.field_hight {
+	background-color: #f2f2f2;
+	width: 100%;
+	height: 80px;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
 .field {
 	background-color: #f2f2f2;
 	width: 100%;
@@ -82,4 +92,25 @@ button:hover {
 
 footer {
 	height: 50px;
+}
+
+.location0{
+	text-align: left;
+}
+
+#child1{
+	font-size:20px;
+	position: relative; /* 今の位置を基準 */
+	text-align: left;
+	top: 30px; /* 上から10px */
+	right: 20px; /* 左から20px */
+}
+#child2{
+	position: relative; /* 今の位置を基準 */
+	top: -30px; /* 上から10px */
+	left: 500px; /* 左から20px */
+}
+.a1{
+	width: 130px;
+	text-align: left;
 }
