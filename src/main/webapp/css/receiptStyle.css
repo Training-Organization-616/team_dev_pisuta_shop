@@ -23,6 +23,10 @@
 	color: rgb(255, 128, 0);	
 }
 
+.receipt{
+	padding-top: 90px;
+}
+
 .receipt-page {
 	width: 450px;
 	margin: auto;

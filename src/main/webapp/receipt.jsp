@@ -12,6 +12,7 @@
 <body>
 	<jsp:include page="/header.jsp" />
 
+	<div class="receipt">
 	<div class="receipt-page">
 	<div class="receipt-form">
 	<div class="title"><b>購入情報</b></div> 
@@ -44,7 +45,8 @@
 		<button>商品一覧へ</button>
 	</form>
 <!--	<a href="/team_dev_pisuta_shop/ItemServlet">商品一覧へ戻る</a>-->
-
+	</div>
+	
 	<footer></footer>
 
 </body>

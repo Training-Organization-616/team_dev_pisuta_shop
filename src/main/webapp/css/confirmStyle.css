@@ -24,6 +24,10 @@
 	box-decoration-break: clone;
 }
 
+.confirm {
+	padding-top: 90px;
+}
+
 .confirm-page {
 	width: 450px;
 	margin: auto;
