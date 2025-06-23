@@ -22,7 +22,8 @@
 			<div class="err">${message}<br></div>
 			
 			<div>
-				<input type="file" name="product_image" accept=".png" >
+				<img id="preview">
+				<input id="import_image" type="file" name="product_image" accept=".png" required>
 			</div>
 			
 			商品名<br>
