@@ -14,18 +14,20 @@
 	<jsp:include page="/header.jsp" />
 
 <div class="top-page">
-<div class="item_search">
+<div class="search">
 		
 		<h1>絞り込み</h1>
 		
-		<div class="search">
+		<div class="item_search">
 		<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
-		<input type="text" name="keyword" placeholder="何をお探しですか？" value="${keyword}">
-		<button>検索</button>
+		<input type="text" name="keyword" placeholder="何をお探しですか？" value="${keyword}"class="search-text">
+		
+		<button class="search-button">検索</button>
 		<input type="hidden" name="action" value="search">
 		</div>
 		
-			カテゴリー 
+		
+			カテゴリー <br>
 			<select name="categoryId">
 			<option value="-1">全て</option>
 			<c:forEach items="${categories}" var="category">
@@ -41,12 +43,12 @@
 			</select> 
 			<br>
 			
-			価格
-			<input type="text" name="minPrice" placeholder="最低価格" value="${minPrice}">
-			～
-			<input type="text"name="maxPrice" placeholder="最高価格" value="${maxPrice}">
+			価格<br>
+			<input type="text" name="minPrice" placeholder="最低価格" value="${minPrice}" class="price"><br>
+			～<br>
+			<input type="text"name="maxPrice" placeholder="最高価格" value="${maxPrice}" class="price"><br>
 			
-			状態
+			状態<br>
 			<select name="conditionId">
 			<option value="-1">全て</option>
 			<c:forEach items="${conditions}" var="condition">
@@ -61,6 +63,8 @@
 			</c:forEach>
 			</select> 
 
+			<br>
+			<br>
 			<button>絞り込み</button>
 		</form>
 
@@ -83,9 +87,10 @@
 				<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
 					<button>購入</button>
 					<input type="hidden" name="action" value="detail"> <input
-						type="hidden" name="itemId" value="${item.id }"> <input
-						type="hidden" name="categoryId" value="${item.categoryId }">
-					<input type="hidden" name=condId value="${item.condId }"><br>
+						type="hidden" name="itemId" value="${item.id }"> 
+<!--						<input-->
+<!--								type="hidden" name="categoryId" value="${item.categoryId }"> <input-->
+<!--								type="hidden" name=condId value="${item.condId }"><br>-->
 				</form>
 
 			</div>
