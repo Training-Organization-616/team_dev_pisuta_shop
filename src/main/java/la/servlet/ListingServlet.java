@@ -95,19 +95,8 @@ public class ListingServlet extends HttpServlet {
 				String strPrice = request.getParameter("price");
 				int price = 0;
 
-				//商品名が無い場合
-				if (name == null || name.length() == 0) {
-					request.setAttribute("message", "商品名は必須です");
-					gotoPage(request, response, "listing.jsp");
-
-				}
-				//商品名が１００文字以上の場合
-				else if (name.length() >= 100) {
-					request.setAttribute("message", "商品名は100文字以下にしてください");
-					gotoPage(request, response, "listing.jsp");
-				}
-
 				//入力チェック
+				//商品名が無い場合
 				if (name == null || name.length() == 0) {
 					request.setAttribute("message", "商品名は必須です");
 					gotoPage(request, response, "/listing.jsp");
@@ -117,6 +106,7 @@ public class ListingServlet extends HttpServlet {
 					gotoPage(request, response, "/listing.jsp");
 					return;
 				} else if (name.length() > 100) {
+					//商品名が１００文字以上の場合
 					request.setAttribute("name", "商品名は100文字以下にしてください");
 					gotoPage(request, response, "/listing.jsp");
 					return;
@@ -129,7 +119,7 @@ public class ListingServlet extends HttpServlet {
 				//ファイル名を取得
 				String fileName = Paths.get(part.getSubmittedFileName()).getFileName().toString();
 				//アップロードするフォルダ
-				String path = getServletContext().getRealPath("/upload");
+				String path = getServletContext().getRealPath("/upload/");
 
 				//書き込み
 				part.write(path + File.separator + fileName);
@@ -158,7 +148,8 @@ public class ListingServlet extends HttpServlet {
 				//変更後データベースの更新
 				itemsDao.updateItemFileNameById(id, newFileName.getName());
 
-				gotoPage(request, response, "profile.jsp");
+				response.sendRedirect("/team_dev_pisuta_shop/UserServlet");
+				return;
 
 			} else if (action.equals("edit")) {
 
