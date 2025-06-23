@@ -15,7 +15,7 @@ h1 {
 
 .search {
 	position: sticky;
-	top: 130px;
+	top: 100px;
 	flex: 1;
 	margin: 0 20px;
 	width: 200px;
@@ -55,7 +55,7 @@ h1 {
 
 .top-page {
 	display: flex;
-	padding-top: 115px;
+	padding-top: 100px;
 }
 
 .item {
