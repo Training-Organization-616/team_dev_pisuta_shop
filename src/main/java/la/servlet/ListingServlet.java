@@ -92,6 +92,7 @@ public class ListingServlet extends HttpServlet {
 				//出品者コメント
 				String comment = request.getParameter("comment");
 				//価格
+				String strPrice = request.getParameter("price");
 				int price = 0;
 
 				//商品名が無い場合
@@ -104,6 +105,23 @@ public class ListingServlet extends HttpServlet {
 				else if (name.length() >= 100) {
 					request.setAttribute("message", "商品名は100文字以下にしてください");
 					gotoPage(request, response, "listing.jsp");
+				}
+
+				//入力チェック
+				if (name == null || name.length() == 0) {
+					request.setAttribute("message", "商品名は必須です");
+					gotoPage(request, response, "/listing.jsp");
+					return;
+				} else if (Objects.isNull(strPrice) || strPrice.length() == 0) {
+					request.setAttribute("message", "価格は必須です");
+					gotoPage(request, response, "/listing.jsp");
+					return;
+				} else if (name.length() > 100) {
+					request.setAttribute("name", "商品名は100文字以下にしてください");
+					gotoPage(request, response, "/listing.jsp");
+					return;
+				} else {
+					price = Integer.parseInt(strPrice);
 				}
 
 				//画像ファイルの受け取り
@@ -151,23 +169,21 @@ public class ListingServlet extends HttpServlet {
 				int id = Integer.parseInt(request.getParameter("id"));
 				String name = request.getParameter("name");
 				int categoryId = Integer.parseInt(request.getParameter("categoryId"));
-				int sellerId = Integer.parseInt(request.getParameter("sellerId"));
-				int price = Integer.parseInt(request.getParameter("price"));
+				String strPrice = request.getParameter("price");
 				int condId = Integer.parseInt(request.getParameter("condId"));
 				String comment = request.getParameter("comment");
 
 				//入力チェック
-				if (Objects.isNull(id) || id == 0 || name == null || name.length() == 0
-						|| Objects.isNull(categoryId) || categoryId == 0 || Objects.isNull(sellerId)
-						|| sellerId == 0
-						|| Objects.isNull(price) || price == 0 || Objects.isNull(condId) || condId == 0
-						|| comment == null || comment.length() == 0) {
+				if (name == null || name.length() == 0
+						|| Objects.isNull(categoryId) || categoryId == 0
+						|| Objects.isNull(strPrice) || Objects.isNull(condId) || condId == 0) {
 					request.setAttribute("message", "全ての項目を入力してください");
 					gotoPage(request, response, "/editItem.jsp");
 				} else if (name.length() > 100) {
 					request.setAttribute("name", "商品名は100文字以下にしてください");
 					gotoPage(request, response, "/editUser.jsp");
 				} else {
+					int price = Integer.parseInt(strPrice);
 					ItemsDAO dao = new ItemsDAO();
 					dao.updateItem(id, name, categoryId, price, condId, comment);
 

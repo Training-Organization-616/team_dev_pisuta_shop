@@ -19,7 +19,7 @@
 			メールアドレス<br>
 			<input type="text" name="email"><br>
 			パスワード<br>
-			<input type="password" name="password" placeholder="6～16文字"><br>
+			<input type="password" name="password"><br>
 			<button>ログイン</button>
 	
 		</form>

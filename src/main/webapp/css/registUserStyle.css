@@ -29,7 +29,7 @@
 	font-size: 14px;
 }
 
-.regist-form button {
+button {
 	width: 100px;
 	height: auto;
 	padding: 5px 0;
@@ -42,7 +42,7 @@
 	font-size: 18px;
 }
 
-.regist-form button:hover {
+button:hover {
 	background-color: white;
 	color: rgb(255, 80, 50);
 	transition: .4s;
@@ -57,6 +57,18 @@
 
 .title {
 	font-size: 24px;
+}
+
+.link {
+	text-align: center;
+}
+
+.link button {
+	width: 145px;
+}
+
+footer{
+	height: 50px;
 }
 
 input[type="number"]::-webkit-inner-spin-button,

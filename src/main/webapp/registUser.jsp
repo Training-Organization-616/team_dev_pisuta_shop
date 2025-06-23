@@ -35,6 +35,14 @@
 			<button>新規登録</button>
 		</form>
 	</div>
+	
+	<div class="link">
+		<form action="/team_dev_pisuta_shop/LoginServlet" method="post">
+			<button>ログイン画面へ</button>
+		</form>
+	</div>
+
+	<footer></footer>
 
 </body>
 </html>
