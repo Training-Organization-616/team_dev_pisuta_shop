@@ -20,6 +20,7 @@
 				<div class="img-form">
 				<img src="${pageContext.request.contextPath }/upload/${item.fileName}">
 			</div>
+			
 			</div>
 		
 			<div class="detail-form">
