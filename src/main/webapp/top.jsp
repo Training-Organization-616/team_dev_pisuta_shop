@@ -43,10 +43,10 @@
 			</select> 
 			<br>
 			
-			価格
-			<input type="text" name="minPrice" placeholder="最低価格" value="${minPrice}"><br>
+			価格<br>
+			<input type="text" name="minPrice" placeholder="最低価格" value="${minPrice}" class="price"><br>
 			～<br>
-			<input type="text"name="maxPrice" placeholder="最高価格" value="${maxPrice}"><br>
+			<input type="text"name="maxPrice" placeholder="最高価格" value="${maxPrice}" class="price"><br>
 			
 			状態<br>
 			<select name="conditionId">
@@ -63,6 +63,8 @@
 			</c:forEach>
 			</select> 
 
+			<br>
+			<br>
 			<button>絞り込み</button>
 		</form>
 
@@ -85,9 +87,10 @@
 				<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
 					<button>購入</button>
 					<input type="hidden" name="action" value="detail"> <input
-						type="hidden" name="itemId" value="${item.id }"> <input
-						type="hidden" name="categoryId" value="${item.categoryId }">
-					<input type="hidden" name=condId value="${item.condId }"><br>
+						type="hidden" name="itemId" value="${item.id }"> 
+<!--						<input-->
+<!--								type="hidden" name="categoryId" value="${item.categoryId }"> <input-->
+<!--								type="hidden" name=condId value="${item.condId }"><br>-->
 				</form>
 
 			</div>

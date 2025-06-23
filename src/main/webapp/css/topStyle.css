@@ -24,6 +24,9 @@ h1{
 	border-radius: 30px;
 	border: 1.5px solid black;
 }
+.price{
+	width: 100px;
+}
 
 .item_search{
 	position: relative;
