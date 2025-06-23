@@ -45,6 +45,43 @@
 			</div>		
 		</div>
 
+				<!--出品中の商品 -->
+				
+				<h3>出品中の商品</h3>
+				<table border="1">
+					<tr>
+						<th>商品名</th>
+						<th>価格</th>
+						<th>出品日時</th>
+						<th>変更</th>
+						<th>削除</th>
+		          	</tr>
+		          	<c:forEach items="${items}" var="item">
+		          	<tr>
+						<th>${item.name}a</th>
+						<th>${item.price}a</th>
+						<th>${item.出品日時}a</th>
+						
+						<th>
+						<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet" method="post">
+						<input type="hidden" name="action" value="update">
+						<button>変更</button>
+						</th>
+						
+		          		<th>
+						<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet" method="post">
+						<input type="hidden" name="action" value="delete">
+						<button>削除</button>
+						</th>
+		          	
+		          	</tr>
+		          	</c:forEach>
+				
+				
+				</table>
+				
+				
+
 		<div id="child2">
 		<form action="/team_dev_pisuta_shop/ListingServlet" method="post">
 			<button type="submit" class="listing_button">商品登録</button>
