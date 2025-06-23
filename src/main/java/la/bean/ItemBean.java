@@ -2,6 +2,7 @@ package la.bean;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ItemBean implements Serializable {
 	private int id; // 商品ID
@@ -71,8 +72,10 @@ public class ItemBean implements Serializable {
 		return fileName;
 	}
 
-	public LocalDateTime getCreatedAt() {
-		return createdAt;
+	public String getCreatedAt() {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		String c = createdAt.format(dtf);
+		return c;
 	}
 
 	// セッター

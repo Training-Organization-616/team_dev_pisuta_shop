@@ -1,6 +1,9 @@
+<%@page import="la.dao.ItemsDAO"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -67,7 +70,9 @@
 						<td>${item.name}</td>
 						<td>${item.price}</td>
 						<!--出品日時は仮です -->
-						<td>${item.出品日時}</td>
+						<td>
+						${item.createdAt }
+						</td>
 						
 						<td>
 						<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet" method="post">
