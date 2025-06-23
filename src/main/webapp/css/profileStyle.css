@@ -9,36 +9,47 @@ h2 {
 	background-color: white;
 	border-radius: 30px;
 	border: solid 2px black;
-}
 
-#child2 {
-	background-color: rgb(255, 255, 255);
-}
-
-#parent {
-	display: flex;
-}
-
-#child1 {
 	margin: 0 30px 30px 30px;
 	flex: 1;
 	height: 500px;
 
 	align-items: center;
 	text-align: center;
-
 }
+
+
 
 #child2 {
-	flex: 1;
-	width: 500px;
-	height: 500px;
+
+	background-color: rgb(255, 255, 255);
+
 	
-	display: flex;
+
+	flex: 1;
+	width: 100%;
+	height: 500px;
+
+	display: grid;
+	grid-template-rows: 6fr 1fr;
 	justify-content: center;
 	/*				 水平方向の中央揃え */
-	align-items: center;
+	
+	
+	
 }
+
+.listing_box {
+	width:500px;
+	border-radius: 30px;
+	text-align: center;
+	border: solid 2px black;
+}
+
+#parent {
+	display: flex;
+}
+
 
 .location0 {
 	top: 10px;
@@ -62,6 +73,13 @@ h2 {
 	height: 30px;
 }
 
+.location4 {
+	display: flex;
+	justify-content: center;
+	/* 水平方向の中央揃え */
+	align-items: center;
+}
+
 #child1 p {
 	max-width: 400px;
 	margin: 2px auto;
@@ -72,6 +90,18 @@ h2 {
 }
 
 .info_data {
+	background-color: #f2f2f2;
+	font-size: 20px;
+}
+table {
+  text-align: center;
+}
+table th {
+	background-color: white;
+		color: rgb(255, 80, 50);
+	font-size: 20px;
+}
+tabele td {
 	background-color: #f2f2f2;
 	font-size: 20px;
 }
@@ -135,9 +165,11 @@ button:hover {
 	transition: .4s;
 }
 
-.listing_button{
-	width: 400px !important;
-	height: 400px !important;
-	
-	font-size: 44px !important;
+.listing_button {
+	width: 200px !important;
+	height: 50px !important;
+
+	font-size: 30px !important;
+	position: relative; /* 今の位置を基準 */
+	left: 150px; /* 右から150px */
 }

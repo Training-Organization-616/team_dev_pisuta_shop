@@ -44,10 +44,13 @@
 						<button class="delete_button" type="button">退会</button>
 			</div>		
 		</div>
+		<div id="child2">
 				
 				<!--出品中の商品 -->
+				<div class="listing_box">
 				
-				<h3>出品中の商品</h3>
+				<div class=".location4 ">
+				<h2>出品中の商品</h2><br>
 				
 				<c:if test="${not empty items }">
 				
@@ -80,15 +83,16 @@
 		          	
 		          	</tr>
 		          	</c:forEach>
-				
-				
 				</table>
-				
 				</c:if>
+				
+				</div>
 
-		<div id="child2">
+		
+		
+		</div>
 		<form action="/team_dev_pisuta_shop/ListingServlet" method="post">
-			<button type="submit" class="listing_button">商品登録</button>
+			<button type="submit" class="listing_button">商品登録へ</button>
 		</form>
 		</div>
 	</div>
