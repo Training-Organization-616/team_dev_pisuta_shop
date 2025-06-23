@@ -17,7 +17,9 @@
 		<div class="detail-page">
 	
 			<div class="image-form">
-				画像<br>
+				<div class="img-form">
+				<img src="${pageContext.request.contextPath }/upload/${item.fileName}">
+			</div>
 			</div>
 		
 			<div class="detail-form">
