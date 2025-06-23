@@ -44,10 +44,13 @@
 						<button class="delete_button" type="button">退会</button>
 			</div>		
 		</div>
-
+				
 				<!--出品中の商品 -->
 				
 				<h3>出品中の商品</h3>
+				
+				<c:if test="${not empty items }">
+				
 				<table border="1">
 					<tr>
 						<th>商品名</th>
@@ -58,21 +61,22 @@
 		          	</tr>
 		          	<c:forEach items="${items}" var="item">
 		          	<tr>
-						<th>${item.name}a</th>
-						<th>${item.price}a</th>
-						<th>${item.出品日時}a</th>
+						<td>${item.name}</td>
+						<td>${item.price}</td>
+						<!--出品日時は仮です -->
+						<td>${item.出品日時}</td>
 						
-						<th>
+						<td>
 						<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet" method="post">
-						<input type="hidden" name="action" value="update">
+						<input type="hidden" name="action" value="edit">
 						<button>変更</button>
-						</th>
+						</form></td>
 						
-		          		<th>
+		          		<td>
 						<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet" method="post">
 						<input type="hidden" name="action" value="delete">
 						<button>削除</button>
-						</th>
+						</form></td>
 		          	
 		          	</tr>
 		          	</c:forEach>
@@ -80,7 +84,7 @@
 				
 				</table>
 				
-				
+				</c:if>
 
 		<div id="child2">
 		<form action="/team_dev_pisuta_shop/ListingServlet" method="post">
