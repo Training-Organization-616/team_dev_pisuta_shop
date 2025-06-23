@@ -11,6 +11,7 @@
 <body>
 	<jsp:include page="/header.jsp" />
 	
+	<div class="login">
 	<div class="login-page">
 		<form class="login-form" action="/team_dev_pisuta_shop/LoginServlet" method="post">
 			<div class="title"><b>ログイン</b></div>
@@ -30,6 +31,7 @@
 		<input type="hidden" name="action" value="regist">
 		
 		</form>
+	</div>
 	</div>
 	
 </body>

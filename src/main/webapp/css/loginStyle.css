@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.login {
+	padding-top: 90px;
+}
+
 .login-page {
 	width: 450px;
 	margin: auto;

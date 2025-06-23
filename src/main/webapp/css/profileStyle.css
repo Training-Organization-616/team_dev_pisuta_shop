@@ -4,6 +4,9 @@ h2 {
 	text-align: center;
 }
 
+.profile{
+	padding-top: 80px;
+}
 
 #child1 {
 	background-color: white;
@@ -95,7 +98,9 @@ h2 {
 }
 table {
   text-align: center;
+  margin: 0 auto;
 }
+
 table th {
 	background-color: white;
 		color: rgb(255, 80, 50);

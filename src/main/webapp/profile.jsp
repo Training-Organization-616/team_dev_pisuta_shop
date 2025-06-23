@@ -13,11 +13,9 @@
 </head>
 <body>
 	<jsp:include page="/header.jsp" />
-<div>
-	<h2>会員管理画面</h2>
+<div class="profile">
+	<h2>会員管理</h2>
 	<div id="parent">
-
-
 		<div id="child1">
 			<div class="location0">
 			<p class="info_title">会員情報</p>

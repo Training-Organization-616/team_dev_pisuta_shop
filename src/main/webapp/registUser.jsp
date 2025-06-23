@@ -11,6 +11,7 @@
 <body>
 	<jsp:include page="/header.jsp" />
 
+	<div class="regist">
 	<div class="regist-page">
 		<form class="regist-form" action="/team_dev_pisuta_shop/UserServlet" method="post">
 			<input type="hidden" name="action" value="new">
@@ -41,7 +42,8 @@
 			<button>ログイン画面へ</button>
 		</form>
 	</div>
-
+	</div>
+	
 	<footer></footer>
 
 </body>

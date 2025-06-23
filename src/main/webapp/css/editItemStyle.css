@@ -3,16 +3,20 @@
 /*画面レイアウトがlistingStyle.cssとほぼにているため*/
 /*listingStyle.cssよりコピー*/
 
-.regist-page {
-	width: 650px;
+.edit {
+	padding-top: 80px;
+}
+
+.edit-page {
+	width: 1200px;
 	margin: auto;
 	text-align: center;
 }
 
-.regist-form {
+.edit-form {
 	position: relative;
 	z-index: 1;
-	max-width: 700px;
+	max-width: 1200px;
 	background: #FFFFFF;
 	margin: 30px auto 30px;
 	padding: 30px 45px 45px;
@@ -21,7 +25,7 @@
 	border: 2px solid black;
 }
 
-.regist-form .input-text{
+.edit-form .input-text {
 	outline: 0;
 	background: #f2f2f2;
 	width: 500px;
@@ -33,41 +37,42 @@
 	text-align: center;
 }
 
-.regist-form button {
+.edit-form button {
 	width: 100px;
 	height: auto;
 	padding: 5px 0;
-	background-color:rgb(255, 80, 50);
+	background-color: rgb(255, 80, 50);
 	border-color: rgb(255, 80, 50);
-		color:white;
+	color: white;
 	margin: 10px 0 0;
 	border-radius: 5px;
 	font-size: 18px;
 }
-.regist-form button:hover{
+
+.edit-form button:hover {
 	background-color: white;
-		color:rgb(255, 80, 50);
-		transition: .4s;
+	color: rgb(255, 80, 50);
+	transition: .4s;
 }
 
-.regist-form .err {
+.edit-form .err {
 	font-size: 14px;
 	color: 16px;
 	padding: 10px 0;
 	color: red;
 }
 
-.regist-form .radio{
+.edit-form .radio {
 	background-color: #f2f2f2;
-	width: 470px;
+	width: 500px;
 	padding: 15px;
 	margin: 0 0 15px;
 	justify-self: center;
 }
 
-.regist-form textarea{
+.edit-form textarea {
 	background-color: #f2f2f2;
-	width: 470px;
+	width: 500px;
 	padding: 15px;
 	margin: 0 0 15px;
 	justify-self: center;
@@ -80,31 +85,49 @@
 	font-size: 24px;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button{
-	-webkit-appearance: none;
-	margin:0;
+.parent {
+	display: flex;
 }
 
-.price_container{
+.img-form{
+	width: 300px
+}
+
+.img-form img{
+	width: 300px;
+	height: auto;
+}
+
+.item-form {
+	width: 500px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.price_container {
 	position: relative;
 	background: #f2f2f2;
 	width: 500px;
 	justify-self: center;
-	
+
 	text-align: center;
 }
 
-.unit{
+.unit {
 	position: absolute;
-	transform: translate(-50%,-50%);
-	top:50%;
+	transform: translate(-50%, -50%);
+	top: 50%;
 	left: 100px;
 }
 
-.price_container input{
+.price_container input {
 	margin-bottom: 0 !important;
 }
+
 .cancel button {
 	justify-self: center;
 	background-color: rgb(255, 80, 50);

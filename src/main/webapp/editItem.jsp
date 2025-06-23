@@ -13,14 +13,21 @@
 
 	<jsp:include page="/header.jsp" />
 
-	<div class="regist-page">
+	<div class="edit">
+	<div class="edit-page">
 	
-		<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet"method="post">
+		<form class="edit-form" action="/team_dev_pisuta_shop/ListingServlet"method="post">
 			<input type="hidden" name="itemId" value="${item.id }">
 			<div class="title"><b>	商品情報変更</b><br></div>
 			<!-- 入力に誤りがあった場合出力 -->
 			<div class="err">${message}<br></div>
 			
+			<div class="parent">
+			<div class="img-form">
+			<img src="${pageContext.request.contextPath }/upload/${item.fileName}" >
+			</div>
+			
+			<div class="item-form">
 			商品名<br>
 			<input class="input-text" type="text" name="name" value="${item.name}"><br>
 			
@@ -65,12 +72,15 @@
 			<textarea rows="" cols="" name="comment" placeholder="任意" >${item.comment }</textarea><br>
 			<!-- 会員管理画面へ遷移 -->
 			<button type="submit" name="action" value="update">変更</button>
+			</div>
+			</div>
 		</form>
 	
 		<form class="cancel" action="/team_dev_pisuta_shop/UserServlet" method="post">
 		<button>キャンセル</button>
 		</form>
 	
+	</div>
 	</div>
 
 <!-- 商品名　必須100字以内 -->

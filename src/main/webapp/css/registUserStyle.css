@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.regist{
+	padding-top: 90px;
+}
+
 .regist-page {
 	width: 450px;
 	margin: auto;
