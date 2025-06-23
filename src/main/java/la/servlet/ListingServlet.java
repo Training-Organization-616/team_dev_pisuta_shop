@@ -165,12 +165,12 @@ public class ListingServlet extends HttpServlet {
 			} else if (action.equals("update")) {
 
 				//商品情報の更新
-				int id = Integer.parseInt(request.getParameter("id"));
+				int id = Integer.parseInt(request.getParameter("itemId"));
 				String name = request.getParameter("name");
 				int categoryId = Integer.parseInt(request.getParameter("categoryId"));
 				String strPrice = request.getParameter("price");
 				int price = 0;
-				int condId = Integer.parseInt(request.getParameter("condId"));
+				int condId = Integer.parseInt(request.getParameter("conditionId"));
 				String comment = request.getParameter("comment");
 
 				//入力チェック

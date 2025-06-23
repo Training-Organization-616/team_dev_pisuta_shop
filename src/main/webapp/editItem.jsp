@@ -16,7 +16,7 @@
 	<div class="regist-page">
 	
 		<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet"method="post">
-			<input type="hidden" name="action" value="update">
+			<input type="hidden" name="itemId" value="${item.id }">
 			<div class="title"><b>	商品情報変更</b><br></div>
 			<!-- 入力に誤りがあった場合出力 -->
 			<div class="err">${message}<br></div>
@@ -62,10 +62,9 @@
 			</div>
 		
 			コメント<br>
-			<textarea rows="" cols="" name="comment" placeholder="任意" value="${item.comment }"></textarea><br>
+			<textarea rows="" cols="" name="comment" placeholder="任意" >${item.comment }</textarea><br>
 			<!-- 会員管理画面へ遷移 -->
-			<button>変更</button>
-			
+			<button type="submit" name="action" value="update">変更</button>
 		</form>
 	
 		<form class="cancel" action="/team_dev_pisuta_shop/UserServlet" method="post">
