@@ -1,9 +1,9 @@
 @charset "UTF-8";
-/*.item_search{*/
-/*	position: fixed;*/
-/*}*/
+.search{
+	position: fixed;
+}
 h1{
-	margin:5px auto 20px
+	margin:5px auto 5px
 }
 .item_container{
 	width: 900px;
@@ -19,7 +19,7 @@ h1{
 	flex:1;
 	margin:20px;
 	width: 200px;
-	height: 500px;
+	height: 470px;
 	text-align: center;
 	border-radius: 30px;
 	border: 1.5px solid black;
@@ -95,6 +95,15 @@ button:hover {
 	text-align: center;
 	margin: 40px auto;
 	font-size: 30px;
+}
+.field {
+	background-color: #f2f2f2;
+	width: 100%;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
 }
 
 footer{

@@ -26,8 +26,8 @@
 		<input type="hidden" name="action" value="search">
 		</div>
 		
-		
-			カテゴリー <br>
+			カテゴリー
+			<div class="field">
 			<select name="categoryId">
 			<option value="-1">全て</option>
 			<c:forEach items="${categories}" var="category">
@@ -41,14 +41,15 @@
 				</c:choose>
 			</c:forEach>
 			</select> 
-			<br>
+			</div>
 			
-			価格<br>
-			<input type="text" name="minPrice" placeholder="最低価格" value="${minPrice}" class="price"><br>
-			～<br>
-			<input type="text"name="maxPrice" placeholder="最高価格" value="${maxPrice}" class="price"><br>
+			価格
+			<div class="field"><input type="text" name="minPrice" placeholder="最低価格" value="${minPrice}" class="price"></div>
+			〜
+			<div class="field"><input type="text"name="maxPrice" placeholder="最高価格" value="${maxPrice}" class="price"></div>
 			
-			状態<br>
+			状態
+			<div class="field">
 			<select name="conditionId">
 			<option value="-1">全て</option>
 			<c:forEach items="${conditions}" var="condition">
@@ -62,10 +63,9 @@
 				</c:choose>
 			</c:forEach>
 			</select> 
-
-			<br>
-			<br>
+			</div>
 			<button>絞り込み</button>
+		
 		</form>
 
 	</div>
@@ -88,9 +88,8 @@
 					<button>購入</button>
 					<input type="hidden" name="action" value="detail"> <input
 						type="hidden" name="itemId" value="${item.id }"> 
-<!--						<input-->
-<!--								type="hidden" name="categoryId" value="${item.categoryId }"> <input-->
-<!--								type="hidden" name=condId value="${item.condId }"><br>-->
+						<input type="hidden" name="categoryId" value="${item.categoryId }">
+						 <input type="hidden" name=condId value="${item.condId }"><br>
 				</form>
 
 			</div>
