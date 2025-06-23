@@ -239,6 +239,8 @@ public class ItemsDAO {
 				i++;
 			}
 
+			System.out.println(st.toString());
+
 			try (ResultSet rs = st.executeQuery()) {
 
 				List<ItemBean> list = new ArrayList<ItemBean>();

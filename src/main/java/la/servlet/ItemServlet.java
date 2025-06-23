@@ -60,6 +60,7 @@ public class ItemServlet extends HttpServlet {
 
 			HttpSession session = request.getSession();
 			UserBean user = (UserBean) session.getAttribute("user");
+
 			if (action == null) {
 
 				List<CategoryBean> categorieslist = categoriesdao.findAll();
@@ -132,6 +133,12 @@ public class ItemServlet extends HttpServlet {
 
 				gotoPage(request, response, "/detail.jsp");
 			} else if (action.equals("search")) {
+
+				List<CategoryBean> categorieslist = categoriesdao.findAll();
+				List<ConditionBean> conditionslist = conditionsdao.findAll();
+				request.setAttribute("categories", categorieslist);
+				request.setAttribute("conditions", conditionslist);
+
 				String keyword = request.getParameter("keyword");
 
 				int categoryId = Integer.parseInt(request.getParameter("categoryId"));
@@ -151,10 +158,10 @@ public class ItemServlet extends HttpServlet {
 					maxPrice = -1;
 				}
 
-				List<ItemBean> list = itemsdao.searchItemByRefinement(keyword, categoryId, minPrice, maxPrice,
+				List<ItemBean> itemlist = itemsdao.searchItemByRefinement(keyword, categoryId, minPrice, maxPrice,
 						conditionId);
 
-				request.setAttribute("items", list);
+				request.setAttribute("items", itemlist);
 				request.setAttribute("keyword", keyword);
 				gotoPage(request, response, "/top.jsp");
 
