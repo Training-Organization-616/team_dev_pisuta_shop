@@ -89,6 +89,7 @@ public class ItemServlet extends HttpServlet {
 					return;
 				}
 				int itemId = Integer.parseInt(request.getParameter("itemId"));
+
 				ItemBean bean = itemsdao.searchItemById(itemId);
 
 				request.setAttribute("item", bean);
@@ -117,21 +118,22 @@ public class ItemServlet extends HttpServlet {
 			} else if (action.equals("detail")) {
 				// ★商品詳細への遷移
 				int itemId = Integer.parseInt(request.getParameter("itemId"));
-				int categoryId = Integer.parseInt(request.getParameter("categoryId"));
-				int condId = Integer.parseInt(request.getParameter("condId"));
 				user = (UserBean) session.getAttribute("user");
 
-				ItemBean itembean = itemsdao.searchItemById(itemId);
+				ItemBean item = itemsdao.searchItemById(itemId);
+				int categoryId = item.getCategoryId();
+				int condId = item.getCondId();
 				String category = categoriesdao.findNameById(categoryId);
 				String condition = conditionsdao.findNameById(condId);
-				String name = userdao.findUserById(itembean.getSellerId()).getName();
+				String name = userdao.findUserById(item.getSellerId()).getName();
 
-				request.setAttribute("item", itembean);
+				request.setAttribute("item", item);
 				request.setAttribute("category", category);
 				request.setAttribute("condition", condition);
 				request.setAttribute("sellerName", name);
 
 				gotoPage(request, response, "/detail.jsp");
+
 			} else if (action.equals("search")) {
 
 				List<CategoryBean> categorieslist = categoriesdao.findAll();

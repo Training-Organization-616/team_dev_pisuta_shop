@@ -23,7 +23,11 @@
 			<div class="title">
 				<b>購入確認画面</b>
 			</div>
-			<br>
+			
+			<div class="img-form">
+				<img src="/team_dev_pisuta_shop/upload/${item.fileName}">
+			</div>
+			
 			<!--	 商品番号<br>-->
 			<!--	 <div class="field">${item.id}</div>-->
 			<!--	 出品者名<br>-->
@@ -33,21 +37,23 @@
 			<!--	 価格<br>-->
 			<!--	 <div class="field">${item.price}円</div>-->
 
-			商品名<br>
-			<div class="field">${item.name}</div>
-			価格<br>
-			<div class="field">${item.price}円</div>
-			商品の説明<br>
-			<div class="field">${item.comment}</div>
-			配送先住所<br>
-			<div class="field">${address}</div>
+			<div class="item-info">
+			
+				${item.name}<br>
+				${item.price}円<br>
+				商品の説明<br>
+				<div class="field">${item.comment}</div>
+				配送先住所<br>
+				<div class="field">${address}</div>
+			
+			</div>
 		</div>
 	</div>
 
 	<!-- 購入情報画面へ遷移 -->
 	<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
-		<input type="hidden" name="itemId" value="${item.id }"> <input
-			type="hidden" name="action" value="buy">
+		<input type="hidden" name="itemId" value="${item.id}">
+		<input type="hidden" name="action" value="buy">
 		<button>購入確定</button>
 	</form>
 
@@ -55,6 +61,8 @@
 	<!-- 商品一覧画面へ遷移 -->
 	<!--	<a href="/team_dev_pisuta_shop/ItemServlet">キャンセル</a>-->
 	<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
+		<input type="hidden" name="action" value="detail">
+		<input type="hidden" name="itemId" value="${item.id}">
 		<button>キャンセル</button>
 	</form>
 
