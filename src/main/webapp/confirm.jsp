@@ -25,7 +25,7 @@
 			</div>
 			
 			<div class="img-form">
-				<img src="/team_dev_pisuta_shop/upload/${item.fileName}">
+				<img src="${pageContext.request.contextPath }/upload/${item.fileName}">
 			</div>
 			
 			<!--	 商品番号<br>-->

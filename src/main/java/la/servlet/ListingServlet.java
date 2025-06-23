@@ -119,8 +119,10 @@ public class ListingServlet extends HttpServlet {
 				//ファイル名を取得
 				String fileName = Paths.get(part.getSubmittedFileName()).getFileName().toString();
 				//アップロードするフォルダ
-				String path = getServletContext().getRealPath("/upload/");
+				String path = getServletContext().getRealPath("/upload");
 
+				System.out.println(fileName);
+				System.out.println(path);
 				//書き込み
 				part.write(path + File.separator + fileName);
 
