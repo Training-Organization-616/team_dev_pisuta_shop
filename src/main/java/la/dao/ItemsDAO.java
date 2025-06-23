@@ -292,7 +292,7 @@ public class ItemsDAO {
 		if (searchConditionId != -1) {
 			sql += "AND cond_id = ? ";
 		}
-		sql += "ORDER BY id EXCEPT SELECT * FROM items WHERE seller_id = ?";
+		sql += "EXCEPT SELECT * FROM items WHERE seller_id = ? ORDER BY id ";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);

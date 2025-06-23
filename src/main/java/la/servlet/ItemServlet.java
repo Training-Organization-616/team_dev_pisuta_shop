@@ -158,12 +158,32 @@ public class ItemServlet extends HttpServlet {
 					maxPrice = -1;
 				}
 
-				List<ItemBean> itemlist = itemsdao.searchItemByRefinement(keyword, categoryId, minPrice, maxPrice,
-						conditionId);
-
-				request.setAttribute("items", itemlist);
 				request.setAttribute("keyword", keyword);
-				gotoPage(request, response, "/top.jsp");
+				request.setAttribute("categoryId", categoryId);
+				request.setAttribute("conditionId", conditionId);
+
+				if (minPrice != -1) {
+					request.setAttribute("minPrice", minPrice);
+				}
+				if (maxPrice != -1) {
+					request.setAttribute("maxPrice", maxPrice);
+				}
+
+				if (session.getAttribute("user") == null) {
+					List<ItemBean> itemlist = itemsdao.searchItemByRefinement(keyword, categoryId, minPrice, maxPrice,
+							conditionId);
+					request.setAttribute("items", itemlist);
+
+					gotoPage(request, response, "/top.jsp");
+				} else {
+					int userId = user.getId();
+					List<ItemBean> itemlist = itemsdao.searchItemByRefinementWithoutUserId(keyword, categoryId,
+							minPrice, maxPrice,
+							conditionId, userId);
+					request.setAttribute("items", itemlist);
+
+					gotoPage(request, response, "/top.jsp");
+				}
 
 			}
 

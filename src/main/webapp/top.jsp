@@ -52,18 +52,34 @@
 			<select name="categoryId">
 			<option value="-1">全て</option>
 			<c:forEach items="${categories}" var="category">
-				<option value="${category.id}">${category.name}</option>
+				<c:choose>
+					<c:when test="${categoryId eq category.id}">
+						<option value="${category.id}" selected>${category.name}</option>
+					</c:when>
+					<c:otherwise>
+						<option value="${category.id}">${category.name}</option>
+					</c:otherwise>
+				</c:choose>
 			</c:forEach>
 			</select> 
 			
 			価格
-			<input type="text" name="minPrice" placeholder="最低価格">～<input type="text"name="maxPrice" placeholder="最高価格">
+			<input type="text" name="minPrice" placeholder="最低価格" value="${minPrice}">
+			～
+			<input type="text"name="maxPrice" placeholder="最高価格" value="${maxPrice}">
 			
 			状態
 			<select name="conditionId">
 			<option value="-1">全て</option>
 			<c:forEach items="${conditions}" var="condition">
-				<option value="${condition.id}">${condition.name}</option>
+				<c:choose>
+					<c:when test="${conditionId eq condition.id}">
+						<option value="${condition.id}" selected>${condition.name}</option>
+					</c:when>
+					<c:otherwise>
+						<option value="${condition.id}">${condition.name}</option>
+					</c:otherwise>
+				</c:choose>
 			</c:forEach>
 			</select> 
 
