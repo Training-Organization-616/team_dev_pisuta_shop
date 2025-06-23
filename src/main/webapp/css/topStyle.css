@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 .item_container{
 	width: 900px;
 	display: grid;
@@ -8,6 +7,29 @@
 	grid-row-gap: 20px;
 	
 	justify-self: center;
+}
+/*.item_search{*/
+/*	position: fixed;*/
+/*}*/
+.item_search{
+	flex:1;
+	text-align: center;
+	border-radius: 30px;
+	border: 1.5px solid black;
+}
+.search{
+	position: relative;
+	top: -150px; /* 上から10px */
+	left: 500px; /* 左から20px */
+	
+}
+.top-item{
+	flex:6;
+}
+
+
+.top-page{
+	display: flex;
 }
 
 .item{
@@ -25,17 +47,21 @@
 }
 
 .item button{
-	background-color:rgb(255, 80, 50);
-	border-color: rgb(255, 80, 50);
-	color:white;
 	margin: 15px 0 0;
+}
+
+button {
+	background-color: rgb(255, 80, 50);
+	border-color: rgb(255, 80, 50);
+	color: white;
+	margin: 0 0 15px;
 	border-radius: 5px;
-	
+
 	transition: .4s;
 }
-.item button:hover{
+button:hover {
 	background-color: white;
-	color:rgb(255, 80, 50);
+	color: rgb(255, 80, 50);
 	transition: .4s;
 }
 

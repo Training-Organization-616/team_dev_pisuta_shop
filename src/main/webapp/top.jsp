@@ -13,7 +13,59 @@
 <body>
 	<jsp:include page="/header.jsp" />
 
+<div class="top-page">
+<div class="item_search">
+		
+		<h1>絞り込み</h1>
+		
+		<div class="search">
+		<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
+		<input type="text" name="keyword" placeholder="何をお探しですか？" value="${keyword}">
+		<button>検索</button>
+		<input type="hidden" name="action" value="search">
+		</div>
+		
+			カテゴリー 
+			<select name="categoryId">
+			<option value="-1">全て</option>
+			<c:forEach items="${categories}" var="category">
+				<c:choose>
+					<c:when test="${categoryId eq category.id}">
+						<option value="${category.id}" selected>${category.name}</option>
+					</c:when>
+					<c:otherwise>
+						<option value="${category.id}">${category.name}</option>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			</select> 
+			<br>
+			
+			価格
+			<input type="text" name="minPrice" placeholder="最低価格" value="${minPrice}">
+			～
+			<input type="text"name="maxPrice" placeholder="最高価格" value="${maxPrice}">
+			
+			状態
+			<select name="conditionId">
+			<option value="-1">全て</option>
+			<c:forEach items="${conditions}" var="condition">
+				<c:choose>
+					<c:when test="${conditionId eq condition.id}">
+						<option value="${condition.id}" selected>${condition.name}</option>
+					</c:when>
+					<c:otherwise>
+						<option value="${condition.id}">${condition.name}</option>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			</select> 
 
+			<button>絞り込み</button>
+		</form>
+
+	</div>
+<div class="top-item">
 	<div class="title">
 		<b>商品一覧</b>
 	</div>
@@ -39,53 +91,9 @@
 			</div>
 		</c:forEach>
 	</div>
+	</div>
 
-	<div>
-		<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
-		<input type="text" name="keyword" placeholder="何をお探しですか？" value="${keyword}">
-		<button>検索</button>
-		<input type="hidden" name="action" value="search">
-		
-		<h1>絞り込み</h1>
-		
-			カテゴリー 
-			<select name="categoryId">
-			<option value="-1">全て</option>
-			<c:forEach items="${categories}" var="category">
-				<c:choose>
-					<c:when test="${categoryId eq category.id}">
-						<option value="${category.id}" selected>${category.name}</option>
-					</c:when>
-					<c:otherwise>
-						<option value="${category.id}">${category.name}</option>
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-			</select> 
-			
-			価格
-			<input type="text" name="minPrice" placeholder="最低価格" value="${minPrice}">
-			～
-			<input type="text"name="maxPrice" placeholder="最高価格" value="${maxPrice}">
-			
-			状態
-			<select name="conditionId">
-			<option value="-1">全て</option>
-			<c:forEach items="${conditions}" var="condition">
-				<c:choose>
-					<c:when test="${conditionId eq condition.id}">
-						<option value="${condition.id}" selected>${condition.name}</option>
-					</c:when>
-					<c:otherwise>
-						<option value="${condition.id}">${condition.name}</option>
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-			</select> 
-
-			<button>絞り込み</button>
-		</form>
-
+	
 	</div>
 
 	<footer></footer>
