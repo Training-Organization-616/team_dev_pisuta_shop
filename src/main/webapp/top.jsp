@@ -46,12 +46,11 @@
 		<button>検索</button>
 		<input type="hidden" name="action" value="search">
 		
-		
 		<h1>絞り込み</h1>
 		
 			カテゴリー 
 			<select name="categoryId">
-			<option>全て</option>
+			<option value="-1">全て</option>
 			<c:forEach items="${categories}" var="category">
 				<option value="${category.id}">${category.name}</option>
 			</c:forEach>
@@ -62,14 +61,13 @@
 			
 			状態
 			<select name="conditionId">
-			<option>全て</option>
+			<option value="-1">全て</option>
 			<c:forEach items="${conditions}" var="condition">
 				<option value="${condition.id}">${condition.name}</option>
 			</c:forEach>
 			</select> 
 
 			<button>絞り込み</button>
-			<input type="hidden" name="action" value="search">
 		</form>
 
 	</div>

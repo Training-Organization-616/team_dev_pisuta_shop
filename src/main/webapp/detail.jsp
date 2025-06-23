@@ -26,12 +26,13 @@
 
 		<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
 			<button>購入確認へ</button>
-			<input type="hidden" name="action" value="confirm"> <input
-				type="hidden" name="itemId" value="${item.id }">
+			<input type="hidden" name="action" value="confirm">
+			<input type="hidden" name="itemId" value="${item.id}">
+		</form>
 	</div>
 
 	<div>
-		<form action="/team_dev_pisuta_shop/ItemServlet" method=get>
+		<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
 			<button>商品一覧へ</button>
 		</form>
 	</div>

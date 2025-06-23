@@ -62,7 +62,7 @@ public class ItemServlet extends HttpServlet {
 			UserBean user = (UserBean) session.getAttribute("user");
 			if (action == null) {
 
-				List<ItemBean> itemslist = itemsdao.findAll(true);
+				List<ItemBean> itemslist = itemsdao.findAll(false);
 				List<CategoryBean> categorieslist = categoriesdao.findAll();
 				List<ConditionBean> conditionslist = conditionsdao.findAll();
 				request.setAttribute("items", itemslist);
@@ -121,6 +121,8 @@ public class ItemServlet extends HttpServlet {
 				request.setAttribute("sellerName", name);
 
 				gotoPage(request, response, "/detail.jsp");
+			} else if (action.equals("search")) {
+
 			}
 
 		} catch (DAOException e) {
