@@ -11,6 +11,7 @@
 <body>
 	<jsp:include page="/header.jsp" />
 	
+	<div class="edit">
 	<div class="edit-page">
 		<form class="edit-form" action="/team_dev_pisuta_shop/UserServlet" method="post">
 			<input type="hidden" name="action" value="update">
@@ -39,6 +40,7 @@
     <form class="cancel" action="/team_dev_pisuta_shop/UserServlet" method="post">
 		<button>キャンセル</button>
 	</form>
+	</div>
 	
 	<footer></footer>
 </body>
