@@ -42,7 +42,7 @@
 
 	<div>
 		<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
-		<input type="text" name="keyword" placeholder="何をお探しですか？">
+		<input type="text" name="keyword" placeholder="何をお探しですか？" value="${keyword}">
 		<button>検索</button>
 		<input type="hidden" name="action" value="search">
 		

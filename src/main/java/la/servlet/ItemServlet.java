@@ -62,13 +62,23 @@ public class ItemServlet extends HttpServlet {
 			UserBean user = (UserBean) session.getAttribute("user");
 			if (action == null) {
 
-				List<ItemBean> itemslist = itemsdao.findAll(false);
 				List<CategoryBean> categorieslist = categoriesdao.findAll();
 				List<ConditionBean> conditionslist = conditionsdao.findAll();
-				request.setAttribute("items", itemslist);
 				request.setAttribute("categories", categorieslist);
 				request.setAttribute("conditions", conditionslist);
-				gotoPage(request, response, "/top.jsp");
+
+				if (session.getAttribute("user") == null) {
+					List<ItemBean> itemslist = itemsdao.findAll(true);
+					request.setAttribute("items", itemslist);
+
+					gotoPage(request, response, "/top.jsp");
+				} else {
+					int userId = user.getId();
+					List<ItemBean> itemslist = itemsdao.findItemWithoutUserId(userId);
+					request.setAttribute("items", itemslist);
+
+					gotoPage(request, response, "/top.jsp");
+				}
 
 			} else if (action.equals("confirm")) {
 				// ★購入確認画面への遷移
@@ -122,6 +132,31 @@ public class ItemServlet extends HttpServlet {
 
 				gotoPage(request, response, "/detail.jsp");
 			} else if (action.equals("search")) {
+				String keyword = request.getParameter("keyword");
+
+				int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+				int conditionId = Integer.parseInt(request.getParameter("conditionId"));
+
+				int minPrice = 0;
+				int maxPrice = 0;
+				try {
+					minPrice = Integer.parseInt(request.getParameter("minPrice"));
+				} catch (Exception e) {
+					minPrice = -1;
+				}
+
+				try {
+					maxPrice = Integer.parseInt(request.getParameter("maxPrice"));
+				} catch (Exception e) {
+					maxPrice = -1;
+				}
+
+				List<ItemBean> list = itemsdao.searchItemByRefinement(keyword, categoryId, minPrice, maxPrice,
+						conditionId);
+
+				request.setAttribute("items", list);
+				request.setAttribute("keyword", keyword);
+				gotoPage(request, response, "/top.jsp");
 
 			}
 

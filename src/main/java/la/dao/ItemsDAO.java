@@ -195,7 +195,7 @@ public class ItemsDAO {
 		String sql = "SELECT * FROM items WHERE 1 = 1 ";
 
 		if (keyword != null && keyword.length() != 0) {
-			sql += "AND (name = ? OR comment = ?) ";
+			sql += "AND (name LIKE ? OR comment LIKE ?) ";
 		}
 		if (searchCategoryId != -1) {
 			sql += "AND category_id = ? ";
@@ -206,10 +206,9 @@ public class ItemsDAO {
 		if (maxPrice != -1) {
 			sql += "AND price <= ? ";
 		}
-		if (searchConditionId != 0) {
-			sql += "AND condition_id = ?";
+		if (searchConditionId != -1) {
+			sql += "AND cond_id = ? ";
 		}
-		sql += "ORDER BY id";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
@@ -235,12 +234,13 @@ public class ItemsDAO {
 				st.setInt(i, minPrice);
 				i++;
 			}
-			if (searchConditionId != 0) {
+			if (searchConditionId != -1) {
 				st.setInt(i, searchConditionId);
 				i++;
 			}
 
 			try (ResultSet rs = st.executeQuery()) {
+
 				List<ItemBean> list = new ArrayList<ItemBean>();
 				//検索結果
 				while (rs.next()) {
@@ -279,7 +279,7 @@ public class ItemsDAO {
 		String sql = "SELECT * FROM items WHERE 1 = 1 ";
 
 		if (keyword != null && keyword.length() != 0) {
-			sql += "AND (name = ? OR comment = ?) ";
+			sql += "AND (name LIKE ? OR comment LIKE ?) ";
 		}
 		if (searchCategoryId != -1) {
 			sql += "AND category_id = ? ";
@@ -290,8 +290,8 @@ public class ItemsDAO {
 		if (maxPrice != -1) {
 			sql += "AND price <= ? ";
 		}
-		if (searchConditionId != 0) {
-			sql += "AND condition_id = ?";
+		if (searchConditionId != -1) {
+			sql += "AND cond_id = ? ";
 		}
 		sql += "ORDER BY id EXCEPT SELECT * FROM items WHERE seller_id = ?";
 
@@ -319,7 +319,7 @@ public class ItemsDAO {
 				st.setInt(i, minPrice);
 				i++;
 			}
-			if (searchConditionId != 0) {
+			if (searchConditionId != -1) {
 				st.setInt(i, searchConditionId);
 				i++;
 			}
