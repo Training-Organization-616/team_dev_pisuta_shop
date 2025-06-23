@@ -11,7 +11,7 @@
 .pisuta {
 	font-size: 38px;
 	width: 250px;
-	justify-items: left;
+	margin: auto auto auto 10px;
 }
 
 .pisuta a {
