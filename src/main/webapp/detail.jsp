@@ -12,6 +12,8 @@
 
 	<jsp:include page="/header.jsp" />
 
+	<div class="detail">
+	
 		<div class="detail-page">
 	
 			<div class="image-form">
@@ -29,9 +31,6 @@
 			
 				<div class="field_hight">${item.comment}</div>
 			</div>
-				
-			
-					
 			
 					<div style="display:flex"><div class="a1">カテゴリー：</div><div class="field">${category}</div></div>
 					<div style="display:flex"><div class="a1">状態：</div><div class="field">${condition}</div></div>
@@ -55,6 +54,8 @@
 		<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
 			<button>商品一覧へ</button>
 		</form>
+	</div>
+	
 	</div>
 	
 	<footer></footer>
