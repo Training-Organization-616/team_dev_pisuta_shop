@@ -3,6 +3,7 @@ package la.servlet;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import la.bean.ItemBean;
 import la.bean.UserBean;
 import la.dao.DAOException;
 import la.dao.ItemsDAO;
@@ -35,6 +37,15 @@ public class UserServlet extends HttpServlet {
 
 			if (action == null || action.length() == 0) {
 				// 会員管理画面への遷移
+				//セッションの取得
+				HttpSession session = request.getSession();
+				UserBean user = (UserBean) session.getAttribute("user");
+				//会員の出品一覧を取得
+				ItemsDAO itemsDao = new ItemsDAO();
+				int id = user.getId();
+				List<ItemBean> itemList = itemsDao.findItemByUserId(id);
+
+				request.setAttribute("items", itemList);
 				gotoPage(request, response, "/profile.jsp");
 
 			} else if (action.equals("regist")) {
