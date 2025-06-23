@@ -30,13 +30,13 @@ h1 {
 }
 
 .item_search {
-	position: fixed;
-	top: 50px;
+	position: relative;
+	top: -100px;
 	/* 上から10px */
 	left: 500px;
 	/* 左から20px */
 	height: 10px;
-	z-index: 150;
+	z-index: 999;
 }
 
 .search-button {
@@ -91,9 +91,12 @@ button:hover:not([class="button"]){
 	background-color: white;
 	color: rgb(255, 80, 50);
 	transition: .4s;
+	cursor: pointer;
 }
 .button{
 	background-color: white;
+	border: none;
+	cursor: pointer;
 }
 
 .img-form{
@@ -121,9 +124,20 @@ button:hover:not([class="button"]){
 	width: 100%;
 	border: 0;
 	margin: 0 0 15px;
-	padding: 15px;
+	padding: 10px;
 	box-sizing: border-box;
 	font-size: 14px;
+}
+input {
+  padding: 10px; /* 内側の余白を10pxに設定 */
+  width: 250px; /* 幅を調整 */
+}
+option{
+	padding: 10px; /* 内側の余白を10pxに設定 */
+	  width: 250px; /* 幅を調整 */
+}
+.soldout{
+	color:red;
 }
 
 

@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
 	<jsp:include page="/header.jsp" />
 
 	<div class="top-page">
@@ -88,13 +89,15 @@
 						<!--				<img src="${pageContext.request.contextPath }/upload/${item.fileName}">-->
 						<!--			</div>-->
 
-						
+
 
 						<!--2次発注-->
 						<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
 							<button class="button">
 								<div>
-									<img src="${pageContext.request.contextPath }/upload/${item.fileName}"  class="img-form">
+									<img
+										src="${pageContext.request.contextPath }/upload/${item.fileName}"
+										class="img-form">
 								</div>
 							</button>
 							<input type="hidden" name="action" value="detail"> <input
@@ -102,8 +105,19 @@
 								type="hidden" name="categoryId" value="${item.categoryId }">
 							<input type="hidden" name=condId value="${item.condId }"><br>
 						</form>
+
+						<b class="name">${item.name}</b><br>
+
 						
-						<b class="name">${item.name}</b><br> ￥${item.price}
+						<c:choose>
+							<c:when test="${item.status eq true}">
+								<option>￥${item.price}</option>
+							</c:when>
+
+							<c:otherwise>
+								<option class="soldout">soldout</option>
+							</c:otherwise>
+						</c:choose>
 
 					</div>
 				</c:forEach>
