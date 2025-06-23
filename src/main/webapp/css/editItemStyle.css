@@ -8,7 +8,7 @@
 }
 
 .edit-page {
-	width: 1200px;
+	width: 1050px;
 	margin: auto;
 	text-align: center;
 }
@@ -16,7 +16,7 @@
 .edit-form {
 	position: relative;
 	z-index: 1;
-	max-width: 1200px;
+	max-width: 1050px;
 	background: #FFFFFF;
 	margin: 30px auto 30px;
 	padding: 30px 45px 45px;
@@ -64,7 +64,7 @@
 
 .edit-form .radio {
 	background-color: #f2f2f2;
-	width: 500px;
+	width: 470px;
 	padding: 15px;
 	margin: 0 0 15px;
 	justify-self: center;
@@ -72,7 +72,7 @@
 
 .edit-form textarea {
 	background-color: #f2f2f2;
-	width: 500px;
+	width: 470px;
 	padding: 15px;
 	margin: 0 0 15px;
 	justify-self: center;
@@ -87,19 +87,27 @@
 
 .parent {
 	display: flex;
+	width: 1000px;
 }
 
 .img-form{
-	width: 300px
+	width: 400px;
+	height: 400px;
+	border: 1px solid black;
+	align-items: center;
+	justify-items: center;
+	margin: 50px 0;
 }
 
 .img-form img{
 	width: 300px;
 	height: auto;
+	margin: 50px;
 }
 
 .item-form {
 	width: 500px;
+	margin: 0 50px;
 }
 
 input[type="number"]::-webkit-inner-spin-button,

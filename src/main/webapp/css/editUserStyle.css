@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.edit {
+	padding-top: 80px;
+}
+
 .edit-page {
 	width: 450px;
 	margin: auto;
