@@ -22,12 +22,19 @@
 			<div class="err">${message}<br></div>
 			
 			商品名<br>
-			<input class="input-text" type="text" name="name">${item.id}<br>
+			<input class="input-text" type="text" name="name" value="${item.name}"><br>
 			
 			カテゴリー<br>
 			<div class="radio">
 			<c:forEach items="${categories}" var="category">
-				<input id="ct${category.id }" type="radio" name="categoryId" value="${category.id}" required>
+				<c:choose>
+					<c:when test="${category.id == item.categoryId }">
+						<input id="ct${category.id }" type="radio" name="categoryId" value="${category.id}" required checked>
+					</c:when>
+					<c:otherwise>
+						<input id="ct${category.id }" type="radio" name="categoryId" value="${category.id}" required>
+					</c:otherwise>
+				</c:choose>
 				<label for="ct${category.id }">${category.name}</label>
 			</c:forEach><br>
 			</div>
@@ -35,14 +42,14 @@
 			価格<br>
 			<div class="price_container">
 			<span class="unit">￥</span>
-			<input class="input-text" type="number" name="price" min="1" max="100000000">
+			<input class="input-text" type="number" name="price" min="1" max="100000000" value="${item.price }">
 			</div><br>
 			
 			状態<br>
 			<div class="radio">
 			<c:forEach items="${conditions}" var="condition">
 				<c:choose>
-					<c:when test="${condition.id eq 3}">
+					<c:when test="${condition.id eq item.condId}">
 						<input id="cd${condition.id }" type="radio" name="conditionId" value="${condition.id}" checked>
 						<label for="cd${condition.id }">${condition.name}</label><br>
 					</c:when>
@@ -55,7 +62,7 @@
 			</div>
 		
 			コメント<br>
-			<textarea rows="" cols="" name="comment" placeholder="任意"></textarea><br>
+			<textarea rows="" cols="" name="comment" placeholder="任意" value="${item.comment }"></textarea><br>
 			<!-- 会員管理画面へ遷移 -->
 			<button>変更</button>
 			
