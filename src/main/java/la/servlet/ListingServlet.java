@@ -129,7 +129,7 @@ public class ListingServlet extends HttpServlet {
 						//ファイル名を取得
 						String fileName = Paths.get(part.getSubmittedFileName()).getFileName().toString();
 
-						if (!fileName.matches(".png")) {
+						if (!fileName.matches(".*.png")) {
 							request.setAttribute("message", "画像を選択してください");
 							gotoPage(request, response, "/listing.jsp");
 							return;
@@ -170,7 +170,8 @@ public class ListingServlet extends HttpServlet {
 						return;
 					} catch (Exception e) {
 						// TODO: handle exception
-						request.setAttribute("message", "画像を選択してください");
+						e.printStackTrace();
+						request.setAttribute("message", "画像の処理に失敗しました");
 						gotoPage(request, response, "/listing.jsp");
 						return;
 					}
