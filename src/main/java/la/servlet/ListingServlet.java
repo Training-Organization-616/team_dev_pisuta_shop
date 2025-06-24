@@ -121,45 +121,53 @@ public class ListingServlet extends HttpServlet {
 						gotoPage(request, response, "/listing.jsp");
 						return;
 					}
+
+					try {
+						//画像ファイルの受け取り
+						Part part = request.getPart("product_image");
+
+						//ファイル名を取得
+						String fileName = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+						//アップロードするフォルダ
+						String path = getServletContext().getRealPath("/upload");
+
+						//書き込み
+						part.write(path + File.separator + fileName);
+
+						//データベース登録
+						itemsDao.addItem(name, categoryId, user.getId(), price, condId, comment, fileName);
+
+						//登録した商品のidを検索
+						int id = itemsDao.getIdbyItem(user.getId(), name);
+
+						//ファイル名の変更
+						//現在のファイルのパス
+						File currentFile = new File(path + File.separator + fileName);
+						//新しいファイル名
+						File newFileName = new File(path + File.separator + "pict" + id + ".png");
+
+						//ファイル名の変更
+						boolean success = currentFile.renameTo(newFileName);
+
+						if (!success) {
+							request.setAttribute("message", "内部エラーが発生しました。");
+							gotoPage(request, response, "/errInternal.jsp");
+							return;
+						}
+
+						String file = newFileName.getName();
+						//変更後データベースの更新
+						itemsDao.updateItemFileNameById(id, file);
+
+						response.sendRedirect("/team_dev_pisuta_shop/UserServlet");
+						return;
+					} catch (Exception e) {
+						// TODO: handle exception
+						request.setAttribute("message", "画像を選択してください");
+						gotoPage(request, response, "/listing.jsp");
+						return;
+					}
 				}
-
-				//画像ファイルの受け取り
-				Part part = request.getPart("product_image");
-				//ファイル名を取得
-				String fileName = Paths.get(part.getSubmittedFileName()).getFileName().toString();
-				//アップロードするフォルダ
-				String path = getServletContext().getRealPath("/upload");
-
-				//書き込み
-				part.write(path + File.separator + fileName);
-
-				//データベース登録
-				itemsDao.addItem(name, categoryId, user.getId(), price, condId, comment, fileName);
-
-				//登録した商品のidを検索
-				int id = itemsDao.getIdbyItem(user.getId(), name);
-
-				//ファイル名の変更
-				//現在のファイルのパス
-				File currentFile = new File(path + File.separator + fileName);
-				//新しいファイル名
-				File newFileName = new File(path + File.separator + "pict" + id + ".png");
-
-				//ファイル名の変更
-				boolean success = currentFile.renameTo(newFileName);
-
-				if (!success) {
-					request.setAttribute("message", "内部エラーが発生しました。");
-					gotoPage(request, response, "/errInternal.jsp");
-					return;
-				}
-
-				String file = newFileName.getName();
-				//変更後データベースの更新
-				itemsDao.updateItemFileNameById(id, file);
-
-				response.sendRedirect("/team_dev_pisuta_shop/UserServlet");
-				return;
 
 			} else if (action.equals("edit")) {
 				int itemId = Integer.parseInt(request.getParameter("itemId"));

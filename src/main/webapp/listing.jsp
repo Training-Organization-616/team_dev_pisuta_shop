@@ -11,13 +11,12 @@
 </head>
  
 <body>
-
 	<jsp:include page="/header.jsp" />
-
 	<div class="regist-page">
+	<div class="title"><b>商品情報を入力してください</b><br></div>
 		<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="action" value="add">
-			<div class="title"><b>商品情報を入力してください</b><br></div>
+			
 			<!-- 入力に誤りがあった場合出力 -->
 			<div class="err">${message}<br></div>
 			<div class="content">
@@ -25,7 +24,7 @@
 				<div class="img_container">
 				<img id="preview">
 				</div>
-				<input id="import_image" type="file" name="product_image" accept=".png" required>
+				<input id="import_image" type="file" name="product_image" accept=".png">
 				<button id="select_file" type="button">ファイルの選択</button>
 			</div>
 			
