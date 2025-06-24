@@ -130,8 +130,6 @@ public class ListingServlet extends HttpServlet {
 				//アップロードするフォルダ
 				String path = getServletContext().getRealPath("/upload");
 
-				System.out.println(fileName);
-				System.out.println(path);
 				//書き込み
 				part.write(path + File.separator + fileName);
 
