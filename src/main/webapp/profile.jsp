@@ -13,89 +13,95 @@
 </head>
 <body>
 	<jsp:include page="/header.jsp" />
+	
 <div class="profile">
-	<h2>会員管理</h2>
+	<div class="title"><b>会員管理</b></div>
 	<div id="parent">
 		<div id="child1">
 			<div class="location0">
-			<p class="info_title">会員情報</p>
+			<div class="info_title"><b>会員情報</b></div>
 			</div>
 			<div class="location1">
-			<p class="info_lable">会員番号</p>
-			<p class="info_data">${user.id}</p>
-			<p class="info_lable">氏名</p>
-			<p class="info_data">${user.name}</p>
-			<p class="info_lable">住所</p>
-			<p class="info_data">${user.address}</p>
-			<p class="info_lable">電話番号</p>
-			<p class="info_data">${user.tel}</p>
-			<p class="info_lable">Email</p>
-			<p class="info_data">${user.email}</p>
-			<p class="info_lable">生年月日</p>
-			<p class="info_data">${user.birthday}</p>
+			<div class="info_lable">会員番号</div>
+			<div class="info_data">${user.id}</div>
+			<div class="info_lable">氏名</div>
+			<div class="info_data">${user.name}</div>
+			<div class="info_lable">住所</div>
+			<div class="info_data">${user.address}</div>
+			<div class="info_lable">電話番号</div>
+			<div class="info_data">${user.tel}</div>
+			<div class="info_lable">メールアドレス</div>
+			<div class="info_data">${user.email}</div>
+			<div class="info_lable">生年月日</div>
+			<div class="info_data">${user.birthday}</div>
 			</div>
+			
 			<div class="location2">
-				<div class="edit_button">
-				<a class="edit_link" href="/team_dev_pisuta_shop/UserServlet?action=edit">情報変更</a>
-				</div>
+				<form action="/team_dev_pasuta_shop/UserServlet" method="post">
+					<input type="hidden" name="action" value="edit">
+					<button>情報変更</button> 
+				</form>
+				
 			</div>
-			<br>
+			
+			<!-- 退会ダイアログ処理 --> 
 			<div class="location3">
-				<!-- 退会ダイアログ処理 --> 
-						<button class="delete_button" type="button">退会</button>
-			</div>		
+			<button class="delete_button">退会</button>	
+			</div>
+		
 		</div>
 		<div id="child2">
 				
 				<!--出品中の商品 -->
 				<div class="listing_box">
 				
-				<div class=".location4 ">
-				<h2>出品中の商品</h2><br>
 				
-				<c:if test="${not empty items }">
+					<div class="info_title"><b>出品中の商品</b></div>
 				
-				<table border="1">
-					<tr>
-						<th>商品名</th>
-						<th>価格</th>
-						<th>出品日時</th>
-						<th>変更</th>
-						<th>削除</th>
-		          	</tr>
-		          	<c:forEach items="${items}" var="item">
-		          	<tr>
-						<td>${item.name}</td>
-						<td>${item.price}</td>
-						<!--出品日時は仮です -->
-						<td>
-						${item.createdAt }
-						</td>
+				<c:choose>
+					<c:when test="${not empty items }">
+						<table border="1">
+							<tr>
+								<th class="name">商品名</th>
+								<th class="price">価格</th>
+								<th class="time">出品日時</th>
+								<th>変更</th>
+								<th>削除</th>
+		          			</tr>
+		        		  	<c:forEach items="${items}" var="item">
+		          				<tr>
+									<td>${item.name}</td>
+									<td>${item.price}円</td>
+									<!--出品日時は仮です -->
+									<td>${item.createdAt }</td>
 						
-						<td>
-						<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet" method="post">
-						<input type="hidden" name="action" value="edit">
-						<input type="hidden" name="itemId" value="${item.id}">
-						<button>変更</button>
-						</form></td>
+									<td>
+										<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet" method="post">
+										<input type="hidden" name="action" value="edit">
+										<input type="hidden" name="itemId" value="${item.id}">
+										<button>変更</button>
+										</form>
+									</td>
 						
-		          		<td>
-						<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet" method="post">
-						<input type="hidden" name="action" value="delete">
-						<input type="hidden" name="itemId" value="${item.id}">
-						<button>削除</button>
-						</form></td>
-		          	
-		          	</tr>
-		          	</c:forEach>
-				</table>
-				</c:if>
-				
-				</div>
-
-		
-		
-		</div>
+		          					<td>
+										<form class="regist-form" action="/team_dev_pisuta_shop/ListingServlet" method="post">
+										<input type="hidden" name="action" value="delete">
+										<input type="hidden" name="itemId" value="${item.id}">
+										<button>削除</button>
+										</form>
+									</td>
+		        	  			</tr>
+		       		   		</c:forEach>
+						</table>
+					</c:when>
+					
+					<c:otherwise>
+						<div class="empty">出品中の商品はありません</div>
+					</c:otherwise>
+				</c:choose>
+			
+			</div>
+			
 		<form action="/team_dev_pisuta_shop/ListingServlet" method="post">
 			<button type="submit" class="listing_button">商品登録へ</button>
 		</form>
@@ -104,9 +110,10 @@
 </div>
 
 
+
 <dialog id="deleteDialog">
 	<div class="dialog_content">
-		<p>削除しますか</p>
+		<p>退会しますか</p>
 		<form action="/team_dev_pisuta_shop/UserServlet" method="post">
 			<input class="delete_id" type="hidden">
 			<button type="submit" name="action" value="remove">はい</button>
