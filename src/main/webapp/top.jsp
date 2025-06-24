@@ -19,11 +19,12 @@
 			<h1>絞り込み</h1>
 
 			<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
-				<input type="hidden" name="action" value="search"> <span
-					class="item_search"> <input type="text" name="keyword"
+				<input type="hidden" name="action" value="search"> 
+				<div class="item_search">
+				 <input type="text" name="keyword"
 					placeholder="何をお探しですか？" value="${keyword}" class="search-text">
 					<button class="search-button">検索</button>
-				</span> カテゴリー
+				</div> カテゴリー
 				<div class="field">
 					<select name="categoryId">
 						<option value="-1">全て</option>
