@@ -22,7 +22,9 @@
 			<div class="err">${message}<br></div>
 			<div class="content">
 			<div class="image_form">
+				<div class="img_container">
 				<img id="preview">
+				</div>
 				<input id="import_image" type="file" name="product_image" accept=".png" required>
 				<button id="select_file" type="button">ファイルの選択</button>
 			</div>
