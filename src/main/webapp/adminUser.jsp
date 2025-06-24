@@ -13,7 +13,7 @@
 	
 	<div class="admin-user">
 
-	<div class="content2">
+	<div class="content">
 		<form action="/team_dev_pisuta_shop/UserManageServlet" method="post">
 			<input type="text" name="userId" placeholder="会員番号" class="textarea">
 			<button class="search">検索</button>
@@ -24,7 +24,7 @@
 		<div class="error">${message}</div>
 
 	<div>
-		<table class="content" border="1">
+		<table border="1">
 			<tr>
 				<th class="id">会員番号</th>
 				<th class="name">氏名</th>

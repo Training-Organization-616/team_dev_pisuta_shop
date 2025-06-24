@@ -114,7 +114,7 @@
 						
 						<c:choose>
 							<c:when test="${item.status eq true}">
-								<option>￥${item.price}</option>
+								<option>${item.price}円</option>
 							</c:when>
 
 							<c:otherwise>

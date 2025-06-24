@@ -4,11 +4,7 @@
 	padding-top: 80px;
 }
 
-table{
-	font-size: 16px;
-}
-
-.content {
+table {
 	text-align: center;
 	margin: 20px auto;
 	width: 900px;
@@ -16,7 +12,7 @@ table{
 }
 
 .id {
-	width: 65px;
+	width: 80px;
 }
 
 .name {
@@ -62,6 +58,7 @@ button:hover {
 th {
 	background-color: rgb(128, 128, 128);
 	color: white;
+	font-size: 18px;
 }
 
 /*戻るボタン*/
@@ -74,14 +71,14 @@ th {
 }
 
 /*検索*/
-.content2 {
+.content {
 	position: fixed;
 	top: 25px;
 	right: 10px;
 	z-index: 100;
 }
 
-.content2 button {
+.content button {
 	background-color: white;
 	border-color: white;
 	color: black;
@@ -91,7 +88,7 @@ th {
 	font-size: 14px;
 }
 
-.content2 button:hover {
+.content button:hover {
 	background-color: rgb(128, 128, 128);
 	color: white;
 	transition: .4s;
