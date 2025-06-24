@@ -157,6 +157,10 @@ option{
 	color:red;
 }
 
+.from {
+	position: relative;
+	bottom: 5px;
+}
 
 footer {
 	height: 30px;
