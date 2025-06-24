@@ -240,7 +240,7 @@ public class ItemsDAO {
 				i++;
 			}
 			if (maxPrice != -1) {
-				st.setInt(i, minPrice);
+				st.setInt(i, maxPrice);
 				i++;
 			}
 			if (searchConditionId != -1) {
@@ -326,7 +326,7 @@ public class ItemsDAO {
 				i++;
 			}
 			if (maxPrice != -1) {
-				st.setInt(i, minPrice);
+				st.setInt(i, maxPrice);
 				i++;
 			}
 			if (searchConditionId != -1) {
@@ -462,7 +462,7 @@ public class ItemsDAO {
 	}
 
 	public int deleteItemById(int itemId) throws DAOException {
-		String sql = "UPDATE items SET status = false WHERE id = ?";
+		String sql = "DELETE FROM items WHERE id = ? ";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
@@ -478,7 +478,7 @@ public class ItemsDAO {
 	}
 
 	public int deleteItemByUserId(int userId) throws DAOException {
-		String sql = "UPDATE items SET status = false WHERE seller_id = ?";
+		String sql = "DELETE FROM items WHERE seller_id = ? AND status = true";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
