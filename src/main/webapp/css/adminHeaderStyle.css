@@ -2,10 +2,14 @@
 
 .pisuta {
 	background-color: rgb(128, 128, 128);
-	justify-content: center;
+	justify-content: left;
 	align-items: center;
 	height: 80px;
+	width: 100%;
 	display: flex;
+	position: fixed;
+	top: 0px;
+	z-index: 50;
 }
 
 .pisuta b{
@@ -14,6 +18,7 @@
 
 .pisuta a {
 	position: relative;
+	left: 10px;
 	text-decoration: none;
 	padding: 5px;
 	color: white;

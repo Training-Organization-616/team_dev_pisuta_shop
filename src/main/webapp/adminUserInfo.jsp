@@ -35,7 +35,7 @@
 			</tr>
 			<br>
 			<tr>
-				<th>email</th>
+				<th>メールアドレス</th>
 				<td>${user.email}</td>
 			</tr>
 			<br>
@@ -64,7 +64,7 @@
 
 	<dialog id="deleteDialog">
 	<div class="dialog_content">
-		<p>削除しますか</p>
+		<p>退会させますか？</p>
 		<form action="/team_dev_pisuta_shop/UserManageServlet" method="post">
 			<input class="delete_id" type="hidden" name="userId"
 				value="${user.id}">

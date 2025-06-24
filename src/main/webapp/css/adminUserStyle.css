@@ -1,8 +1,16 @@
 @charset "UTF-8";
 
+.admin-user {
+	padding-top: 80px;
+}
+
+table{
+	font-size: 16px;
+}
+
 .content {
 	text-align: center;
-	margin: auto;
+	margin: 20px auto;
 	width: 900px;
 	height: auto;
 }
@@ -39,9 +47,9 @@ button {
 	border-color: rgb(128, 128, 128);
 	color: white;
 	margin: auto 0;
-	border: 1px solid black;
 	font-size: 18px;
 	border-radius: 5px;
+	border-width: 2px;
 	align-self: center;
 }
 
@@ -67,15 +75,26 @@ th {
 
 /*検索*/
 .content2 {
-	margin: 30px;
+	position: fixed;
+	top: 25px;
+	right: 10px;
+	z-index: 100;
 }
 
 .content2 button {
-	width: 50px;
-	height: 28px;
-	position: relative;
-	top: 4px;
-	align-items: center;
+	background-color: white;
+	border-color: white;
+	color: black;
+	border-radius: 5px;
+	border-width: 2px;
+	transition: .4s;
+	font-size: 14px;
+}
+
+.content2 button:hover {
+	background-color: rgb(128, 128, 128);
+	color: white;
+	transition: .4s;
 	font-size: 14px;
 }
 
@@ -84,13 +103,13 @@ th {
 }
 
 .textarea {
-	width: 120px;
-	height: 20px;
+	font-size: 16px;
+	padding: 4px 0;
 }
 
 .error {
 	color: red;
-	margin: 0;
-	padding: 0;
-	font-size: 15px;
+	margin: 10px auto;
+	font-size: 18px;
+	text-align: center;
 }

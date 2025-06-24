@@ -11,40 +11,49 @@
 </head>
 <body>
 	<jsp:include page="/adminHeader.jsp" />
+	
+	<div class="admin-item">
+	
 	<div class="input_container">
-	<form class="search_form" action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
-		<input class="input_key" type="text" name="keyword" placeholder="キ－ワード"> 
-		<input class="input_name" type="text" name="userName" placeholder="ユーザー名">
-		<button class="button_search" type="submit" name="action" value="search">検索</button>
-		<button class="button_return">一覧へ戻る</button>
-	</form>
+		<form class="search_form" action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
+			<input class="input_key" type="text" name="keyword" placeholder="キ－ワード"> 
+			<input class="input_name" type="text" name="userName" placeholder="ユーザー名">
+			<button class="button_search" type="submit" name="action" value="search">検索</button>
+			<button class="button_return">一覧へ戻る</button>
+		</form>
 	</div>
 	<div class="item_container">
-	<c:if test="${empty items }">
-	<p>商品が存在しません</p>
-	</c:if>
-	<c:forEach items="${items }" var="item">
-		<div class="item">
-			<p>${item.name }</p>
-			<p>${item.price }円</p>
-			<c:forEach items="${users }" var="user">
-			<c:if test="${item.sellerId == user.id }">
-			<p>${user.name }</p>
-			</c:if>
-			</c:forEach>
-			<button type="button" class="delete" value="${item.id }">削除</button>
-		</div>
-	</c:forEach>
+		<c:if test="${empty items }">
+			<p>商品が存在しません</p>
+		</c:if>
+		<c:forEach items="${items }" var="item">
+			<div class="item">
+				<p>${item.name }</p>
+				<p>${item.price }円</p>
+				<c:forEach items="${users }" var="user">
+					<c:if test="${item.sellerId == user.id }">
+					<p>${user.name }</p>
+					</c:if>
+				</c:forEach>
+				<div class="delete">
+					<button type="button" value="${item.id }">削除</button>
+				</div>
+			</div>
+		</c:forEach>
 	</div>
 	<div class="back_container">
-	<form action="/team_dev_pisuta_shop/AdminServlet" method="post">
-		<button class="button_back">戻る</button>
-	</form>
-</div>
+		<form action="/team_dev_pisuta_shop/AdminServlet" method="post">
+			<button class="button_back">戻る</button>
+		</form>
+	</div>
+	</div>
+	
+	<footer></footer>
+	
 	<dialog id="deleteDialog">
 	<div class="dialog_content">
-		<p id="itemName"></p>
-		<p id="itemPrice"></p>
+		<div>${item.name }</div>
+		<div>${item.price}</div>
 		<p class="check_massage">削除しますか</p>
 		<div class="button_container">
 		<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">

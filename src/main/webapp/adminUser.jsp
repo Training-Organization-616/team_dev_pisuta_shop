@@ -10,6 +10,8 @@
 </head>
 <body>
 	<jsp:include page="/adminHeader.jsp" />
+	
+	<div class="admin-user">
 
 	<div class="content2">
 		<form action="/team_dev_pisuta_shop/UserManageServlet" method="post">
@@ -17,10 +19,9 @@
 			<button class="search">検索</button>
 			<input type="hidden" name="action" value="search"> <br>
 		</form>
-		<p class="error">${message}</p>
 	</div>
 
-<!--	<div class="error">${message}</div>-->
+		<div class="error">${message}</div>
 
 	<div>
 		<table class="content" border="1">
@@ -58,6 +59,8 @@
 			<button class="return">戻る</button>
 			<input type="hidden" name="action" value="top">
 		</form>
+	</div>
+	
 	</div>
 
 </body>

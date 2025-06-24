@@ -10,6 +10,7 @@
 </head>
 <body>
 	<jsp:include page="/adminHeader.jsp" />
+
 	<div class="content">
 		<div class="content1">
 			<form action="/team_dev_pisuta_shop/UserManageServlet" method="post">
