@@ -128,6 +128,13 @@ public class ListingServlet extends HttpServlet {
 
 						//ファイル名を取得
 						String fileName = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+
+						if (!fileName.matches(".png")) {
+							request.setAttribute("message", "画像を選択してください");
+							gotoPage(request, response, "/listing.jsp");
+							return;
+						}
+
 						//アップロードするフォルダ
 						String path = getServletContext().getRealPath("/upload");
 
@@ -150,8 +157,8 @@ public class ListingServlet extends HttpServlet {
 						boolean success = currentFile.renameTo(newFileName);
 
 						if (!success) {
-							request.setAttribute("message", "内部エラーが発生しました。");
-							gotoPage(request, response, "/errInternal.jsp");
+							request.setAttribute("message", "画像アップロードに失敗しました");
+							gotoPage(request, response, "/listing.jsp");
 							return;
 						}
 
