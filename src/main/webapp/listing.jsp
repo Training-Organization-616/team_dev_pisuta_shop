@@ -20,12 +20,14 @@
 			<div class="title"><b>商品情報を入力してください</b><br></div>
 			<!-- 入力に誤りがあった場合出力 -->
 			<div class="err">${message}<br></div>
-			
-			<div>
+			<div class="content">
+			<div class="image_form">
 				<img id="preview">
 				<input id="import_image" type="file" name="product_image" accept=".png" required>
+				<button id="select_file" type="button">ファイルの選択</button>
 			</div>
 			
+			<div class="iput_form">
 			商品名<br>
 			<input class="input-text" type="text" name="name" placeholder="50字以内"><br>
 			
@@ -63,6 +65,8 @@
 			<textarea rows="" cols="" name="comment" placeholder="任意"></textarea><br>
 			<!-- 会員管理画面へ遷移 -->
 			<button>出品</button>
+			</div>
+			</div>
 		</form>
 	</div>
 

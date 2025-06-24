@@ -2,15 +2,39 @@
 
 
 .regist-page {
-	width: 650px;
+	padding-top: 70px;
+	width: 1050px;
+	height: 77vh;
 	margin: auto;
 	text-align: center;
 }
 
+.content {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+#preview {
+	width: 400px;
+	height: 400px;
+	border: solid 2px black;
+
+	margin-top: 20px;
+	margin-bottom: 30px;
+	
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+}
+
+
 .regist-form {
 	position: relative;
 	z-index: 1;
-	max-width: 700px;
+	max-width: 100%;
+	height: 96%;
 	background: #FFFFFF;
 	margin: 30px auto 30px;
 	padding: 30px 45px 45px;
@@ -19,7 +43,7 @@
 	border: 2px solid black;
 }
 
-.regist-form .input-text{
+.regist-form .input-text {
 	outline: 0;
 	background: #f2f2f2;
 	width: 500px;
@@ -35,17 +59,18 @@
 	width: 100px;
 	height: auto;
 	padding: 5px 0;
-	background-color:rgb(255, 80, 50);
+	background-color: rgb(255, 80, 50);
 	border-color: rgb(255, 80, 50);
-		color:white;
+	color: white;
 	margin: 10px 0 0;
 	border-radius: 5px;
 	font-size: 18px;
 }
-.regist-form button:hover{
+
+.regist-form button:hover {
 	background-color: white;
-		color:rgb(255, 80, 50);
-		transition: .4s;
+	color: rgb(255, 80, 50);
+	transition: .4s;
 }
 
 .regist-form .err {
@@ -55,7 +80,7 @@
 	color: red;
 }
 
-.regist-form .radio{
+.regist-form .radio {
 	background-color: #f2f2f2;
 	width: 470px;
 	padding: 15px;
@@ -63,7 +88,7 @@
 	justify-self: center;
 }
 
-.regist-form textarea{
+.regist-form textarea {
 	background-color: #f2f2f2;
 	width: 470px;
 	padding: 15px;
@@ -79,27 +104,50 @@
 }
 
 input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button{
+input[type="number"]::-webkit-outer-spin-button {
 	-webkit-appearance: none;
-	margin:0;
+	margin: 0;
 }
 
-.price_container{
+.price_container {
 	position: relative;
 	background: #f2f2f2;
 	width: 500px;
 	justify-self: center;
-	
+
 	text-align: center;
 }
 
-.unit{
+.unit {
 	position: absolute;
-	transform: translate(-50%,-50%);
-	top:50%;
+	transform: translate(-50%, -50%);
+	top: 50%;
 	left: 100px;
 }
 
-.price_container input{
+.price_container input {
 	margin-bottom: 0 !important;
+}
+
+#import_image {
+	display: none;
+	background-color: #f2f2f2;
+	align-items: center;
+	width: 300px;
+}
+
+#select_file{
+	width: 120px;
+	height: 30px;
+	background-color: rgb(255, 80, 50);
+	border-color: rgb(255, 80, 50);
+	color: white;
+	border-radius: 5px;
+	font-size: 15px;
+}
+
+#select_file:hover {
+	background-color: white;
+	color: rgb(255, 80, 50);
+	transition: .4s;
 }
