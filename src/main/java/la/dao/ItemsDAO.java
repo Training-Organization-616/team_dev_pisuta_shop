@@ -392,7 +392,7 @@ public class ItemsDAO {
 	}
 
 	public int getIdbyItem(int userId, String fileName) throws DAOException {
-		String sql = "SELECT * FROM items WHERE seller_id = ? AND file_name = ? ORDER BY created_at LIMIT 1";
+		String sql = "SELECT * FROM items WHERE seller_id = ? AND name = ? ORDER BY created_at LIMIT 1";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);

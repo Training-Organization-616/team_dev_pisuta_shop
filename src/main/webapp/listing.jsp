@@ -78,6 +78,10 @@
 
 
 <!-- 会員管理画面へ遷移 -->
-
+<div class="back_container">
+<form action="/team_dev_pisuta_shop/UserServlet" method="post">
+<button type="submit" class="cancel">キャンセル</button>
+</form>
+</div>
 </body>
 </html>
