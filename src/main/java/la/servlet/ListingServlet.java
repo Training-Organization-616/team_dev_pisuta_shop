@@ -106,12 +106,21 @@ public class ListingServlet extends HttpServlet {
 					gotoPage(request, response, "/listing.jsp");
 					return;
 				} else if (name.length() > 100) {
-					//商品名が１００文字以上の場合
+					//商品名が100文字以上の場合
 					request.setAttribute("name", "商品名は100文字以下にしてください");
 					gotoPage(request, response, "/listing.jsp");
 					return;
 				} else {
-					price = Integer.parseInt(strPrice);
+					try {
+						price = Integer.parseInt(strPrice);
+						if (price < 1) {
+							throw new Exception();
+						}
+					} catch (Exception e) {
+						request.setAttribute("message", "正しい価格を入力してください");
+						gotoPage(request, response, "/listing.jsp");
+						return;
+					}
 				}
 
 				//画像ファイルの受け取り
@@ -163,6 +172,7 @@ public class ListingServlet extends HttpServlet {
 				gotoPage(request, response, "/editItem.jsp");
 
 			} else if (action.equals("update")) {
+				ItemsDAO dao = new ItemsDAO();
 
 				//商品情報の更新
 				int id = Integer.parseInt(request.getParameter("itemId"));
@@ -172,6 +182,9 @@ public class ListingServlet extends HttpServlet {
 				int price = 0;
 				int condId = Integer.parseInt(request.getParameter("conditionId"));
 				String comment = request.getParameter("comment");
+
+				ItemBean item = dao.searchItemById(id);
+				request.setAttribute("item", item);
 
 				//入力チェック
 				//商品名が無い場合
@@ -184,7 +197,7 @@ public class ListingServlet extends HttpServlet {
 					gotoPage(request, response, "/editItem.jsp");
 					return;
 				} else if (name.length() > 100) {
-					//商品名が１００文字以上の場合
+					//商品名が100文字以上の場合
 					request.setAttribute("name", "商品名は100文字以下にしてください");
 					gotoPage(request, response, "/editItem.jsp");
 					return;
@@ -195,12 +208,10 @@ public class ListingServlet extends HttpServlet {
 							throw new Exception();
 						}
 					} catch (Exception e) {
-						// TODO: handle exception
 						request.setAttribute("message", "正しい価格を入力してください");
 						gotoPage(request, response, "/editItem.jsp");
 						return;
 					}
-					ItemsDAO dao = new ItemsDAO();
 					dao.updateItem(id, name, categoryId, price, condId, comment);
 
 					int userId = user.getId();
