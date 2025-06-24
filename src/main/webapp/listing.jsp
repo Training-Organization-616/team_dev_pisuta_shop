@@ -30,7 +30,7 @@
 			
 			<div class="iput_form">
 			商品名<br>
-			<input class="input-text" type="text" name="name" placeholder="50字以内"><br>
+			<input class="input-text" type="text" name="name" placeholder="100字以内"><br>
 			
 			カテゴリー<br>
 			<div class="radio">

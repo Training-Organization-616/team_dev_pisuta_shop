@@ -123,39 +123,47 @@ public class ListingServlet extends HttpServlet {
 					}
 
 					try {
-						//画像ファイルの受け取り
+						// 画像ファイルの受け取り
 						Part part = request.getPart("product_image");
 
-						//ファイル名を取得
+						// ファイル名を取得
 						String fileName = Paths.get(part.getSubmittedFileName()).getFileName().toString();
 
-						if (!fileName.matches(".png")) {
-							request.setAttribute("message", "画像を選択してください");
+						if (!fileName.matches(".*\\.png$")) {
+							request.setAttribute("message", "画像形式は.pngである必要があります");
 							gotoPage(request, response, "/listing.jsp");
 							return;
 						}
 
-						//アップロードするフォルダ
+						// アップロードするフォルダ
 						String path = getServletContext().getRealPath("/upload");
 
-						//書き込み
-						part.write(path + File.separator + fileName);
+						// 書き込み
+						try {
+							part.write(Paths.get(path, fileName).toString());
+						} catch (IOException e) {
+							request.setAttribute("message", "ファイルの書き込みに失敗しました");
+							gotoPage(request, response, "/listing.jsp");
+							return;
+						}
 
-						//データベース登録
-						itemsDao.addItem(name, categoryId, user.getId(), price, condId, comment, fileName);
+						// データベース登録
+						try {
+							itemsDao.addItem(name, categoryId, user.getId(), price, condId, comment, fileName);
+						} catch (Exception e) {
+							request.setAttribute("message", "データベース登録に失敗しました");
+							gotoPage(request, response, "/listing.jsp");
+							return;
+						}
 
-						//登録した商品のidを検索
+						// 登録した商品のidを検索
 						int id = itemsDao.getIdbyItem(user.getId(), name);
 
-						//ファイル名の変更
-						//現在のファイルのパス
-						File currentFile = new File(path + File.separator + fileName);
-						//新しいファイル名
-						File newFileName = new File(path + File.separator + "pict" + id + ".png");
+						// ファイル名の変更
+						File currentFile = new File(Paths.get(path, fileName).toString());
+						File newFileName = new File(Paths.get(path, "pict" + id + ".png").toString());
 
-						//ファイル名の変更
 						boolean success = currentFile.renameTo(newFileName);
-
 						if (!success) {
 							request.setAttribute("message", "画像アップロードに失敗しました");
 							gotoPage(request, response, "/listing.jsp");
@@ -163,15 +171,16 @@ public class ListingServlet extends HttpServlet {
 						}
 
 						String file = newFileName.getName();
-						//変更後データベースの更新
+						// 変更後データベースの更新
 						itemsDao.updateItemFileNameById(id, file);
 
 						response.sendRedirect("/team_dev_pisuta_shop/UserServlet");
 						return;
 					} catch (Exception e) {
 						// TODO: handle exception
-						request.setAttribute("message", "画像を選択してください");
-						gotoPage(request, response, "/listing.jsp");
+						e.printStackTrace();
+						request.setAttribute("message", "内部エラーが発生しました。");
+						gotoPage(request, response, "/errInternal.jsp");
 						return;
 					}
 				}

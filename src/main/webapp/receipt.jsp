@@ -13,10 +13,12 @@
 	<jsp:include page="/header.jsp" />
 
 	<div class="receipt">
+	
+	<div class="message"><b>商品の購入が確定しました！</b></div>
+	
 	<div class="receipt-page">
 	<div class="receipt-form">
-	<div class="title"><b>購入情報</b></div> 
-	
+
 	 <!-- 一次リリースで表示していた内容 -->
 	 <!--取引番号<br>  -->
 	 <!--<div class="field">${deal.id}</div>-->
@@ -24,18 +26,32 @@
 	 <!--<div class="field">${sellerName}</div>-->
 	 
 	 <!-- 二次リリースで表示内容 -->
-	 <!-- 画像添付予定 -->
-	 商品名<br>
-	 <div class="field"> ${item.name}</div>
-	 価格<br>
-	 <div class="field">${item.price}円</div>
-	 商品の説明<br>
-	 <div class="field"> ${item.comment}</div>
-	 配送先住所<br>
-	 <div class="field"> ${user.address}</div>
+	 <div class="parent">
+	 <div class="img-form">
+		<img src="${pageContext.request.contextPath }/upload/${item.fileName}">
+	</div>
+	
+	<div class="item-form">
 	 
-
-	 <div class="message"><b>商品の購入が確定しました！</b></div>
+	 <div class="name"> ${item.name}</div>
+	 <div class="price">${item.price}円</div>
+	<div class="field-title">商品の説明</div>
+	 <div class="field-comment"> ${item.comment}</div>
+	 
+	 <div class="user-form">
+		<div class="user-info">
+			<div class="user-title">購入者氏名：</div>
+			<div class="field">${user.name}</div>
+		</div>
+				
+		<div class="user-info">
+			<div class="user-title">配送先住所：</div>
+			<div class="field">${user.address}</div>
+		</div>
+	</div>
+	 </div>
+	 
+	 </div>
 	 </div>
 	 </div>
 	 
@@ -44,7 +60,6 @@
 	<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
 		<button>商品一覧へ</button>
 	</form>
-<!--	<a href="/team_dev_pisuta_shop/ItemServlet">商品一覧へ戻る</a>-->
 	</div>
 	
 	<footer></footer>
