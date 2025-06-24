@@ -108,6 +108,7 @@ button:hover:not([class="button"]){
 	   height: 150px;
 	   object-fit: cover; /* width, heightといっしょに使います */
 	   border: 1px solid #111;
+	   border:none;
 }
 
 .title {
