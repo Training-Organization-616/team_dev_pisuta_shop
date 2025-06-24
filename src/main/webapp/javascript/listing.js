@@ -49,7 +49,7 @@ window.addEventListener('load', function() {
 			inputElm.files = d.files;
 			const reader = new FileReader();
 			reader.onload = () => {
-				imageElm.src = reader.result;
+				imageElm.src = this.reader.result;
 			};
 			reader.readAsDataURL(file);
 		}
