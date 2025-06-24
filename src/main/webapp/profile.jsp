@@ -157,23 +157,16 @@
 		const dialog1 = document.querySelector('#removeDialog');
 		const removeId = document.querySelector('#removeId');
 
-
 		removeButton.forEach(function(button) {
 
 			<!--removeId.valueは145行目のvalueの値を示している-->
 			<!--button.valueは上の削除ボタンのvalue属性の値-->
-			
 		    button.addEventListener('click', () => {
 		    	removeId.value = button.value;
 				dialog1.showModal();
-
 		})
-
 	});
-
 		</script>
-
-
 
 </body>
 </html>
