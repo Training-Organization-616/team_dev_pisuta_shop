@@ -16,7 +16,7 @@
 
 	<div class="top-page">
 		<div class="search">
-			<h1>絞り込み</h1>
+			<h2>絞り込み</h2>
 
 			<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
 				<input type="hidden" name="action" value="search"> 
@@ -44,12 +44,12 @@
 				価格
 				<div class="field">
 					<input type="text" name="minPrice" placeholder="最低価格"
-						value="${minPrice}" class="price">
+						value="${minPrice}" class="price"> 円
 				</div>
 				〜
 				<div class="field">
 					<input type="text" name="maxPrice" placeholder="最高価格"
-						value="${maxPrice}" class="price">
+						value="${maxPrice}" class="price"> 円
 				</div>
 
 				状態

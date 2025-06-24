@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
-h1 {
-	margin: 5px auto 5px
+h2 {
+	margin: 10px auto;
 }
 
 .item_container {
@@ -20,7 +20,7 @@ h1 {
 	top: 100px;
 	flex: 1;
 	margin: 0 20px;
-	width: 200px;
+	width: 220px;
 	height: 470px;
 	text-align: center;
 	border-radius: 30px;
@@ -45,7 +45,7 @@ h1 {
 
 .search-button {
 	position: absolute;
-	top: 12px;
+	top: 9px;
 	right: 10px;
 }
 
@@ -126,21 +126,33 @@ button:hover:not([class="button"]){
 
 .field {
 	background-color: #f2f2f2;
-	width: 100%;
+	width: 200px;
 	border: 0;
-	margin: 0 0 15px;
+	margin: 0 auto 15px;
 	padding: 10px;
 	box-sizing: border-box;
 	font-size: 14px;
 }
+
 input {
-  padding: 10px; /* 内側の余白を10pxに設定 */
+  padding: 5px 10px; /* 内側の余白を10pxに設定 */
   width: 250px; /* 幅を調整 */
+  text-align: center;
 }
+
+select{
+	width: 170px;
+	font-size: 15px;
+	padding: 5px 10px; /* 内側の余白を10pxに設定 */
+	cursor: pointer;
+}
+
 option{
+	text-align: center;
 	padding: 10px; /* 内側の余白を10pxに設定 */
-	  width: 250px; /* 幅を調整 */
+/*	width: 250px;  幅を調整 */
 }
+
 .soldout{
 	color:red;
 }
