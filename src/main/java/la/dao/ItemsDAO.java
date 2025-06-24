@@ -40,7 +40,7 @@ public class ItemsDAO {
 		if (!soldout) {
 			sql += "AND status = true ";
 		}
-		sql += "ORDER BY id";
+		sql += "ORDER BY status DESC, id ";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
@@ -74,7 +74,7 @@ public class ItemsDAO {
 
 	public List<ItemBean> findItemWithoutUserId(int userId) throws DAOException {
 
-		String sql = "SELECT * FROM items EXCEPT SELECT * FROM items WHERE seller_id = ? ORDER BY id";
+		String sql = "SELECT * FROM items EXCEPT SELECT * FROM items WHERE seller_id = ? ORDER BY status DESC, id ";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
@@ -116,7 +116,7 @@ public class ItemsDAO {
 
 	public List<ItemBean> findItemByUserId(int userId) throws DAOException {
 
-		String sql = "SELECT * FROM items WHERE seller_id = ? AND status = true ORDER BY id";
+		String sql = "SELECT * FROM items WHERE seller_id = ? AND status = true ORDER BY status DESC, id ";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
@@ -218,6 +218,7 @@ public class ItemsDAO {
 		if (searchConditionId != -1) {
 			sql += "AND cond_id = ? ";
 		}
+		sql += "ORDER BY status DESC, id ";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
@@ -303,7 +304,7 @@ public class ItemsDAO {
 		if (searchConditionId != -1) {
 			sql += "AND cond_id = ? ";
 		}
-		sql += "EXCEPT SELECT * FROM items WHERE seller_id = ? ORDER BY id ";
+		sql += "EXCEPT SELECT * FROM items WHERE seller_id = ? ORDER BY status DESC, id ";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
@@ -504,6 +505,7 @@ public class ItemsDAO {
 		} else if (keyword.length() != 0) {
 			sql += " AND name LIKE ? ";
 		}
+		sql += "ORDER BY id ";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
