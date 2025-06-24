@@ -17,38 +17,42 @@
 	
 		<div class="detail">
 			<div class="detail-page">
-	
-		
-					<div class="img-form">
-					<img src="${pageContext.request.contextPath }/upload/${item.fileName}">
-					</div>
-			
-		
 				<div class="detail-form">
-			
-					<div class=location0>
-						<b class="item-name">${item.name}</b><br>
-
-						<b class="item-price">${item.price}円</b><br>
-
-						商品の説明<br>
-			
-						<div class="field_hight">${item.comment}</div>
-					</div>
-			
-						<div style="display:flex"><div class="a1">カテゴリー：</div><div class="field">${category}</div></div>
-						<div style="display:flex"><div class="a1">状態：</div><div class="field">${condition}</div></div>
-						<div style="display:flex"><div class="a1">販売者：</div><div class="field">${sellerName}</div></div>
-			
-			
-
-					<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
-						<button>購入確認へ</button>
-						<input type="hidden" name="action" value="confirm"> <input
-						type="hidden" name="itemId" value="${item.id}">
-					</form>
+				<div class="img-form">
+					<img src="${pageContext.request.contextPath }/upload/${item.fileName}">
 				</div>
 			
+		
+				<div class="item-form">
+			
+					
+					<div class="item-name"><b>${item.name}</b></div>
+					<div class="item-price"><b>${item.price}円</b></div>
+					<div class="item-content">商品の説明</div>
+					<div class="field_hight">${item.comment}</div>
+					
+			
+					<div class="item-info">
+						<div class="field-title">カテゴリー：</div><div class="field">${category}</div>
+					</div>
+					<div class="item-info">
+						<div class="field-title">状態：　　　</div><div class="field">${condition}</div>
+					</div>
+					<div class="item-info">
+						<div class="field-title">出品者：　　</div><div class="field">${sellerName}</div>
+					</div>
+			
+					<div class="confirm-button">
+					<c:if test="${item.status eq true}">
+						<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
+							<button>購入確認へ</button>
+							<input type="hidden" name="action" value="confirm">
+							<input type="hidden" name="itemId" value="${item.id}">							</form>
+					</c:if>
+					</div>
+			
+				</div>
+				</div>
 			</div>
 		
 		

@@ -24,13 +24,17 @@
 	box-decoration-break: clone;
 }
 
+.parent {
+	display: flex;
+}
+
 .confirm {
-	padding-top: 90px;
+	padding-top: 80px;
 }
 
 .confirm-page {
-	width: 450px;
-	margin: auto;
+	width: 1050px;
+	margin: 20px auto;
 	text-align: center;
 }
 
@@ -38,23 +42,93 @@
 	position: relative;
 	z-index: 1;
 	background: #FFFFFF;
-	max-width: 450px;
-	margin: 30px auto 15px;
+	max-width: 1050px;
 	padding: 30px 45px 30px;
 	text-align: center;
 	border-radius: 30px;
 	border: 2px solid black;
 }
 
+.img-form{
+	width: 400px;
+	height: 400px;
+	border: 1px solid black;
+	align-content: center;
+	justify-items: center;
+	border-radius: 30px;
+	margin: 20px 0 0;
+}
+
+.img-form img{
+	max-width: 300px;
+	max-height: 300px
+}
+
+.item-form {
+	width: 500px;
+	margin: 0 0 0 50px;
+}
+
+.field-comment{
+	text-align: start;
+	background-color: #f2f2f2;
+	height: 80px;
+	width: 100%;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+.field-title{
+	text-align: start;
+	width: 150px;
+}
+
+.user-form{
+	border: 1.5px solid black;
+	padding: 0 15px;
+	border-radius: 15px;
+	margin: 0 0 20px;
+}
+
+.user-info .field{
+	font-size: 16px;
+}
+
+.user-info{
+	display: flex;
+	margin: 15px 0;
+}
+
+.user-title {
+	position: relative;
+	top: 12px;
+	text-align: right;
+	width: 140px;
+}
+
 .title {
 	font-size: 24px;
+	margin: 20px auto 10px;
+}
+
+.name{
+	font-size: 40px;
+	text-align: left;
+}
+
+.price{
+	font-size: 24px;
+	margin: 0 auto 10px;
+	text-align: left;
 }
 
 .field {
 	background-color: #f2f2f2;
 	width: 100%;
 	border: 0;
-	margin: 0 0 15px;
 	padding: 15px;
 	box-sizing: border-box;
 	font-size: 14px;
@@ -71,7 +145,7 @@ button {
 	color: white;
 	margin: 0 0 15px;
 	border-radius: 5px;
-
+	font-size: 20px;
 	transition: .4s;
 }
 

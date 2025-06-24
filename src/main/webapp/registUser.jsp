@@ -15,7 +15,7 @@
 	<div class="regist-page">
 		<form class="regist-form" action="/team_dev_pisuta_shop/UserServlet" method="post">
 			<input type="hidden" name="action" value="new">
-			<div class="title">会員情報の入力</div>
+			<div class="title"><b>会員情報の入力</b></div>
 			<div class="err">${message}<br></div>
 		
 			氏名<br>

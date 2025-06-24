@@ -94,6 +94,7 @@ public class ItemServlet extends HttpServlet {
 
 				request.setAttribute("item", bean);
 				request.setAttribute("address", user.getAddress());
+				request.setAttribute("name", user.getName());
 
 				gotoPage(request, response, "/confirm.jsp");
 
