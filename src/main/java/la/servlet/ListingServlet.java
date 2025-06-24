@@ -137,7 +137,7 @@ public class ListingServlet extends HttpServlet {
 				itemsDao.addItem(name, categoryId, user.getId(), price, condId, comment, fileName);
 
 				//登録した商品のidを検索
-				int id = itemsDao.getIdbyItem(user.getId(), fileName);
+				int id = itemsDao.getIdbyItem(user.getId(), name);
 
 				//ファイル名の変更
 				//現在のファイルのパス
@@ -154,8 +154,9 @@ public class ListingServlet extends HttpServlet {
 					return;
 				}
 
+				String file = newFileName.getName();
 				//変更後データベースの更新
-				itemsDao.updateItemFileNameById(id, newFileName.getName());
+				itemsDao.updateItemFileNameById(id, file);
 
 				response.sendRedirect("/team_dev_pisuta_shop/UserServlet");
 				return;
