@@ -11,10 +11,12 @@ h1 {
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
 	justify-self: center;
+	margin:0 0 0 200px;
 }
 
 .search {
-	position: sticky;
+/*	position: relative;*/
+	position: fixed;
 	top: 100px;
 	flex: 1;
 	margin: 0 20px;
@@ -23,26 +25,28 @@ h1 {
 	text-align: center;
 	border-radius: 30px;
 	border: 1.5px solid black;
+	
+	z-index: 200;
 }
 
+.item_search {
+	position: fixed;
+	top: 20px;
+	/* 上から10px */
+	left: 465px;
+	/* 左から20px */
+	height: 10px;
+
+	z-index: 300;
+}
 .price {
 	width: 100px;
 }
 
-.item_search {
-	position: relative;
-	top: -100px;
-	/* 上から10px */
-	left: 500px;
-	/* 左から20px */
-	height: 10px;
-	z-index: 999;
-}
-
 .search-button {
 	position: absolute;
-	top: 4px;
-	right: -100px;
+	top: 12px;
+	right: 10px;
 }
 
 .search-text {
