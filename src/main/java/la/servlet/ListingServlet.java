@@ -164,8 +164,11 @@ public class ListingServlet extends HttpServlet {
 						File newFileName = new File(Paths.get(path, "pict" + id + ".png").toString());
 
 						boolean success = currentFile.renameTo(newFileName);
+
 						if (!success) {
 							request.setAttribute("message", "画像アップロードに失敗しました");
+							itemsDao.deleteItemById(id);
+							currentFile.delete();
 							gotoPage(request, response, "/listing.jsp");
 							return;
 						}
