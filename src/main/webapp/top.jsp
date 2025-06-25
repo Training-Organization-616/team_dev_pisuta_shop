@@ -44,15 +44,15 @@
 
 				価格
 				<div class="field">
-					<input type="text" name="minPrice" placeholder="最低価格"
-						value="${minPrice}" class="price"> 円
+					<input type="number" name="minPrice" placeholder="最低価格"
+						value="${minPrice}" class="price" min="0"> 円
 				</div>
 				
 				<img src="/team_dev_pisuta_shop/upload/from.png" class="from">
 				
 				<div class="field">
-					<input type="text" name="maxPrice" placeholder="最高価格"
-						value="${maxPrice}" class="price"> 円
+					<input type="number" name="maxPrice" placeholder="最高価格"
+						value="${maxPrice}" class="price" min="0"> 円
 				</div>
 
 				状態
