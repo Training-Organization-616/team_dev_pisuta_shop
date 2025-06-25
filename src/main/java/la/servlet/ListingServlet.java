@@ -107,7 +107,7 @@ public class ListingServlet extends HttpServlet {
 					return;
 				} else if (name.length() > 100) {
 					//商品名が100文字以上の場合
-					request.setAttribute("name", "商品名は100文字以下にしてください");
+					request.setAttribute("message", "商品名は100文字以下にしてください");
 					gotoPage(request, response, "/listing.jsp");
 					return;
 				} else {
