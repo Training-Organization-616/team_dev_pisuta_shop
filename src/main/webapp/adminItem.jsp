@@ -36,7 +36,7 @@
 					</c:if>
 				</c:forEach>
 				<div class="delete">
-					<button type="button" value="${item.id }">削除</button>
+					<button id="delete_button" type="button" value="${item.id }">削除</button>
 				</div>
 			</div>
 		</c:forEach>
@@ -52,7 +52,8 @@
 	
 	<dialog id="deleteDialog">
 	<div class="dialog_content">
-
+		<p id="itemName"></p>
+		<p id="itemPrice"></p>
 		<p class="check_massage">削除しますか</p>
 		<div class="button_container">
 		<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">

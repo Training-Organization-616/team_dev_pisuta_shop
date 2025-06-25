@@ -4,7 +4,7 @@
 
 window.addEventListener('load', function() {
 	const dialog = document.querySelector('#deleteDialog');
-	const deleteButton = document.querySelectorAll('.delete');
+	const deleteButton = document.querySelectorAll('#delete_button');
 	const deleteId = document.querySelector('.delete_id');
 
 	var item_list;
