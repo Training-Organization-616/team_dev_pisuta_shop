@@ -15,8 +15,8 @@
 	z-index: 1;
 	background: #FFFFFF;
 	max-width: 450px;
-	margin: 30px auto 30px;
-	padding: 30px 45px 45px;
+	margin: 30px auto 10px;
+	padding: 30px 45px 40px;
 	text-align: center;
 	border-radius: 30px;
 	border: 2px solid black;
@@ -27,22 +27,24 @@
 	background: #f2f2f2;
 	width: 100%;
 	border: 0;
-	margin: 0 0 15px;
 	padding: 15px;
 	box-sizing: border-box;
-	font-size: 14px;
+	font-size: 18px;
+}
+
+.field-title{
+	font-size: 18px;
+	margin: 10px auto 5px;
 }
 
 button {
-	width: 100px;
-	height: auto;
-	padding: 5px 0;
+	padding: 5px;
 	background-color: rgb(255, 80, 50);
 	border-color: rgb(255, 80, 50);
 	color: white;
-	margin: 10px 0 0;
+	margin: 20px 0 0;
 	border-radius: 5px;
-	font-size: 18px;
+	font-size: 20px;
 }
 
 button:hover {
@@ -52,23 +54,21 @@ button:hover {
 }
 
 .regist-form .err {
-	font-size: 14px;
+	font-size: 16px;
 	color: 16px;
 	padding: 10px 0;
 	color: red;
+	height: 20px;
 }
 
 .title {
-	font-size: 24px;
+	font-size: 32px;
 }
 
 .link {
 	text-align: center;
 }
 
-.link button {
-	width: 145px;
-}
 
 footer{
 	height: 50px;

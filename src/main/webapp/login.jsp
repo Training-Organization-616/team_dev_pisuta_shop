@@ -15,12 +15,16 @@
 	<div class="login-page">
 		<form class="login-form" action="/team_dev_pisuta_shop/LoginServlet" method="post">
 			<div class="title"><b>ログイン</b></div>
-			<div class="err">${message}<br></div>
+			<div class="err">${message}</div>
 			<input type="hidden" name="action" value="login">
-			メールアドレス<br>
-			<input type="text" name="email"><br>
-			パスワード<br>
-			<input type="password" name="password"><br>
+			<div class="field-title">メールアドレス</div>
+			<div class="field">
+				<input type="text" name="email">
+			</div>
+			<div class="field-title">パスワード</div>
+			<div class="field">
+				<input type="password" name="password"><br>
+			</div>
 			<button>ログイン</button>
 	
 		</form>

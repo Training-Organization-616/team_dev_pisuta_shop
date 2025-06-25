@@ -16,22 +16,36 @@
 		<form class="regist-form" action="/team_dev_pisuta_shop/UserServlet" method="post">
 			<input type="hidden" name="action" value="new">
 			<div class="title"><b>会員情報の入力</b></div>
-			<div class="err">${message}<br></div>
+			<div class="err">${message}</div>
 		
-			氏名<br>
-			<input type="text" name="name"><br>
-			住所<br>
-			<input type="text" name="address"><br>
-			電話番号<br>
-			<input type="number" name="tel" placeholder="ハイフンなし"><br>
-			メールアドレス<br>
-			<input type="text" name="email"><br>
-			生年月日<br>
-			<input type="date" name="birthday" required><br>
-			パスワード<br>
-			<input type="password" name="password" placeholder="6文字以上16文字以下"><br>
-			パスワード確認用<br>
-			<input type="password" name="confirm"><br>
+			<div class="field-title">氏名</div>
+			<div class="field">
+				<input type="text" name="name"><br>
+			</div>
+			<div class="field-title">住所</div>
+			<div class="field">
+				<input type="text" name="address">
+			</div>
+			<div class="field-title">電話番号</div>
+			<div class="field">
+				<input type="number" name="tel" placeholder="ハイフンなし">
+			</div>
+			<div class="field-title">メールアドレス</div>
+			<div class="field">
+				<input type="text" name="email">
+			</div>
+			<div class="field-title">生年月日</div>
+			<div class="field">
+				<input type="date" name="birthday" required>
+			</div>
+			<div class="field-title">パスワード</div>
+			<div class="field">
+				<input type="password" name="password" placeholder="6文字以上16文字以下">
+			</div>
+			<div class="field-title">パスワード確認用</div>
+			<div class="field">
+				<input type="password" name="confirm">
+			</div>
 		
 			<button>新規登録</button>
 		</form>

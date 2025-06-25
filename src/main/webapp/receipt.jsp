@@ -33,9 +33,9 @@
 	
 	<div class="item-form">
 	 
-	 <div class="name"> ${item.name}</div>
-	 <div class="price">${item.price}円</div>
-	<div class="field-title">商品の説明</div>
+	 <div class="name"><b>${item.name}</b></div>
+	 <div class="price"><b>${item.price}円</b></div>
+	 <div class="field-title">商品の説明</div>
 	 <div class="field-comment"> ${item.comment}</div>
 	 
 	 <div class="user-form">

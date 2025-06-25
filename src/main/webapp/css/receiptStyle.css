@@ -19,7 +19,7 @@
   box-decoration-break: clone;
 }
 .message {
-	font-size: 25px;
+	font-size: 30px;
 	margin: 20px auto 10px;
 	color: rgb(255, 128, 0);	
 }
@@ -29,7 +29,7 @@
 }
 
 .receipt{
-	padding-top: 80px;
+	padding-top: 90px;
 }
 
 .receipt-page {
@@ -78,12 +78,13 @@
 	margin: 0 0 15px;
 	padding: 15px;
 	box-sizing: border-box;
-	font-size: 14px;
+	font-size: 18px;
 }
 
 .field-title{
 	text-align: start;
 	width: 150px;
+	font-size: 18px;
 }
 
 .user-form{
@@ -94,28 +95,28 @@
 }
 
 .user-info .field{
-	font-size: 16px;
+	font-size: 18px;
 }
 
 .user-info{
 	display: flex;
 	margin: 15px 0;
+	align-items: center;
 }
 
 .user-title {
-	position: relative;
-	top: 12px;
-	text-align: right;
-	width: 140px;
+	text-align: start;
+	width: 155px;
+	font-size: 18px;
 }
 
 .name{
-	font-size: 40px;
+	font-size: 50px;
 	text-align: left;
 }
 
 .price{
-	font-size: 24px;
+	font-size: 32px;
 	margin: 0 auto 10px;
 	text-align: left;
 }
@@ -126,7 +127,7 @@
 	border: 0;
 	padding: 15px;
 	box-sizing: border-box;
-	font-size: 14px;
+	font-size: 18px;
 }
 
 
@@ -136,8 +137,9 @@ button {
 	color: white;
 	margin: 15px 0 15px;
 	border-radius: 5px;
-
 	transition: .4s;
+	font-size: 20px;
+	padding: 5px;
 }
 
 button:hover {

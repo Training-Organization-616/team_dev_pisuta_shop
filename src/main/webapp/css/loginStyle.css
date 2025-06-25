@@ -42,7 +42,7 @@ button {
 	border-color: rgb(255, 80, 50);
 	color:white;
 	margin: 10px 0 0;
-	font-size: 18px;
+	font-size: 20px;
 	border-radius: 5px;
 	
 	transition: .4s;
@@ -54,14 +54,20 @@ button:hover{
 }
 
 .login-form .err {
-	font-size: 14px;
+	font-size: 16px;
 	color: 16px;
 	padding: 10px 0;
 	color: red;
+	height: 20px;
 }
 
 .title {
-	font-size: 24px;
+	font-size: 32px;
+}
+
+.field-title{
+	font-size: 18px;
+	margin: 5px;
 }
 
 .link{
