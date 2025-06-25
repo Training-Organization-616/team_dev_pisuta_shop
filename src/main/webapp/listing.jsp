@@ -71,6 +71,7 @@
 		</form>
 	</div>
 
+
 <!-- 商品名　必須100字以内 -->
 <!-- カテゴリー、価格、状態、必須 -->
 <!-- メモは要件なし -->
@@ -82,5 +83,8 @@
 <button type="submit" class="cancel">キャンセル</button>
 </form>
 </div>
+
+<footer></footer>
+
 </body>
 </html>
