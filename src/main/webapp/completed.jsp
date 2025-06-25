@@ -33,5 +33,7 @@
 		<button>ログイン画面へ</button>
 	</form>
 	
+	<footer></footer>
+	
 </body>
 </html>

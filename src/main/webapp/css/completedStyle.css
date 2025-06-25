@@ -1,7 +1,8 @@
 @charset "UTF-8";
 
 .completed-page {
-	width: 450px;
+	padding-top: 80px;
+	width: 500px;
 	margin: auto;
 	text-align: center;
 }
@@ -10,16 +11,17 @@
 	position: relative;
 	z-index: 1;
 	background: #FFFFFF;
-	max-width: 450px;
+	max-width: 500px;
 	margin: 30px auto 15px;
 	padding: 30px 45px 30px;
 	text-align: center;
 	border-radius: 30px;
 	border: 2px solid black;
+	font-size: 16px;
 }
 
 .title {
-	font-size: 24px;
+	font-size: 28px;
 }
 
 .field {
@@ -29,7 +31,7 @@
 	margin: 0 0 15px;
 	padding: 15px;
 	box-sizing: border-box;
-	font-size: 14px;
+	font-size: 18px;
 }
 
 body {
@@ -43,8 +45,9 @@ button {
 	color: white;
 	margin: 0 0 15px;
 	border-radius: 5px;
-
 	transition: .4s;
+	font-size: 20px;
+	padding: 5px;
 }
 
 button:hover {
