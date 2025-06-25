@@ -16,7 +16,7 @@
 
 	<div class="top-page">
 		<div class="search">
-			<h2>絞り込み</h2>
+			<div class="narrow"><b>絞り込み</b></div>
 
 			<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
 				<input type="hidden" name="action" value="search"> 
@@ -24,7 +24,8 @@
 				 <input type="text" name="keyword"
 					placeholder="何をお探しですか？" value="${keyword}" class="search-text">
 					<button class="search-button">検索</button>
-				</div> カテゴリー
+				</div>
+				カテゴリー
 				<div class="field">
 					<select name="categoryId">
 						<option value="-1">全て</option>
@@ -70,8 +71,9 @@
 						</c:forEach>
 					</select>
 				</div>
-				<button>絞り込み</button>
-
+				<div class="narrow-button">
+					<button>絞り込み</button>
+				</div>
 			</form>
 		</div>
 

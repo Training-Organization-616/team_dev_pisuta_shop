@@ -1,11 +1,8 @@
 @charset "UTF-8";
 
-body{
-	font-size: larger;
-}
-
-h2 {
-	margin: 10px auto;
+.narrow {
+	margin: 20px auto;
+	font-size: 28px;
 }
 
 .item_container {
@@ -35,28 +32,31 @@ h2 {
 
 .item_search {
 	position: fixed;
-	top: 20px;
+	top: 10px;
 	/* 上から10px */
 	left: 50%;
 	transform: translate(-50%, 0);
 	/* 左から20px */
-	height: 10px;
-
+	padding: 10px;
 	z-index: 300;
 }
 .price {
 	width: 100px;
+	font-size: 16px;
 }
 
 .search-button {
 	position: absolute;
-	top: 9px;
-	right: 10px;
+	top: 16px;
+	right: 15px;
+	width: 60px;
+	font-size: 16px;
 }
 
 .search-text {
-	width: 300px;
+	width: 350px;
 	height: 27px;
+	font-size: 20px;
 }
 
 .top-item {
@@ -66,6 +66,7 @@ h2 {
 .top-page {
 	display: flex;
 	padding-top: 90px;
+	font-size: larger;
 }
 
 .item {
@@ -119,7 +120,7 @@ button:hover:not([class="button"]){
 .title {
 	text-align: center;
 	margin: 10px auto;
-	font-size: 36px;
+	font-size: 34px;
 
 }
 
@@ -133,16 +134,17 @@ button:hover:not([class="button"]){
 	background-color: #f2f2f2;
 	width: 200px;
 	border: 0;
-	margin: 0 auto 15px;
+	margin: 0 auto 20px;
 	padding: 10px;
 	box-sizing: border-box;
-	font-size: 14px;
+	font-size: 16px;
 }
 
 input {
   padding: 5px 10px; /* 内側の余白を10pxに設定 */
   width: 250px; /* 幅を調整 */
   text-align: center;
+  font-size: 16px;
 }
 
 select{
@@ -150,12 +152,22 @@ select{
 	font-size: 15px;
 	padding: 5px 10px; /* 内側の余白を10pxに設定 */
 	cursor: pointer;
+	font-size: 16px;
 }
 
 option{
 	text-align: center;
 	padding: 10px; /* 内側の余白を10pxに設定 */
 /*	width: 250px;  幅を調整 */
+}
+
+.narrow-button{
+	padding: 10px;
+}
+
+.narrow-button button{
+	font-size: 18px;
+	padding: 5px;
 }
 
 .soldout{

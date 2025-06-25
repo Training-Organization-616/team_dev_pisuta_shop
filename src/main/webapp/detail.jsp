@@ -45,7 +45,7 @@
 					<div class="confirm-button">
 					<c:if test="${item.status eq true}">
 						<form action="/team_dev_pisuta_shop/ItemServlet" method="post">
-							<button>購入確認へ</button>
+							<button>購入画面へ</button>
 							<input type="hidden" name="action" value="confirm">
 							<input type="hidden" name="itemId" value="${item.id}">							</form>
 					</c:if>
