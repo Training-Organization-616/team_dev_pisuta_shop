@@ -149,8 +149,8 @@ public class UserServlet extends HttpServlet {
 
 					//会員の出品一覧を取得
 					ItemsDAO itemsDao = new ItemsDAO();
-					int id = user.getId();
-					List<ItemBean> itemList = itemsDao.findItemByUserId(id);
+					int userId = user.getId();
+					List<ItemBean> itemList = itemsDao.findItemByUserId(userId);
 
 					request.setAttribute("items", itemList);
 					gotoPage(request, response, "/profile.jsp");
