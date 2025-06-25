@@ -74,7 +74,7 @@
 								<c:forEach items="${items}" var="item">
 									<tr>
 										<td>${item.name}</td>
-										<td>${item.price}円</td>
+										<td class="priceComma" data-value="${item.price}円"></td>
 										<!--出品日時は仮です -->
 										<td>${item.createdAt }</td>
 
@@ -166,6 +166,21 @@
 				dialog1.showModal();
 		})
 	});
+		</script>
+		
+<!--		金額にカンマ表示-->
+		<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			  const priceCommaCells = document.querySelectorAll(".priceComma");
+
+			  priceCommaCells.forEach(cell => {
+			    const value = parseInt(cell.dataset.value, 10); // data-value属性から数値を取得
+			    if (!isNaN(value)) {
+			      cell.textContent = value.toLocaleString("ja-JP") + "円"; // カンマ区切りでフォーマット
+			    }
+			  });
+			});
+
 		</script>
 
 </body>

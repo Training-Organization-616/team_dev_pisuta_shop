@@ -116,7 +116,8 @@
 						
 						<c:choose>
 							<c:when test="${item.status eq true}">
-								<option>${item.price}円</option>
+<!--							<option>${item.price}円</option>-->
+								<option class="priceComma" data-value="${item.price}"></option>
 							</c:when>
 
 							<c:otherwise>
@@ -128,9 +129,22 @@
 				</c:forEach>
 			</div>
 		</div>
-
-
 	</div>
+	
+	
+	<!--金額にカンマ表示-->
+		<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			  const priceCommaCells = document.querySelectorAll(".priceComma");
+
+			  priceCommaCells.forEach(cell => {
+			    const value = parseInt(cell.dataset.value, 10); // data-value属性から数値を取得
+			    if (!isNaN(value)) {
+			      cell.textContent = value.toLocaleString("ja-JP") + "円"; // カンマ区切りでフォーマット
+			    }
+			  });
+			});
+		</script>
 
 	<footer></footer>
 </body>
