@@ -44,7 +44,8 @@
 			<div class="item-form">
 			
 				<div class="name"><b>${item.name}</b></div>
-				<div class="price"><b>${item.price}円</b></div>
+<!--				<div class="price"><b>${item.price}円</b></div>-->
+				<div class="price"><b class="priceComma" data-value="${item.price}"></b></div>
 				<div class="field-title">商品の説明</div>
 				<div class="field-comment">${item.comment}</div>
 				
@@ -72,8 +73,6 @@
 		</div>
 	</div>
 
-	
-
 
 	<!-- 商品一覧画面へ遷移 -->
 	<!--	<a href="/team_dev_pisuta_shop/ItemServlet">キャンセル</a>-->
@@ -83,6 +82,21 @@
 		<button>キャンセル</button>
 	</form>
 </div>
+
+<!--		金額にカンマ表示-->
+		<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			  const priceCommaCells = document.querySelectorAll(".priceComma");
+
+			  priceCommaCells.forEach(cell => {
+			    const value = parseInt(cell.dataset.value, 10); // data-value属性から数値を取得
+			    if (!isNaN(value)) {
+			      cell.textContent = value.toLocaleString("ja-JP") + "円"; // カンマ区切りでフォーマット
+			    }
+			  });
+			});
+
+		</script>
 	<footer></footer>
 
 </body>
