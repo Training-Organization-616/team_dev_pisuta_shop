@@ -64,8 +64,8 @@ button:hover {
 	margin: 20px auto;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-column-gap: 50px;
-	grid-row-gap: 50px;
+	grid-column-gap: 65px;
+	grid-row-gap: 55px;
 	width: 950px;
 	justify-self: center;
 }
@@ -77,7 +77,7 @@ button:hover {
 	border-radius: 20px;
 	padding: 0 0 10px;
 	text-align: center;
-	font-size: 20px;
+	font-size: 28px;
 }
 
 .delete button{
