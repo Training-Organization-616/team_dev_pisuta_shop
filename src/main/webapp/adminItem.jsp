@@ -52,8 +52,7 @@
 	
 	<dialog id="deleteDialog">
 	<div class="dialog_content">
-		<div>${item.name }</div>
-		<div>${item.price}</div>
+
 		<p class="check_massage">削除しますか</p>
 		<div class="button_container">
 		<form action="/team_dev_pisuta_shop/ItemManageServlet" method="post">
@@ -66,5 +65,6 @@
 		</div>
 	</div>
 	</dialog>
+	
 </body>
 </html>

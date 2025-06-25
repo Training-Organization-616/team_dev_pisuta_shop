@@ -32,18 +32,18 @@
 				<th class="tel">電話番号</th>
 				<th class="email">メールアドレス</th>
 				<th class="birthday">生年月日</th>
-				<th></th>
+				<th class="open"></th>
 			</tr>
 
 			<c:forEach items="${users}" var="user">
 				<tr>
-					<td>${user.id}</td>
-					<td>${user.name}</td>
-					<td>${user.address}</td>
-					<td>${user.tel}</td>
-					<td>${user.email}</td>
-					<td>${user.birthday}</td>
-					<td><form action="/team_dev_pisuta_shop/UserManageServlet"
+					<td class="id1" >${user.id}</td>
+					<td class="name1">${user.name}</td>
+					<td class="address1">${user.address}</td>
+					<td class="tel1">${user.tel}</td>
+					<td class="email1">${user.email}</td>
+					<td class="birthday1">${user.birthday}</td>
+					<td class="open1"><form action="/team_dev_pisuta_shop/UserManageServlet"
 							method="post">
 							<input type="hidden" name="action" value="show">
 							<button>表示</button>
