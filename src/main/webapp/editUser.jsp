@@ -15,7 +15,7 @@
 	<div class="edit-page">
 		<form class="edit-form" action="/team_dev_pisuta_shop/UserServlet" method="post">
 			<input type="hidden" name="action" value="update">
-			<div class="title">会員情報の変更</div>
+			<div class="title"><b>会員情報の変更</b></div>
 			<div class="err">${message}<br></div>
 			
 			氏名<br>

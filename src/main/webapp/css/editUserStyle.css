@@ -5,7 +5,7 @@
 }
 
 .edit-page {
-	width: 450px;
+	width: 500px;
 	margin: auto;
 	text-align: center;
 }
@@ -14,7 +14,7 @@
 	position: relative;
 	z-index: 1;
 	background: #FFFFFF;
-	max-width: 450px;
+	max-width: 500px;
 	margin: 30px auto 30px;
 	padding: 30px 45px 45px;
 	text-align: center;
@@ -30,7 +30,7 @@
 	margin: 0 0 15px;
 	padding: 15px;
 	box-sizing: border-box;
-	font-size: 14px;
+	font-size: 18px;
 }
 
 .edit-form button {
@@ -61,7 +61,7 @@
 }
 
 .title {
-	font-size: 24px;
+	font-size: 30px;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -89,10 +89,10 @@ input {
 	color: white;
 	margin: 0 0 15px;
 	border-radius: 5px;
-	padding: 5px 0;
+	padding: 5px;
 	transition: .4s;
 	text-align: center;
-	font-size: 18px;
+	font-size: 20px;
 }
 
 .cancel button:hover {
