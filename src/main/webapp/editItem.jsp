@@ -58,7 +58,7 @@
 				<c:choose>
 					<c:when test="${condition.id eq item.condId}">
 						<input id="cd${condition.id }" type="radio" name="conditionId" value="${condition.id}" checked>
-						<label for="cd${condition.id }">${condition.name}</label><br>
+						<label for="cd${condition.id }">${condition.name}</label>
 					</c:when>
 					<c:otherwise>
 						<input id="cd${condition.id }" type="radio" name="conditionId" value="${condition.id}">
