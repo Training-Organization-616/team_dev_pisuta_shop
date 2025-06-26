@@ -2,23 +2,21 @@
 
 
 .regist-page {
-	padding-top: 100px;
-	width: 1050px;
+	padding-top: 110px;
+	width: 1100px;
 	margin: auto;
 	text-align: center;
 }
 
 .content {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-
+	width: 1100px;
+	display: flex;
 	align-content: center;
 }
 
 .img_container {
 
-	margin: 20px auto 30px auto;
+	margin: 50px 0;
 
 	width: 400px;
 	height: 400px;
@@ -43,10 +41,10 @@
 .regist-form {
 	position: relative;
 	z-index: 1;
-	max-width: 100%;
+	max-width: 1100px;
 	background: #FFFFFF;
-	margin: 30px auto 10px;
-	padding: 0 45px 10px;
+	margin: 30px auto 30px;
+	padding: 30px 45px 45px;
 	text-align: center;
 	border-radius: 30px;
 	border: 2px solid black;
@@ -55,19 +53,19 @@
 .regist-form .input-text {
 	outline: 0;
 	background: #f2f2f2;
-	width: 500px;
+	width: 550px;
 	border: 0;
 	margin: 0 0 15px;
 	padding: 15px;
 	box-sizing: border-box;
-	font-size: 14px;
+	font-size: 18px;
 	text-align: center;
 }
 
 .regist-form button {
 	width: 100px;
 	height: auto;
-	padding: 5px 0;
+	padding: 5px;
 	background-color: rgb(255, 80, 50);
 	border-color: rgb(255, 80, 50);
 	color: white;
@@ -85,25 +83,36 @@
 
 .regist-form .radio {
 	background-color: #f2f2f2;
-	width: 470px;
-	padding: 15px;
+	width: 490px;
+	padding: 15px 30px;
 	margin: 0 0 15px;
 	justify-self: center;
 }
 
+.radio {
+	font-size: 18px;
+}
+
 .regist-form textarea {
 	background-color: #f2f2f2;
-	width: 470px;
+	width: 520px;
 	padding: 15px;
 	margin: 0 0 15px;
 	justify-self: center;
 	resize: vertical;
 	border: none;
 	text-align: center;
+	font-size: 18px;
 }
 
 .title {
-	font-size: 24px;
+	font-size: 30px;
+}
+
+.input-form {
+	width: 550px;
+	margin: 0 50px;
+	font-size: 16px;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -115,7 +124,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .price_container {
 	position: relative;
 	background: #f2f2f2;
-	width: 500px;
+	width: 550px;
 	justify-self: center;
 
 	text-align: center;
@@ -140,13 +149,14 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 #select_file {
-	width: 120px;
-	height: 30px;
+	width: auto;
+	height: 40px;
 	background-color: rgb(255, 80, 50);
 	border-color: rgb(255, 80, 50);
 	color: white;
 	border-radius: 5px;
-	font-size: 15px;
+	font-size: 20px;
+	padding: 5px;
 }
 
 #select_file:hover {
@@ -172,12 +182,12 @@ input[type="number"]::-webkit-outer-spin-button {
 	font-size: 20px;
 }
 
-button:hover{
+button:hover {
 	background-color: white;
 	color: rgb(255, 80, 50);
 	transition: .4s;
 }
 
-footer{
+footer {
 	height: 50px;
 }

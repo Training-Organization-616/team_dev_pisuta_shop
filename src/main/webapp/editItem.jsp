@@ -18,7 +18,7 @@
 	
 		<form class="edit-form" action="/team_dev_pisuta_shop/ListingServlet"method="post">
 			<input type="hidden" name="itemId" value="${item.id }">
-			<div class="title"><b>	商品情報変更</b><br></div>
+			<div class="title"><b>商品情報変更</b><br></div>
 			<!-- 入力に誤りがあった場合出力 -->
 			<div class="err">${message}<br></div>
 			

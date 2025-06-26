@@ -28,7 +28,7 @@
 				<button id="select_file" type="button">ファイルの選択</button>
 			</div>
 			
-			<div class="iput_form">
+			<div class="input-form">
 			商品名<br>
 			<input class="input-text" type="text" name="name" placeholder="100字以内"><br>
 			
