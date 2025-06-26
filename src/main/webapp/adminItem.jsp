@@ -28,11 +28,12 @@
 		</c:if>
 		<c:forEach items="${items }" var="item">
 			<div class="item">
-				<p>${item.name }</p>
-				<p>${item.price }円</p>
-				<c:forEach items="${users }" var="user">
+				<div><img src="${pageContext.request.contextPath }/upload/${item.fileName}" class="img-form"></div>
+				<p class="name"><b>${item.name}</b></p>
+				<p class="price"><b>${item.price}円</b></p>
+				<c:forEach items="${users}" var="user">
 					<c:if test="${item.sellerId == user.id }">
-					<p>${user.name }</p>
+					<p class="user">${user.name}</p>
 					</c:if>
 				</c:forEach>
 				<div class="delete">

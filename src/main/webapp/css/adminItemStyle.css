@@ -64,25 +64,49 @@ button:hover {
 	margin: 20px auto;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-column-gap: 65px;
-	grid-row-gap: 55px;
-	width: 950px;
-	justify-self: center;
+	grid-column-gap: 10px;
+	grid-row-gap: 40px;
+	width: 1200px;
+	justify-items: center;
 }
 
 .item {
 	position: relative;
-	width: 200px;
+	width: 250px;
 	border: solid 2px rgb(0128, 128, 128);
 	border-radius: 20px;
 	padding: 0 0 10px;
+	margin: 0px;
 	text-align: center;
-	font-size: 28px;
+}
+
+.img-form{
+	width: 200px;
+	height: 200px;
+	align-items: center;
+	justify-content: center;
+	margin: 25px auto 10px;
+}
+
+.name{
+	font-size: 30px;
+	margin: 0;
+}
+
+.price{
+	font-size: 24px;
+	margin: 10px auto 0;
+}
+
+.user{
+	font-size: 18px;
+	margin: 10px auto 0;
 }
 
 .delete button{
-	width: 90px;
-	height: 30px;
+	font-size: 18px;
+	padding: 5px 10px;
+	margin: 5px auto;
 }
 
 .delete {
