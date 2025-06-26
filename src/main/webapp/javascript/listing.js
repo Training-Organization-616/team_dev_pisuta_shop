@@ -1,16 +1,6 @@
 /**
  * 
  */
-function dragenter(e) {
-	e.stopPropagation();
-	e.preventDefault();
-}
-function dragover(e) {
-	e.stopPropagation();
-	e.preventDefault();
-}
-
-
 window.addEventListener('load', function() {
 	const imageElm = document.querySelector("#preview");
 	const inputElm = document.querySelector("#import_image");
@@ -65,7 +55,7 @@ window.addEventListener('load', function() {
 	function drop(e) {
 		e.stopPropagation();
 		e.preventDefault();
-
+		
 		const dt = e.dataTransfer;
 		let types = e.dataTransfer.types;
 		let isFiles = types.filter(_ => _ == "Files").length > 0;
@@ -81,9 +71,23 @@ window.addEventListener('load', function() {
 			reader.readAsDataURL(file);
 		}
 	}
+	imageElm.addEventListener('dragenter', function(e) {
+		e.stopPropagation();
+		e.preventDefault();
+		imageElm.classList.add('hov_m');
+	}, false);
 
-	imageElm.addEventListener('dragenter', dragenter, false);
-	imageElm.addEventListener('dragover', dragover, false);
+	imageElm.addEventListener('dragover', function(e) {
+		e.stopPropagation();
+		e.preventDefault();
+	}, false);
+
+	imageElm.addEventListener('dragleave', e => {
+		e.stopPropagation();
+		e.preventDefault();
+		imageElm.classList.remove('hov_m');
+	});
+
 	imageElm.addEventListener('drop', drop, false);
 
 
