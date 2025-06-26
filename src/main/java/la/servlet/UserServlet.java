@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Objects;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,6 +32,7 @@ public class UserServlet extends HttpServlet {
 			throws ServletException, IOException {
 		try {
 			request.setCharacterEncoding("UTF-8");
+			HttpSession session = request.getSession();
 			// パラメータの解析
 			String action = request.getParameter("action");
 			UsersDAO dao = new UsersDAO();
@@ -38,7 +40,7 @@ public class UserServlet extends HttpServlet {
 			if (action == null || action.length() == 0) {
 				// 会員管理画面への遷移
 				//セッションの取得
-				HttpSession session = request.getSession();
+
 				UserBean user = (UserBean) session.getAttribute("user");
 				//会員の出品一覧を取得
 				ItemsDAO itemsDao = new ItemsDAO();
@@ -99,10 +101,18 @@ public class UserServlet extends HttpServlet {
 				}
 
 			} else if (action.equals("edit")) {
+				if (Objects.isNull(session.getAttribute("user"))) {
+					response.sendRedirect("/team_dev_pisuta_shop/ItemServlet");
+					return;
+				}
 				// 会員情報変更画面への遷移
 				gotoPage(request, response, "/editUser.jsp");
 
 			} else if (action.equals("update")) {
+				if (Objects.isNull(session.getAttribute("user"))) {
+					response.sendRedirect("/team_dev_pisuta_shop/ItemServlet");
+					return;
+				}
 				// 会員情報更新
 				String name = request.getParameter("name");
 				String address = request.getParameter("address");
@@ -113,7 +123,7 @@ public class UserServlet extends HttpServlet {
 				String password = request.getParameter("password");
 				String confirm = request.getParameter("confirm");
 
-				HttpSession session = request.getSession(false);
+				session = request.getSession(false);
 				UserBean bean = (UserBean) session.getAttribute("user");
 				int id = bean.getId();
 
@@ -159,7 +169,7 @@ public class UserServlet extends HttpServlet {
 				//会員の退会処理
 			} else if (action.equals("remove")) {
 				// セッションから会員IDの取得
-				HttpSession session = request.getSession(false);
+				session = request.getSession(false);
 				UserBean user = (UserBean) session.getAttribute("user");
 				int id = user.getId();
 
