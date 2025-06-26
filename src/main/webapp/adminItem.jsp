@@ -30,7 +30,7 @@
 			<div class="item">
 				<div><img src="${pageContext.request.contextPath }/upload/${item.fileName}" class="img-form"></div>
 				<p class="name"><b>${item.name}</b></p>
-				<p class="price"><b>${item.price}円</b></p>
+				<p class="price"><b class="priceComma" data-value="${item.price}">${item.price}円</b></p>
 				<c:forEach items="${users}" var="user">
 					<c:if test="${item.sellerId == user.id }">
 					<p class="user">${user.name}</p>
@@ -51,6 +51,22 @@
 	
 	<footer></footer>
 	
+	<!--金額にカンマ表示-->
+		<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			  const priceCommaCells = document.querySelectorAll(".priceComma");
+
+			  priceCommaCells.forEach(cell => {
+			    const value = parseInt(cell.dataset.value, 10); // data-value属性から数値を取得
+			    if (!isNaN(value)) {
+			      cell.textContent = value.toLocaleString("ja-JP") + "円"; // カンマ区切りでフォーマット
+			    }
+			  });
+			});
+
+		</script>
+	
+<!--ダイアログ-->
 	<dialog id="deleteDialog">
 	<div class="dialog_content">
 		<p id="itemName"></p>
