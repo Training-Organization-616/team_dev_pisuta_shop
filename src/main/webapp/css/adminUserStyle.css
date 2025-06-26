@@ -7,69 +7,67 @@
 table {
 	text-align: center;
 	margin: 20px auto;
-	width: 1320px;
-	height: 600px;
-	
+	width: auto;
 }
 
 .id {
-	width: 54px;
+	width: 80px;
 }
 .id1 {
-	font-size: 25px;
-
+	font-size: 22px;
 }
 
 .name {
-	width: 100px;
+	width: 120px;
 }
 .name1 {
-	font-size: 25px;
+	font-size: 22px;
 }
+
 .address {
-	width: 200px;
+	width: 300px;
 }
+
 .address1 {
-	font-size: 25px;
+	font-size: 22px;
 }
 
 .tel {
-	width: 120px;
+	width: 150px;
 }
 .tel1 {
-	font-size: 25px;
+	font-size: 22px;
 }
 
 .email {
 	width: 120px;
 }
 .email1 {
-	font-size: 25px;
+	font-size: 22px;
 }
 
 .birthday {
-	width: 100px;
+	width: 160px;
 }
 .birthday1 {
-	font-size: 25px;
+	font-size: 22px;
 }
 
 .open{
 	width: 65px;
 }
 .open1{
-	font-size: 25px;
+	font-size: 20px;
 }
 
 button {
 	width: 60px;
 	height: auto;
-	
 	background-color: rgb(128, 128, 128);
 	border-color: rgb(128, 128, 128);
 	color: white;
 	margin: auto 0;
-	font-size: 18px;
+	font-size: 20px;
 	border-radius: 5px;
 	border-width: 2px;
 	align-self: center;
@@ -84,10 +82,11 @@ button:hover {
 th {
 	background-color: rgb(128, 128, 128);
 	color: white;
-	font-size: 18px;
+	font-size: 20px;
 }
+
 td {
-	padding: 5px 15px;
+	padding: 5px;
 }
 
 /*戻るボタン*/
