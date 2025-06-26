@@ -29,10 +29,37 @@ window.addEventListener('load', function() {
 		}
 	})
 
-	btnElm.addEventListener('click', (e) => {
-		if (inputElm) {
-			inputElm.click();
+	btnElm.addEventListener('click', async (e) => {
+		const opts = {
+			types: [
+				{
+					description: '画像',
+					accept: {
+						'image/png': ['.png'],
+					},
+				}
+			],
+			excludeAcceptAllOption: true,
+			multiple: false,
+		};
+		try {
+			const fh_list = await window.showOpenFilePicker(opts);
+			const fh = fh_list[0];
+			const file = await fh.getFile();
+			const dataTransfer = new DataTransfer();
+			dataTransfer.items.add(file);
+			inputElm.files = dataTransfer.files;
+
+			const reader = new FileReader();
+			reader.onload = () => {
+				imageElm.src = reader.result;
+			};
+			reader.readAsDataURL(file);
+		} catch (error) {
+
 		}
+
+
 	}, false)
 
 	function drop(e) {
