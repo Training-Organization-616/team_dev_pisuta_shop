@@ -76,12 +76,6 @@
 	font-size: 18px;
 }
 
-.regist-form button:hover {
-	background-color: white;
-	color: rgb(255, 80, 50);
-	transition: .4s;
-}
-
 .regist-form .err {
 	font-size: 14px;
 	color: 16px;
@@ -178,7 +172,7 @@ input[type="number"]::-webkit-outer-spin-button {
 	font-size: 20px;
 }
 
-.cancel:hover {
+button:hover{
 	background-color: white;
 	color: rgb(255, 80, 50);
 	transition: .4s;

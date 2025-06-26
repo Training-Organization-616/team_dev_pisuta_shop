@@ -34,7 +34,7 @@
 	padding: 15px;
 	box-sizing: border-box;
 	text-align: center;
-	font-size: 16px;
+	font-size: 18px;
 }
 
 .edit-form button {
@@ -68,7 +68,7 @@
 	padding: 15px;
 	margin: 0 0 15px;
 	justify-self: center;
-	font-size: 15px;
+	font-size: 17px;
 }
 
 .edit-form textarea {
