@@ -22,10 +22,17 @@
 			<button class="button_return">一覧へ戻る</button>
 		</form>
 	</div>
-	<div class="item_container">
+	<div class="container">
+	
 		<c:if test="${empty items }">
-			<p>商品が存在しません</p>
+		
+		
+			<p class=mozi>商品が存在しません</p>
 		</c:if>
+	
+
+		
+	<div class="item_container">
 		<c:forEach items="${items }" var="item">
 			<div class="item">
 				<div><img src="${pageContext.request.contextPath }/upload/${item.fileName}" class="img-form"></div>

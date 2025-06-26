@@ -69,6 +69,18 @@ button:hover {
 	width: 1200px;
 	justify-items: center;
 }
+.mozi{
+	font-size:5em;
+		text-align:center;
+		line-height:0.95em;
+		font-weight:bold;
+		color: #FFF;
+		text-shadow: 
+			0 0 0.10em #2962FF,
+			0 0 0.15em #2962FF,
+			0 0 0.80em #2962FF,
+			0 0 1.00em #2962FF;
+}
 
 .item {
 	position: relative;
@@ -185,3 +197,6 @@ button:hover {
 footer {
 	height: 50px;
 }
+
+
+
